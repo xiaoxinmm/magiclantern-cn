@@ -394,7 +394,7 @@ static MENU_UPDATE_FUNC(hdr_iso_display)
 
 static struct menu_entry hdr_menu[] = {
     {
-        .name = "HDR video",
+        .name = "HDR视频",
         .priv = &hdrv_enabled,
         .min = 0,
         .max = 1,
@@ -424,27 +424,27 @@ static struct menu_entry hdr_menu[] = {
             },
             #ifdef FEATURE_HDR_EXTENDED
             {
-                .name = "Extended mode",
+                .name = "扩展模式",
                 .priv = &hdrv_extended_mode,
                 .max = 1,
                 .help = "Extended ISO/Shutter settings.",
             },
             {
-                .name = "Ext. steps",
+                .name = "扩展步数",
                 .priv = &hdrv_extended_steps,
                 .min = 1,
                 .max = CONFIG_HDR_EXTENDED_STEPS,
                 .help = "Number of ISO/Shutter settings.",
             },
             {
-                .name = "Ext. step edit",
+                .name = "扩展步长编辑",
                 .priv = &hdrv_extended_step_edit,
                 .min = 1,
                 .max = CONFIG_HDR_EXTENDED_STEPS,
                 .help = "Edit ISO/Shutter settings.",
             },
             {
-                .name = "ISO",
+                .name = "感光度",
                 .min = 72,
                 .max = MAX_ISO_BV,
                 .select = hdrv_extended_iso_toggle,
@@ -453,7 +453,7 @@ static struct menu_entry hdr_menu[] = {
                 .help = "Edit ISO settings.",
             },
             {
-                .name = "Shutter",
+                .name = "快门",
                 .min = 0,
                 .max = COUNT(hdrv_shutter_table),
                 .select = hdrv_extended_shutter_toggle,

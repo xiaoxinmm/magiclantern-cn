@@ -938,7 +938,7 @@ static MENU_UPDATE_FUNC(dual_iso_update)
 static struct menu_entry dual_iso_menu[] =
 {
     {
-        .name = "Dual ISO",
+        .name = "双ISO",
         .priv = &dual_iso_hdr,
         .update = dual_iso_update,
         .max = 1,
@@ -947,7 +947,7 @@ static struct menu_entry dual_iso_menu[] =
         .submenu_width = 710,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Recovery ISO",
+                .name = "恢复ISO",
                 .priv = &dual_iso_alternate_iso,
                 .update = dual_iso_check,
                 .min = -12,
@@ -958,27 +958,27 @@ static struct menu_entry dual_iso_menu[] =
                 .help2 = "Can be absolute or relative to primary ISO from Canon menu.",
             },
             {
-                .name = "Dynamic range gained",
+                .name = "动态范围增益",
                 .update = dual_iso_dr_update,
                 .icon_type = IT_ALWAYS_ON,
                 .help  = "[READ-ONLY] How much more DR you get with current settings",
                 .help2 = "(upper theoretical limit, estimated from DxO measurements)",
             },
             {
-                .name = "Midtone overlapping",
+                .name = "中间调重叠",
                 .update = dual_iso_overlap_update,
                 .icon_type = IT_ALWAYS_ON,
                 .help  = "[READ-ONLY] How much of midtones will get better resolution",
                 .help2 = "Highlights/shadows will be half res, with aliasing/moire.",
             },
             {
-                .name = "Every other frame",
+                .name = "隔帧拍摄",
                 .priv = &dual_iso_every_other,
                 .max = 1,
                 .help = "Shoot one image with the hack, one without.",
             },
             {
-                .name = "Custom file prefix",
+                .name = "自定义文件前缀",
                 .priv = &dual_iso_file_prefix,
                 .max = 1,
                 .choices = CHOICES("OFF", "DUAL (unreliable!)"),

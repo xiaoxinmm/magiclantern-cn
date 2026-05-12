@@ -155,7 +155,7 @@ static MENU_UPDATE_FUNC(main_update)
 static struct menu_entry fileman_menu[] =
 {
     {
-        .name = "File Manager",
+        .name = "文件管理器",
         .select = menu_open_submenu,
         .update = main_update,
         .submenu_width = 710,

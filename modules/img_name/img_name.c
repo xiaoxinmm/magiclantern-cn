@@ -252,7 +252,7 @@ static MENU_UPDATE_FUNC(file_name_upd)
 static struct menu_entry img_name_menu[] =
 {
     {
-        .name           = "Image file naming",
+        .name           = "图像文件命名",
         .select         = menu_open_submenu,
         .update         = file_name_upd,
         .help           = "Customize image file naming for still pictures. Experimental.", 
@@ -260,7 +260,7 @@ static struct menu_entry img_name_menu[] =
         .submenu_width  = 720,
         .children       = (struct menu_entry[]) {
             {
-                .name       = "Image file prefix",
+                .name       = "图像文件前缀",
                 .select     = file_prefix_enter,
                 .update     = file_prefix_upd,
                 .icon_type  = IT_ACTION,
@@ -268,7 +268,7 @@ static struct menu_entry img_name_menu[] =
                 .help2      = "Might conflict with Dual ISO prefixes (to be tested).",
             },
             {
-                .name       = "Image file number",
+                .name       = "图像文件编号",
                 .priv       = &file_num,
                 .min        = 0,            /* we can set to 0 and the next image will be IMG_0001 */
                 .max        = 9999,         /* setting it to 9999 => next image will be IMG_0001, too */
@@ -279,7 +279,7 @@ static struct menu_entry img_name_menu[] =
                 .help2      = "You will need to restart the camera for the changes to take effect.",
             },
             {
-                .name       = "Image folder number",
+                .name       = "图像文件夹编号",
                 .priv       = &folder_num,
                 .update     = folder_number_upd,
                 .min        = 100,

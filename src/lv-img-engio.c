@@ -904,7 +904,7 @@ void digic_iso_step()
 static struct menu_entry lv_img_menu[] = {
     #ifdef FEATURE_VIGNETTING_CORRECTION
     {
-        .name = "Vignetting",
+        .name = "暗角校正",
         .max = 1,
         .priv = &vignetting_correction_enable,
         .select = vignetting_correction_toggle,
@@ -914,7 +914,7 @@ static struct menu_entry lv_img_menu[] = {
         .submenu_height = 250,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Mid-range correction     ",
+                .name = "中间区域校正",
                 .priv = &vignetting_correction_a,
                 .unit = UNIT_x10,
                 .min = -10,
@@ -925,7 +925,7 @@ static struct menu_entry lv_img_menu[] = {
                 .help2 = "Tip: set this to -1 for a nice vignette effect.",
             },
             {
-                .name = "Corner correction        ",
+                .name = "角落校正",
                 .priv = &vignetting_correction_b,
                 .min = -10,
                 .max = 10,
@@ -935,7 +935,7 @@ static struct menu_entry lv_img_menu[] = {
                 .help = "Correction with a stronger bias towards corners.",
             },
             {
-                .name = "Extreme corner correction",
+                .name = "极限角落校正",
                 .priv = &vignetting_correction_c,
                 .min = -10,
                 .max = 10,
@@ -950,7 +950,7 @@ static struct menu_entry lv_img_menu[] = {
 
     #if defined(FEATURE_IMAGE_EFFECTS) || defined(FEATURE_EXPO_ISO_DIGIC) || defined(FEATURE_SHUTTER_FINE_TUNING)
     {
-        .name = "Image Fine-tuning",
+        .name = "图像微调",
         .select = menu_open_submenu,
         .help = "Subtle image enhancements via DIGIC register tweaks.",
         .depends_on = DEP_MOVIE_MODE,
@@ -960,7 +960,7 @@ static struct menu_entry lv_img_menu[] = {
 
             #ifdef FEATURE_EXPO_ISO_DIGIC
             {
-                .name = "ML Digital ISO",
+                .name = "ML数字感光度",
                 .priv = &digic_iso_gain_movie,
                 .update = digic_iso_print_movie,
                 .select = digic_iso_toggle_movie,
@@ -970,7 +970,7 @@ static struct menu_entry lv_img_menu[] = {
                 .icon_type = IT_DICE_OFF,
             },
             {
-                .name = "Black Level", 
+                .name = "黑电平", 
                 .priv = &digic_black_level,
                 .min = -100,
                 .max = 100,
@@ -984,7 +984,7 @@ static struct menu_entry lv_img_menu[] = {
             
             #ifdef FEATURE_SHUTTER_FINE_TUNING
             {
-                .name = "Shutter fine-tuning", 
+                .name = "快门微调", 
                 .priv = &shutter_finetune,
                 .update = shutter_finetune_display,
                 .min = -500,
@@ -998,7 +998,7 @@ static struct menu_entry lv_img_menu[] = {
 
             #ifdef FEATURE_IMAGE_EFFECTS
             {
-                .name = "Absolute Zero Sharpness", 
+                .name = "绝对零锐度", 
                 .priv = &zerosharp, 
                 .max = 1,
                 .help = "Disable sharpening completely (below Canon's zero level).",
@@ -1006,7 +1006,7 @@ static struct menu_entry lv_img_menu[] = {
             },
             #if !(defined(CONFIG_600D) || defined(CONFIG_1100D))
             {
-                .name = "Edge Emphasis", 
+                .name = "边缘强调", 
                 .priv = &sharp, 
                 .max = 1,
                 .help = "Darken sharp edges in bright areas.",
@@ -1022,13 +1022,13 @@ static struct menu_entry lv_img_menu[] = {
 
     #ifdef FEATURE_IMAGE_EFFECTS
     {
-        .name = "Creative Effects",
+        .name = "创意效果",
         .select = menu_open_submenu,
         .help = "Experimental image filters found by digging into DIGIC.",
         .depends_on = DEP_MOVIE_MODE,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Desaturate",
+                .name = "去饱和度",
                 .priv       = &desaturate,
                 .min = 0,
                 .max = 1,
@@ -1036,7 +1036,7 @@ static struct menu_entry lv_img_menu[] = {
                 .depends_on = DEP_LIVEVIEW | DEP_MOVIE_MODE,
             },
             {
-                .name = "Negative",
+                .name = "负片",
                 .priv       = &negative,
                 .min = 0,
                 .max = 1,
@@ -1044,7 +1044,7 @@ static struct menu_entry lv_img_menu[] = {
                 .depends_on = DEP_LIVEVIEW | DEP_MOVIE_MODE,
             },
             {
-                .name = "Swap U-V",
+                .name = "交换U-V",
                 .priv       = &swap_uv,
                 .min = 0,
                 .max = 1,
@@ -1052,7 +1052,7 @@ static struct menu_entry lv_img_menu[] = {
                 .depends_on = DEP_LIVEVIEW | DEP_MOVIE_MODE,
             },
             {
-                .name = "Cartoon Look",
+                .name = "卡通效果",
                 .priv       = &cartoon,
                 .min = 0,
                 .max = 3,
@@ -1071,14 +1071,14 @@ static struct menu_entry lv_img_menu[] = {
 
 static struct menu_entry dbg_menu[] = {
     {
-        .name = "DIGIC poke",
+        .name = "DIGIC寄存器",
         .priv       = &digic_poke,
         .min = 0,
         .max = 1,
         .help = "Changes a DIGIC register to find out what it does. DANGER!",
         .children =  (struct menu_entry[]) {
             {
-                .name = "Register family",
+                .name = "寄存器系列",
                 .priv = &digic_register_base,
                 .unit = UNIT_HEX,
                 .min = 0xC000,
@@ -1086,7 +1086,7 @@ static struct menu_entry dbg_menu[] = {
                 .help = "DIGIC register address, mask=FFFF0000.",
             },
             {
-                .name = "Register base  ",
+                .name = "寄存器基址",
                 .priv = &digic_register_mid,
                 .unit = UNIT_HEX,
                 .min = 0x00,
@@ -1094,7 +1094,7 @@ static struct menu_entry dbg_menu[] = {
                 .help = "DIGIC register address, mask=0000FF00.",
             },
             {
-                .name = "Register offset",
+                .name = "寄存器偏移",
                 .priv = &digic_register_off,
                 .unit = UNIT_HEX,
                 .min = 0x00,
@@ -1103,21 +1103,21 @@ static struct menu_entry dbg_menu[] = {
                 .help = "DIGIC register address, mask=000000FC.",
             },
             {
-                .name = "Value          ",
+                .name = "值",
                 .priv = &digic_value,
                 .update = digic_value_print,
                 .select = digic_value_toggle,
                 .help = "Current value of selected register. Change w. HalfShutter.",
             },
             {
-                .name = "Altering mode  ",
+                .name = "修改模式",
                 .priv = &digic_alter_mode,
                 .max = 4,
                 .choices = (const char *[]) {"rand()", "x++", "x += (1<<8)", "x += (1<<16)", "x += (1<<24)"},
                 .help = "How to change current value [HalfShutter]. MF(+) / AF(-).",
             },
             {
-                .name = "Random register",
+                .name = "随机寄存器",
                 .select = digic_random_register,
                 .help = "Click to select some random register.",
             },
@@ -1125,7 +1125,7 @@ static struct menu_entry dbg_menu[] = {
         }
     }, 
     {
-        .name = "Dump DIGIC registers",
+        .name = "转储DIGIC寄存器",
         .priv = digic_dump,
         .select = run_in_separate_task,
         .help = "Saves the contents of DIGIC shadow copy to DIGIC.LOG."

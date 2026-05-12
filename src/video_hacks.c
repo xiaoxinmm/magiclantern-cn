@@ -129,14 +129,14 @@ video_hack_task( void* unused )
 
 static struct menu_entry video_hack_menus[] = {
     {
-        .name = "Video Hacks",
+        .name = "视频调整",
         .priv = &bitrate_cache_hacks,
         .max  = 1,
         .help = "Experimental hacks: flush rate, GOP size. Be careful!",
         .depends_on = DEP_MOVIE_MODE,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Flush rate",
+                .name = "刷入率",
                 .priv = &bitrate_flushing_rate,
                 .update = bitrate_flushing_rate_update,
                 .min  = 2,
@@ -144,7 +144,7 @@ static struct menu_entry video_hack_menus[] = {
                 .help = "Flush movie buffer every n frames."
             },
             {
-                .name = "GOP size",
+                .name = "GOP大小",
                 .priv = &bitrate_gop_size,
                 .update = bitrate_gop_size_update,
                 .min  = 1,

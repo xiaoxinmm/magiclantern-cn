@@ -923,26 +923,26 @@ my_fprintf(
 #ifdef CONFIG_DUAL_SLOT
 struct menu_entry card_menus[] = {
     {
-        .name = "Card settings",
+        .name = "存储卡设置",
         .select = menu_open_submenu,
         .help = "Preferences related to SD/CF card operation.",
         .children =  (struct menu_entry[]) {
             /*
             {
-                .name = "CF card", 
+                .name = "CF卡", 
                 .update = &card_info_display,
                 .help = "CF card info: make and model."
             },*/
 #ifdef CONFIG_5D3
             {
-                .name = "Card test at startup", 
+                .name = "启动时测卡", 
                 //~ .priv = &card_test_enabled, /* don't use priv, so it doesn't get displayed in the modified settings menu */
                 .select = card_test_toggle,
                 .update = card_test_update,
                 .help = "File write test. Some cards may have compatibility issues.",
             },
             {
-                .name = "CF card workaround",
+                .name = "CF卡兼容模式",
                 .priv = &cf_card_workaround,
                 .max = 1,
                 .help = "Slows down the CF write speed to let you use certain cards.",
@@ -950,7 +950,7 @@ struct menu_entry card_menus[] = {
             },
 #endif
             {
-                .name = "Preferred card", 
+                .name = "首选卡", 
                 .priv = &card_force_type,
                 .min = 0,
                 .max = 2,

@@ -669,7 +669,7 @@ static struct menu_entry afma_menu[] = {
         .submenu_width = 700,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Start Scan",
+                .name = "开始扫描",
                 .priv = afma_auto_tune,
                 .select = run_in_separate_task,
                 .update = afma_generic_update,
@@ -678,7 +678,7 @@ static struct menu_entry afma_menu[] = {
                 .depends_on = DEP_MANUAL_FOCUS,
             },
             {
-                .name = "Scan type",
+                .name = "扫描类型",
                 .priv = &afma_scan_range_index,
                 .select = afma_scan_range_toggle,
                 .min = 0,
@@ -692,13 +692,13 @@ static struct menu_entry afma_menu[] = {
                 .help  = "AFMA scan type and range",
             },
             {
-                .name = "Scan passes",
+                .name = "扫描次数",
                 .update = afma_scan_passes_display,
                 .select = afma_scan_passes_toggle,
                 .help  = "Number of time to check for focus confirmation.",
             },
             {
-                .name = "AF microadjust",
+                .name = "AF微调",
                 .update = afma_display,
                 .select = afma_toggle,
                 .help  = "Adjust AFMA value manually. Range: -100...+100.",
@@ -711,7 +711,7 @@ static struct menu_entry afma_menu[] = {
 static struct menu_entry afma_mode_menu_regular[] = 
 {
     {
-        .name = "AFMA mode",
+        .name = "AFMA模式",
         .priv = &afma_mode_index,
         .select = afma_mode_toggle,
         .min = 0,
@@ -729,7 +729,7 @@ static struct menu_entry afma_mode_menu_regular[] =
 static struct menu_entry afma_mode_menu_wide_tele[] = 
 {
     {
-        .name = "AFMA mode",
+        .name = "AFMA模式",
         .priv = &afma_mode_index,
         .select = afma_mode_toggle,
         .min = 0,

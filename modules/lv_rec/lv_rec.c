@@ -249,14 +249,14 @@ static MENU_UPDATE_FUNC(lv_rec_menu_update)
 static struct menu_entry lv_rec_menu[] =
 {
     {
-        .name = "Start",
+        .name = "开始",
         .priv = NULL,
         .select = (void (*)(void*,int))lv_rec_create_task,
         .update = lv_rec_menu_update,
         .help = "Start recording",
     },
     {
-        .name = "Resolution preset", 
+        .name = "分辨率预设", 
         .priv = &lv_rec_line_skip_preset,
         .min = 0,
         .max = 4,
@@ -264,27 +264,27 @@ static struct menu_entry lv_rec_menu[] =
         .help = "Set line skipping to get this resolution"
     },
     {
-        .name = "Crop amount top/bot",
+        .name = "裁切量上下",
         .priv = &lv_rec_line_skip,
         .min = 0,
         .max = 400,
         .help = "Drop that amount of lines on top and bottom each",
     },
     {
-        .name = "Frame skip",
+        .name = "跳帧",
         .priv = &lv_rec_frame_skip,
         .min = 1,
         .max = 20,
         .help = "Record every n-th frame",
     },
     {
-        .name = "Single file",
+        .name = "单文件",
         .priv = &lv_rec_single_file,
         .max = 1,
         .help = "Record into one single file (it is faster)",
     },
     {
-        .name = "RAW recording",
+        .name = "原始录制",
         .priv = &lv_rec_raw_mode,
         .max = 1,
         .help = "Record RAW data instead of YUV422 (no decoder yet)",

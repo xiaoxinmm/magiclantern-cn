@@ -2867,7 +2867,7 @@ PROP_HANDLER(PROP_LV_DISPSIZE)
 #endif
 static struct menu_entry debug_menus[] = {
     {
-        .name = "LV raw type",
+        .name = "实时取景原始类型",
         .priv = &lv_raw_type,
         .max  = 0xFFFF,
         .unit = UNIT_HEX,

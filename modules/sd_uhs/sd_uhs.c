@@ -574,7 +574,7 @@ static MENU_UPDATE_FUNC(CRC_display)
 static struct menu_entry sd_uhs_menu[] =
 {
     {
-        .name = "SD Overclock",
+        .name = "SD超频",
         .select = menu_open_submenu,
         .children = (struct menu_entry[]){
             {
@@ -582,11 +582,11 @@ static struct menu_entry sd_uhs_menu[] =
                 .update = sd_uhs_update,
                 .max = 3,
                 .help = "Choose an option, restart the camera to apply.",
-                .name = "SD Frequency",
+                .name = "SD频率",
                 .choices = CHOICES("OFF", "160MHz", "192MHz", "240MHz"),
             },
             {
-                .name = "Access Mode",
+                .name = "访问模式",
                 .priv = &access_mode,
                 .max = 1,
                 .choices = CHOICES("SDR50", "SDR104"),
@@ -594,44 +594,44 @@ static struct menu_entry sd_uhs_menu[] =
                 .help2 = "However some SD cards prefer SDR50 for high frequencies.",
             },
             {
-                .name = "Show CID info",
+                .name = "显示CID信息",
                 .select = menu_open_submenu,
                 .help = "Read the contents of CID register.",
                 .help2 = "CID register contains some information about an SD card.",
                 .icon_type = IT_ACTION,
                 .children = (struct menu_entry[]){
                     {
-                        .name = "MID:",
+                        .name = "制造商ID:",
                         .update = MID_display,
                         .help = "Manufacturer ID.",
                         .icon_type = IT_ALWAYS_ON,
                     },
                     {
-                        .name = "OID:",
+                        .name = "OEMID:",
                         .update = OID_display,
                         .help = "OEM/Application ID.",
                         .icon_type = IT_ALWAYS_ON,
                     },
                     {
-                        .name = "PNM:",
+                        .name = "产品名:",
                         .update = PNM_display,
                         .help = "Product Name.",
                         .icon_type = IT_ALWAYS_ON,
                     },
                     {
-                        .name = "PRV:",
+                        .name = "版本:",
                         .update = PRV_display,
                         .help = "Product Revision.",
                         .icon_type = IT_ALWAYS_ON,
                     },
                     {
-                        .name = "PSN:",
+                        .name = "序列号:",
                         .update = PSN_display,
                         .help = "Serial Number.",
                         .icon_type = IT_ALWAYS_ON,
                     },
                     {
-                        .name = "MDT:",
+                        .name = "生产日期:",
                         .update = MDT_display,
                         .help = "Manufacture Date Code.",
                         .icon_type = IT_ALWAYS_ON,

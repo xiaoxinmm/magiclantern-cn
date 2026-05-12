@@ -581,14 +581,14 @@ static MENU_UPDATE_FUNC(idle_disable_30min_timer_upd)
 
 static struct menu_entry powersave_menus[] = {
   {
-    .name = "Powersave in LiveView",
+    .name = "实时取景省电",
     .select = menu_open_submenu,
     .submenu_width = 715,
     .help = "Options for reducing power consumption during idle times.",
     .depends_on = DEP_LIVEVIEW,
     .children =  (struct menu_entry[]) {
         {
-            .name       = "Enable while recording",
+            .name       = "录制时启用",
             .priv       = &idle_rec,
             .max        = 1,
             .help       = "Powersave always works during standby; optionally also while recording.",
@@ -596,21 +596,21 @@ static struct menu_entry powersave_menus[] = {
         },
         #ifdef CONFIG_LCD_SENSOR
         {
-            .name           = "Use LCD sensor",
+            .name           = "使用LCD感应",
             .priv           = &lcd_sensor_wakeup,
             .max            = 1,
             .help           = "With the LCD sensor you may wakeup or force powersave mode."
         },
         #endif
         {
-            .name           = "Use shortcut key",
+            .name           = "使用快捷键",
             .priv           = &idle_shortcut_key,
             .max            = 1,
             .choices        = (const char *[]) {"OFF", INFO_BTN_NAME},
             .help           = "Shortcut key for enabling powersave modes right away."
         },
         {
-            .name           = "Dim display",
+            .name           = "调暗屏幕",
             .priv           = &idle_display_dim_after,
             .update         = idle_display_dim_print,
             .select         = idle_timeout_toggle,
@@ -619,7 +619,7 @@ static struct menu_entry powersave_menus[] = {
             .help           = "Dim LCD display in LiveView when idle, to save power.",
         },
         {
-            .name           = "Turn off LCD",
+            .name           = "关闭LCD",
             .priv           = &idle_display_turn_off_after,
             .update         = idle_display_feature_print,
             .select         = idle_timeout_toggle,
@@ -628,7 +628,7 @@ static struct menu_entry powersave_menus[] = {
             .help           = "Turn off display. Will also pause LiveView if not recording.",
         },
         {
-            .name           = "Turn off GlobalDraw",
+            .name           = "关闭全局绘制",
             .priv           = &idle_display_global_draw_off_after,
             .update         = idle_display_feature_print,
             .select         = idle_timeout_toggle,
@@ -637,7 +637,7 @@ static struct menu_entry powersave_menus[] = {
             .help           = "Turn off GlobalDraw when idle, to save some CPU cycles.",
         },
         {
-            .name           = "30-minute timer",
+            .name           = "30分钟定时",
             .priv           = &idle_disable_30min_timer,
             .max            = 1,
             .update         = idle_disable_30min_timer_upd,

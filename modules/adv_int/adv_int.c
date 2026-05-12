@@ -749,7 +749,7 @@ PROP_HANDLER(PROP_GUI_STATE)
 static struct menu_entry adv_int_menu[] =
 {
     {
-        .name = "Ramping options",
+        .name = "间隔渐变选项",
         .priv = &adv_int,
         .select = menu_open_submenu,
         .max = 1,
@@ -758,20 +758,20 @@ static struct menu_entry adv_int_menu[] =
         .children =  (struct menu_entry[])
         {
             {
-                .name = "Enabled",
+                .name = "启用",
                 .priv = &adv_int,
                 .max = 1,
                 .help = "Enable advanced intervalometer ramping"
             },
             {
-                .name = "Use Global Time",
+                .name = "使用全局时间",
                 .priv = &adv_int_use_global_time,
                 .max = 1,
                 .help = "Set keyframes by global time (time of day)",
                 .help2 = "You should clear all keyframes when switching this setting"
             },
             {
-                .name = "Loop After",
+                .name = "循环",
                 .priv = &adv_int_loop_after,
                 .update = loop_after_menu_update,
                 .max = 5000,
@@ -779,14 +779,14 @@ static struct menu_entry adv_int_menu[] =
                 .help = "Loops keyframe sequence after x frames"
             },
             {
-                .name = "External Source",
+                .name = "外部源",
                 .priv = &adv_int_external,
                 .max = 1,
                 .icon_type = IT_BOOL,
                 .help = "Use this module with an external intervalometer"
             },
             {
-                .name = "List Keyframes",
+                .name = "列出关键帧",
                 .select = menu_open_submenu,
                 .submenu_width = 710,
                 .help = "Lists all keyframes",
@@ -795,19 +795,19 @@ static struct menu_entry adv_int_menu[] =
                 }
             },
             {
-                .name   = "Save Keyframes",
+                .name   = "保存关键帧",
                 .select = adv_int_save,
                 .help   = "Save current keyframes to file.",
                 .help2  = "This sequence will be auto-loaded at startup."
             },
             {
-                .name   = "Clear Keyframes",
+                .name   = "清除关键帧",
                 .select = adv_int_clear,
                 .help   = "Clears all keyframes.",
                 .help2  = "Note: this will not remove the saved sequence."
             },
             {
-                .name = "New Keyframe...",
+                .name = "新建关键帧...",
                 .select = new_keyframe_menu_select,
                 .submenu_width = 710,
                 .icon_type = IT_ACTION,
@@ -815,12 +815,12 @@ static struct menu_entry adv_int_menu[] =
                 .children =  (struct menu_entry[])
                 {
                     {
-                        .name = "Create Keyframe",
+                        .name = "创建关键帧",
                         .select = adv_int_new_keyframe,
                         .help = "Create a new keyframe from the current camera settings"
                     },
                     {
-                        .name = "Keyframe Time",
+                        .name = "关键帧时间",
                         .priv = &keyframe_time,
                         .update = time_menu_update,
                         .min = 1,
@@ -830,7 +830,7 @@ static struct menu_entry adv_int_menu[] =
                         .help2 = "* Computed time inacurate if ramping interval time"
                     },
                     {
-                        .name = "Shutter ",
+                        .name = "快门 ",
                         .priv = &keyframe_shutter,
                         .select = menu_open_submenu,
                         .update = shutter_menu_update,
@@ -841,14 +841,14 @@ static struct menu_entry adv_int_menu[] =
                         .children = (struct menu_entry[])
                         {
                             {
-                                .name = "Enabled",
+                                .name = "启用",
                                 .priv = &keyframe_shutter,
                                 .max = 1,
                                 .icon_type = IT_BOOL,
                                 .help = "Include current Shutter in Keyframe"
                             },
                             {
-                                .name = "Adjust Shutter",
+                                .name = "调整快门",
                                 .update     = shutter_display,
                                 .select     = shutter_toggle,
                                 .icon_type  = IT_PERCENT,
@@ -859,7 +859,7 @@ static struct menu_entry adv_int_menu[] =
                         }
                     },
                     {
-                        .name = "Aperture ",
+                        .name = "光圈 ",
                         .priv = &keyframe_aperture,
                         .select = menu_open_submenu,
                         .update = aperture_menu_update,
@@ -870,14 +870,14 @@ static struct menu_entry adv_int_menu[] =
                         .children = (struct menu_entry[])
                         {
                             {
-                                .name = "Enabled",
+                                .name = "启用",
                                 .priv = &keyframe_aperture,
                                 .max = 1,
                                 .icon_type = IT_BOOL,
                                 .help = "Include current Aperture in Keyframe"
                             },
                             {
-                                .name = "Adjust Aperture",
+                                .name = "调整光圈",
                                 .update     = aperture_display,
                                 .select     = aperture_toggle,
                                 .icon_type  = IT_PERCENT,
@@ -889,7 +889,7 @@ static struct menu_entry adv_int_menu[] =
                         }
                     },
                     {
-                        .name = "ISO ",
+                        .name = "感光度 ",
                         .priv = &keyframe_iso,
                         .select = menu_open_submenu,
                         .update = iso_menu_update,
@@ -899,14 +899,14 @@ static struct menu_entry adv_int_menu[] =
                         .children = (struct menu_entry[])
                         {
                             {
-                                .name = "Enabled",
+                                .name = "启用",
                                 .priv = &keyframe_iso,
                                 .max = 1,
                                 .icon_type = IT_BOOL,
                                 .help = "Include current ISO in Keyframe"
                             },
                             {
-                                .name = "Adjust ISO",
+                                .name = "调整感光度",
                                 .update = iso_display,
                                 .select = iso_toggle,
                                 .help  = "Adjust and fine-tune ISO. Also displays APEX Sv value.",
@@ -916,7 +916,7 @@ static struct menu_entry adv_int_menu[] =
                         }
                     },
                     {
-                        .name = "Focus",
+                        .name = "对焦",
                         .priv = &keyframe_focus,
                         .min = -5000,
                         .max = 5000,
@@ -926,7 +926,7 @@ static struct menu_entry adv_int_menu[] =
                         .works_best_in = DEP_LIVEVIEW,
                     },
                     {
-                        .name = "Interval Time",
+                        .name = "间隔时间",
                         .priv = &keyframe_interval_time,
                         .min = 0,
                         .max = 28800,
@@ -934,7 +934,7 @@ static struct menu_entry adv_int_menu[] =
                         .help = "Changes the interval between shots",
                     },
                     {
-                        .name = "Bulb Duration",
+                        .name = "B门时长",
                         .priv = &keyframe_bulb_duration,
                         .update = bulb_duration_update,
                         .min = 0,
@@ -944,7 +944,7 @@ static struct menu_entry adv_int_menu[] =
                         .help = "Changes duration of the bulb timer",
                     },
                     {
-                        .name = "White Balance",
+                        .name = "白平衡",
                         .update = kelvin_menu_update,
                         .select = kelvin_menu_select,
                         .priv = &keyframe_kelvin,

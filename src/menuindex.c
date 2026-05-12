@@ -35,31 +35,31 @@ extern int _set_at_startup;
 static struct menu_entry help_menus[] = {
     {
         .select = menu_nav_help_open,
-        .name = "Press " INFO_BTN_NAME,
+        .name = "按 " INFO_BTN_NAME,
         .choices = CHOICES("Context help"),
     },
     {
         .select = menu_nav_help_open,
         #if defined(CONFIG_500D)
-        .name = "Press " SYM_LV " / PLAY",
+        .name = "按 " SYM_LV " / PLAY",
         .choices = CHOICES("Open submenu (Q)"),
         #elif defined(CONFIG_50D)
-        .name = "Press FUNC / PLAY",
+        .name = "按 FUNC / PLAY",
         .choices = CHOICES("Open submenu (Q)"),
         #elif defined(CONFIG_5D2)
-        .name = "Pict.Style / PLAY",
+        .name = "照片风格 / PLAY",
         .choices = CHOICES("Open submenu (Q)"),
         #elif defined(CONFIG_5DC) || defined(CONFIG_40D)
-        .name = "Press JUMP / PLAY",
+        .name = "按 JUMP / PLAY",
         .choices = CHOICES("Open submenu (Q)"),
         #elif defined(CONFIG_EOSM)
-        .name = "Tap or press PLAY",
+        .name = "点击或按 PLAY",
         .choices = CHOICES("Open submenu (Q)"),
         #elif defined(CONFIG_100D)
-        .name = "Press Av / PLAY",
+        .name = "按 Av / PLAY",
         .choices = CHOICES("Open submenu (Q)"),
         #else
-        .name = "Press Q / PLAY",
+        .name = "按 Q / PLAY",
         .choices = CHOICES("Open submenu"),
         #endif
         
@@ -72,7 +72,7 @@ static struct menu_entry help_menus[] = {
     },
     #if defined(CONFIG_5D2) || defined(CONFIG_50D)
     {
-        .name = "Joystick long-press",
+        .name = "摇杆长按",
         .select = menu_nav_help_open,
         .choices = CHOICES("Open submenu"),
         
@@ -87,10 +87,10 @@ static struct menu_entry help_menus[] = {
     {
         .select  = menu_nav_help_open,
         #ifdef CONFIG_DIGIC_678X
-        .name    = "SET / main dial",
+        .name    = "SET / 主拨盘",
         // scroll wheel / main dial icon doesn't exist on D678X, no built in fonts
         #else
-        .name    = "SET / ",
+        .name    = "SET /",
         .update  = set_scrollwheel_display,
         #endif
         .choices = CHOICES("Edit values"),
@@ -98,7 +98,7 @@ static struct menu_entry help_menus[] = {
     {
         .select = menu_nav_help_open,
         #ifdef CONFIG_500D
-        .name = "Zoom In",
+        .name = "放大",
         #else
         .name = SYM_LV" or Zoom In",
         #endif
@@ -107,7 +107,7 @@ static struct menu_entry help_menus[] = {
     #ifdef FEATURE_JUNKIE_MENU
     {
         .select = menu_nav_help_open,
-        .name = "Press MENU",
+        .name = "按 MENU",
         .choices = CHOICES("Junkie mode"),
     },
     #endif
@@ -115,14 +115,14 @@ static struct menu_entry help_menus[] = {
     /* if BTN_ZEBRAS_FOR_PLAYBACK_NAME is undefined, you must define it (or undefine FEATURE_OVERLAYS_IN_PLAYBACK_MODE) */
     {
         .select = menu_nav_help_open,
-        .name = "Press "BTN_ZEBRAS_FOR_PLAYBACK_NAME,
+        .name = "按 "BTN_ZEBRAS_FOR_PLAYBACK_NAME,
         .choices = CHOICES("Overlays (PLAY only)"),
     },
     #endif
     #ifdef FEATURE_ARROW_SHORTCUTS
     {
         .select = menu_nav_help_open,
-        .name = "Press "ARROW_MODE_TOGGLE_KEY,
+        .name = "按 "ARROW_MODE_TOGGLE_KEY,
         .choices = CHOICES("Shortcuts (LV only)"),
     },
     #elif defined(ARROW_MODE_TOGGLE_KEY)
@@ -130,7 +130,7 @@ static struct menu_entry help_menus[] = {
     #endif
     {
         .select = menu_nav_help_open,
-        .name = "SET at startup",
+        .name = "启动时设置",
         .priv = &_set_at_startup,
         .max  = 1,
         .icon_type = IT_ACTION,
@@ -138,12 +138,12 @@ static struct menu_entry help_menus[] = {
         .help = "To change this setting: Prefs -> Config options",
     },
     {
-        .name = "Key Shortcuts",
+        .name = "快捷键",
         .select = menu_help_go_to_label,
     },
 #if 0 // disable old, broken help system
     {
-        .name = "Complete user guide",
+        .name = "完整用户指南",
         .select = menu_open_submenu,
         .children =  (struct menu_entry[]) {
             #include "menuindexentries.h"
@@ -154,7 +154,7 @@ static struct menu_entry help_menus[] = {
 #if 0 // disable menu that always says there's no help files
       // FIXME: turn this into a generic about ML page
     {
-        .name = "About Magic Lantern",
+        .name = "关于 Magic Lantern",
         .select = menu_help_go_to_label,
     },
 #endif

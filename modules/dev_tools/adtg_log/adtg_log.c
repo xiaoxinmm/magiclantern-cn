@@ -273,7 +273,7 @@ static MENU_SELECT_FUNC(adtg_log_toggle)
 static struct menu_entry adtg_log_menu[] =
 {
     {
-        .name = "ADTG Logging",
+        .name = "ADTG日志",
         .select = &adtg_log_toggle,
         .priv = &adtg_buf,
         .max = 1,

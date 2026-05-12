@@ -1004,7 +1004,7 @@ static struct menu_entry beep_menus[] = {
 #ifdef FEATURE_BEEP
 #if !defined(CONFIG_7D)
     {
-        .name = "Speaker Volume",
+        .name = "扬声器音量",
         .priv       = &beep_volume,
         .min = 1,
         .max = ASIF_MAX_VOL,
@@ -1013,27 +1013,27 @@ static struct menu_entry beep_menus[] = {
     },
 #endif
     {
-        .name = "Beep, test tones",
+        .name = "蜂鸣/测试音",
         .select = menu_open_submenu,
         .update = beep_update,
         .submenu_width = 680,
         .help = "Configure ML beeps and play test tones (440Hz, 1kHz...)",
         .children =  (struct menu_entry[]) {
             {
-                .name = "Enable Beeps",
+                .name = "启用蜂鸣",
                 .priv       = &beep_enabled,
                 .max = 1,
                 .help = "Enable beep signal for misc events in ML.",
             },
             {
-                .name = "Tone Waveform", 
+                .name = "音色波形", 
                 .priv = &beep_wavetype,
                 .max = 2,
                 .choices = (const char *[]) {"Square", "Sine", "White Noise"},
                 .help = "Type of waveform to be generated: square, sine, white noise.",
             },
             {
-                .name = "Tone Frequency",
+                .name = "音色频率",
                 .priv       = &beep_freq_idx,
                 .max = 16,
                 .icon_type = IT_PERCENT,
@@ -1042,14 +1042,14 @@ static struct menu_entry beep_menus[] = {
                 .help = "Frequency for ML beep and test tones (Hz).",
             },
             {
-                .name = "Play test tone",
+                .name = "播放测试音",
                 //~ .update = play_test_tone_print,
                 .icon_type = IT_ACTION,
                 .select = play_test_tone,
                 .help = "Play a 5-second test tone with current settings.",
             },
             {
-                .name = "Test beep sound",
+                .name = "测试蜂鸣声",
                 //~ .update = play_test_tone_print,
                 .icon_type = IT_ACTION,
                 .select = beep,
@@ -1061,29 +1061,29 @@ static struct menu_entry beep_menus[] = {
     #endif
     #ifdef FEATURE_WAV_RECORDING
     {
-        .name = "Sound Recorder",
+        .name = "录音机",
         .select = menu_open_submenu,
         .help = "Record and playback short audio clips (WAV).",
         .children =  (struct menu_entry[]) {
             {
-                .name = "File name",
+                .name = "文件名",
                 .update = filename_display,
                 .select = find_next_wav,
                 .help = "Select a file name for playback.",
             },
             {
-                .name = "Record",
+                .name = "录制",
                 .update = record_display,
                 .select = record_start,
                 .help = "Press SET to start or stop recording.",
             },
             {
-                .name = "Playback selected file",
+                .name = "回放选中文件",
                 .select = playback_start,
                 .help = "Play back a WAV file, in built-in speaker or headphones.",
             },
             {
-                .name = "Delete selected file",
+                .name = "删除选中文件",
                 .select = delete_file,
                 .help = "Be careful :)",
             },

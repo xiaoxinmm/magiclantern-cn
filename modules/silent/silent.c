@@ -1766,7 +1766,7 @@ static unsigned int silent_pic_polling_cbr(unsigned int ctx)
 
 static struct menu_entry silent_menu[] = {
     {
-        .name = "Silent Picture",
+        .name = "静音拍照",
         .priv = &silent_pic_enabled,
         .update = silent_pic_display,
         .max  = 1,
@@ -1776,7 +1776,7 @@ static struct menu_entry silent_menu[] = {
         .submenu_width = 700,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Silent Mode",
+                .name = "静音模式",
                 .priv = &silent_pic_mode,
                 .update = silent_pic_mode_update,
                 .max = 6,
@@ -1800,7 +1800,7 @@ static struct menu_entry silent_menu[] = {
                     "Full-resolution pictures (LiveView snapshots, with crop_rec).\n",
             },
             {
-                .name = "Slit-Scan Mode",
+                .name = "狭缝扫描模式",
                 .priv = &silent_pic_slitscan_mode,
                 .max = 4,
                 .choices = CHOICES(
@@ -1820,7 +1820,7 @@ static struct menu_entry silent_menu[] = {
                 .shidden = 1,   /* enabled only when choosing slit-scan */
             },
             {
-                .name = "Trigger Mode",
+                .name = "触发模式",
                 .priv = &silent_pic_fullres_trigger_mode,
                 .max = 2,
                 .choices = CHOICES(
@@ -1836,7 +1836,7 @@ static struct menu_entry silent_menu[] = {
                 .shidden = 1,   /* enabled only when choosing full-res */
             },
             {
-                .name = "File Format",
+                .name = "文件格式",
                 .update = silent_pic_file_format_display,
                 .priv = &silent_pic_file_format,
                 .max = 2,

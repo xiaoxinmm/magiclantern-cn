@@ -142,7 +142,7 @@ static LVINFO_UPDATE_FUNC(electronic_level_update)
 
 static struct lvinfo_item info_items[] = {
     {
-        .name = "Electronic level",
+        .name = "电子水平仪",
         .which_bar = LV_TOP_BAR_ONLY,
         .update = electronic_level_update,
         .preferred_position = -100,

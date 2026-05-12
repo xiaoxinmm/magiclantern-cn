@@ -4014,7 +4014,7 @@ static MENU_UPDATE_FUNC(raw_playback_update)
 static struct menu_entry raw_video_menu[] =
 {
     {
-        .name = "RAW video",
+        .name = "原始视频",
         .priv = &raw_video_enabled,
         .max = 1,
         .update = raw_main_update,
@@ -4024,7 +4024,7 @@ static struct menu_entry raw_video_menu[] =
         .help2 = "Press LiveView to start recording.",
         .children =  (struct menu_entry[]) {
             {
-                .name = "Resolution",
+                .name = "分辨率",
                 .priv = &resolution_index_x,
                 .max = COUNT(resolution_presets_x) - 1,
                 .select = resolution_change_fine_value,
@@ -4032,14 +4032,14 @@ static struct menu_entry raw_video_menu[] =
                 .choices = RESOLUTION_CHOICES_X,
             },
             {
-                .name = "Aspect ratio",
+                .name = "宽高比",
                 .priv = &aspect_ratio_index,
                 .max = COUNT(aspect_ratio_presets_num) - 1,
                 .update = aspect_ratio_update,
                 .choices = aspect_ratio_choices,
             },
             {
-                .name       = "Data format",
+                .name       = "数据格式",
                 .priv       = &output_format,
                 .max        = 5,
                 .update     = output_format_update,
@@ -4060,7 +4060,7 @@ static struct menu_entry raw_video_menu[] =
                               "Signal divided by 8/16/32/64 before compression, depending on ISO.\n"
             },
             {
-                .name = "Preview",
+                .name = "预览",
                 .priv = &preview_mode,
                 .max = 3,
                 .choices = CHOICES("Auto", "Real-time", "Framing", "Frozen LV"),
@@ -4072,7 +4072,7 @@ static struct menu_entry raw_video_menu[] =
                 .depends_on = DEP_GLOBAL_DRAW,
             },
             {
-                .name    = "Pre-record",
+                .name    = "预录",
                 .priv    = &pre_record,
                 .max     = 10,
                 .update  = pre_recording_update,
@@ -4080,7 +4080,7 @@ static struct menu_entry raw_video_menu[] =
                 .help2   = "Press REC twice: 1 - to start pre-recording, 2 - for normal recording.",
             },
             {
-                .name    = "Rec trigger",
+                .name    = "录制触发",
                 .priv    = &rec_trigger,
                 .max     = 3,
                 .choices = CHOICES("OFF", "Half-shutter: start/pause", "Half-shutter: hold", "Half-shutter: pre only"),
@@ -4091,14 +4091,14 @@ static struct menu_entry raw_video_menu[] =
                            "Half-shutter to save only the pre-recorded frames (at least 1 frame).\n",
             },
             {
-                .name = "Card Spanning",
+                .name = "跨卡存储",
                 .priv = &card_spanning,
                 .max = 1,
                 .help  = "Span video file over SD + CF cards.",
                 .help2 = "Can increase write speed.",
             },
             {
-                .name = "Digital dolly",
+                .name = "数字滑轨",
                 .priv = &dolly_mode,
                 .max = 1,
                 .help = "Smooth panning of the recording window (software dolly).",
@@ -4106,7 +4106,7 @@ static struct menu_entry raw_video_menu[] =
                 .advanced = 1,
             },
             {
-                .name   = "H.264 proxy",
+                .name   = "H.264代理",
                 .priv   = &h264_proxy_menu,
                 .max    = 1,
                 .update = h264_proxy_update,
@@ -4115,7 +4115,7 @@ static struct menu_entry raw_video_menu[] =
                 .advanced = 1,
             },
             {
-                .name = "Card warm-up",
+                .name = "存储卡预热",
                 .priv = &warm_up,
                 .max = 7,
                 .choices = CHOICES("OFF", "16 MB", "32 MB", "64 MB", "128 MB", "256 MB", "512 MB", "1 GB"),
@@ -4124,7 +4124,7 @@ static struct menu_entry raw_video_menu[] =
                 .advanced = 1,
             },
             {
-                .name = "Use SRM memory",
+                .name = "使用SRM内存",
                 .priv = &use_srm_memory,
                 .max = 1,
                 .help = "Allocate memory from SRM job buffers (normally used for still capture).",
@@ -4132,14 +4132,14 @@ static struct menu_entry raw_video_menu[] =
                 .advanced = 1,
             },
             {
-                .name = "Small hacks",
+                .name = "小技巧",
                 .priv = &small_hacks,
                 .max = 1,
                 .help  = "Slow down Canon GUI, disable auto exposure, white balance...",
                 .advanced = 1,
             },
             {
-                .name = "Show graph",
+                .name = "显示图表",
                 .priv = &show_graph,
                 .choices = CHOICES("OFF", "Buffers", "Buffer usage"),
                 .max = 2,
@@ -4147,14 +4147,14 @@ static struct menu_entry raw_video_menu[] =
                 .advanced = 1,
             },
             {
-                .name = "Sync beep",
+                .name = "同步蜂鸣",
                 .priv = &sync_beep,
                 .max    = 1,
                 .help = "Beeps on recording start for better sync.",
                 .advanced = 1,
             },
             {
-                .name   = "Show EDMAC",
+                .name   = "显示EDMAC",
                 .priv   = &show_edmac,
                 .max    = 1,
                 .help   = "Plots the EDMAC read/write pointers within the source raw buffer.",
@@ -4162,7 +4162,7 @@ static struct menu_entry raw_video_menu[] =
                 .advanced = 1,
             },
             {
-                .name = "Playback",
+                .name = "回放",
                 .select = raw_playback_start,
                 .update = raw_playback_update,
                 .icon_type = IT_ACTION,
@@ -4485,7 +4485,7 @@ unsigned int raw_rec_update_preview(unsigned int ctx)
 static struct lvinfo_item info_items[] = {
     /* Top bar */
     {
-        .name = "Rec. Status",
+        .name = "录制状态",
         .which_bar = LV_TOP_BAR_ONLY,
         .update = recording_status,
         .preferred_position = 50,

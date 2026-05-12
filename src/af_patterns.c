@@ -387,35 +387,35 @@ static struct menu_entry afp_focus_menu[] = {
     {
         .depends_on = DEP_PHOTO_MODE | DEP_CHIPPED_LENS | DEP_NOT_LIVEVIEW,
 #if defined(CONFIG_6D)
-        .name = "Focus Shortcuts",
+        .name = "对焦快捷键",
         .priv = &af_patterns,
         .max = 1,
         .help = "Choose af points directly, display OFF, arrows+SET.",
         .help2 = "Btw: Real focus patterns aren't working on 6D (yet?).",
 #else
-        .name = "Focus Patterns",
+        .name = "对焦模式",
         .select = menu_open_submenu,
         .help = "Custom AF patterns (photo mode only). Ported from 400plus.",
         .submenu_height = 280,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Center selection",
+                .name = "中心选择",
                 .select = afp_center_toggle,
                 .help = "Select a center-based AF pattern with LEFT and RIGHT keys.",
             },
             {
-                .name = "Horizontal selection",
+                .name = "水平选择",
                 .select = afp_horiz_toggle,
                 .help = "Select a horizontal AF pattern with LEFT and RIGHT keys.",
             },
             {
-                .name = "Vertical selection",
+                .name = "垂直选择",
                 .select = afp_vert_toggle,
                 .update = pattern_display,
                 .help = "Select a vertical AF pattern with LEFT and RIGHT keys.",
             },
             {
-                .name = "Shortcut keys",
+                .name = "快捷键",
                 .priv = &af_patterns,
                 .max = 1,
                 .help = "Choose patterns outside ML menu, display OFF, arrows+SET.",

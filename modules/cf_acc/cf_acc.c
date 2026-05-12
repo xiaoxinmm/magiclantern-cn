@@ -193,7 +193,7 @@ static MENU_SELECT_FUNC(cf_acc_read_select)
 static struct menu_entry cf_acc_menu[] =
 {
     {
-        .name = "Read CF details (MAY CAUSE ERR)",
+        .name = "读取CF详细信息(可能导致错误)",
         .update = &cf_acc_read_update,
         .select = &cf_acc_read_select,
         .priv = NULL,

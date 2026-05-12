@@ -3349,7 +3349,7 @@ extern int voice_tags; // beep.c
 static struct menu_entry shoot_menus[] = {
     #ifdef FEATURE_HDR_BRACKETING
     {
-        .name = "Advanced Bracket",
+        .name = "高级包围曝光",
         .priv = &hdr_enabled,
         .update  = hdr_display,
         .max  = 1,
@@ -3358,7 +3358,7 @@ static struct menu_entry shoot_menus[] = {
         .submenu_width = 710,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Bracket type",
+                .name = "包围类型",
                 .priv       = &hdr_type,
                 .max = 2,
                 .icon_type = IT_DICE,
@@ -3369,7 +3369,7 @@ static struct menu_entry shoot_menus[] = {
                          "DOF bracket: keep exposure constant, change Av/Tv ratio.",
             },
             {
-                .name = "Frames",
+                .name = "张数",
                 .priv = &hdr_steps,
                 .min = 1,
                 .max = 12,
@@ -3379,7 +3379,7 @@ static struct menu_entry shoot_menus[] = {
                 .help = "Number of bracketed shots. Can be computed automatically.",
             },
             {
-                .name = "EV increment",
+                .name = "EV步长",
                 .priv       = &hdr_stepsize,
                 .select     = hdr_stepsize_toggle,
                 .update = hdr_check_excessive_settings,
@@ -3390,7 +3390,7 @@ static struct menu_entry shoot_menus[] = {
                 .help = "Exposure difference between two frames.",
             },
             {
-                .name = "Sequence",
+                .name = "顺序",
                 .priv       = &hdr_sequence,
                 .max = 2,
                 .icon_type = IT_DICE,
@@ -3403,7 +3403,7 @@ static struct menu_entry shoot_menus[] = {
             },
             #ifndef CONFIG_5DC
             {
-                .name = "2-second delay",
+                .name = "2秒延迟",
                 .priv       = &hdr_delay,
                 .max = 1,
                 .help  = "Delay before starting the exposure.",
@@ -3412,7 +3412,7 @@ static struct menu_entry shoot_menus[] = {
             },
             #endif
             {
-                .name = "ISO shifting",
+                .name = "ISO偏移",
                 .priv       = &hdr_iso,
                 .max = 2,
                 .help =  "Also use ISO as bracket variable. Range: 100 - max AutoISO.",
@@ -3429,7 +3429,7 @@ static struct menu_entry shoot_menus[] = {
     
     #ifdef FEATURE_INTERVALOMETER
     {
-        .name = "Intervalometer",
+        .name = "定时拍摄",
         .priv       = &interval_enabled,
         .max        = 1,
         .update     = intervalometer_display,
@@ -3438,7 +3438,7 @@ static struct menu_entry shoot_menus[] = {
         .works_best_in = DEP_PHOTO_MODE,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Take a pic every",
+                .name = "每隔",
                 .priv       = &interval_time,
                 .max        = TIME_MAX_VALUE,
                 .update     = interval_timer_display,
@@ -3447,7 +3447,7 @@ static struct menu_entry shoot_menus[] = {
                 .help = "Duration between two shots.",
             },
             {
-                .name = "Start trigger",
+                .name = "启动触发",
                 .priv = &interval_trigger,
                 .update = interval_trigger_update,
                 .max = 2,
@@ -3459,7 +3459,7 @@ static struct menu_entry shoot_menus[] = {
 
             },
             {
-                .name = "Start after",
+                .name = "延迟启动",
                 .priv       = &interval_start_time,
                 .max        = TIME_MAX_VALUE,
                 .update     = interval_start_after_display,
@@ -3468,7 +3468,7 @@ static struct menu_entry shoot_menus[] = {
                 .help = "Start the intervalometer after X seconds / minutes / hours.",
             },
             {
-                .name = "Stop after",
+                .name = "停止条件",
                 .priv       = &interval_stop_after,
                 .max        = 5000, // 5000 shots
                 .unit       = UNIT_DEC,
@@ -3485,7 +3485,7 @@ MENU_PLACEHOLDER("Post Deflicker"),
 
     #ifdef FEATURE_BULB_TIMER
     {
-        .name = "Bulb Timer",
+        .name = "B门定时",
         .priv = &bulb_timer,
         .update = bulb_display, 
         .max  = 1,
@@ -3495,14 +3495,14 @@ MENU_PLACEHOLDER("Post Deflicker"),
         .submenu_width = 710,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Exposure duration",
+                .name = "曝光时长",
                 .priv = &bulb_duration,
                 .max = TIME_MAX_VALUE,
                 .icon_type = IT_PERCENT,
                 .unit = UNIT_TIME
             },
             {
-                .name = "Display during exposure",
+                .name = "曝光期间显示",
                 .priv = &bulb_display_mode,
                 #ifdef FEATURE_BULB_TIMER_SHOW_PREVIOUS_PIC
                 .max = 2,
@@ -3520,7 +3520,7 @@ MENU_PLACEHOLDER("Post Deflicker"),
     #endif  
     #ifdef FEATURE_LCD_SENSOR_REMOTE
     {
-        .name = "LCDsensor Remote",
+        .name = "LCD感应遥控",
         .priv       = &lcd_release_running,
         .max        = 3,
         .update     = lcd_release_display,
@@ -3530,7 +3530,7 @@ MENU_PLACEHOLDER("Post Deflicker"),
     #endif
     #ifdef FEATURE_AUDIO_REMOTE_SHOT
     {
-        .name = "Audio RemoteShot",
+        .name = "声控释放",
         .priv       = &audio_release_running,
         .max        = 1,
         .update     = audio_release_display,
@@ -3538,7 +3538,7 @@ MENU_PLACEHOLDER("Post Deflicker"),
         //.essential = FOR_PHOTO,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Trigger level (dB)",
+                .name = "触发电平(dB)",
                 .priv = &audio_release_level, 
                 .min = 1,
                 .max = 20,
@@ -3550,7 +3550,7 @@ MENU_PLACEHOLDER("Post Deflicker"),
     #endif
     #ifdef FEATURE_MOTION_DETECT
     {
-        .name = "Motion Detect",
+        .name = "运动检测",
         .priv       = &motion_detect,
         .max        = 1,
         .update     = motion_detect_display,
@@ -3559,7 +3559,7 @@ MENU_PLACEHOLDER("Post Deflicker"),
         .submenu_width = 650,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Trigger by",
+                .name = "触发方式",
                 .priv = &motion_detect_trigger, 
                 .max = 2,
                 .choices = CHOICES("Expo. change", "Frame diff.", "Steady hands"),
@@ -3570,21 +3570,21 @@ MENU_PLACEHOLDER("Post Deflicker"),
                          "STDY: take pic if there's little or no motion (cam steady).",
             },
             {
-                .name = "Trigger level",
+                .name = "触发灵敏度",
                 .priv = &motion_detect_level, 
                 .min = 1,   
                 .max = 30,
                 .help = "Higher values = less sensitive to motion.",
             },
             {
-                .name = "Detect Size",
+                .name = "检测范围",
                 .priv = &motion_detect_size, 
                 .max = 2,
                 .choices = CHOICES("Small", "Medium", "Large"),
                 .help = "Size of the area on which motion shall be detected.",
             },
             {
-                .name = "Delay",
+                .name = "延迟",
                 .priv = &motion_detect_delay,
                 .max  = 10,
                 .min  = 0,
@@ -3607,7 +3607,7 @@ MENU_PLACEHOLDER("Post Deflicker"),
     {
         // 5DC can't do handheld MLU
         // 5D3 can do, but doesn't need it (it has silent mode with little or no vibration)
-        .name = "Mirror Lockup",
+        .name = "反光板预升",
         .priv = &mlu_auto,
         .update = mlu_display, 
         .select = mlu_toggle,
@@ -3623,7 +3623,7 @@ MENU_PLACEHOLDER("Post Deflicker"),
         .submenu_width = 700,
         .children =  (struct menu_entry[]) {
             {
-                .name = "MLU mode",
+                .name = "预升模式",
                 .priv = &mlu_mode,
                 .select = mlu_toggle_mode,
                 #ifdef FEATURE_MLU_HANDHELD
@@ -3639,7 +3639,7 @@ MENU_PLACEHOLDER("Post Deflicker"),
             },
             #ifdef FEATURE_MLU_HANDHELD
             {
-                .name = "Handheld Shutter",
+                .name = "手持快门",
                 .priv = &mlu_handheld_shutter, 
                 .max = 1,
                 .icon_type = IT_DICE,
@@ -3647,7 +3647,7 @@ MENU_PLACEHOLDER("Post Deflicker"),
                 .help = "At what shutter speeds you want to use handheld MLU."
             },
             {
-                .name = "Handheld Delay",
+                .name = "手持延迟",
                 .priv = &mlu_handheld_delay, 
                 .min = 1,
                 .max = 7,
@@ -3661,14 +3661,14 @@ MENU_PLACEHOLDER("Post Deflicker"),
                 #error This requires FEATURE_MLU_HANDHELD.
                 #endif
             {
-                .name = "Handheld Debug",
+                .name = "手持调试",
                 .priv = &mlu_handled_debug, 
                 .max = 1,
                 .help = "Check whether the 'mirror up' event is detected correctly."
             },
             #endif
             {
-                .name   = "Normal MLU Delay",
+                .name   = "常规预升延迟",
                 .priv   = &lens_mlu_delay,
                 .min    = 5,
                 .max    = 11,
@@ -3691,7 +3691,7 @@ MENU_PLACEHOLDER("Post Deflicker"),
 
     #ifdef FEATURE_VOICE_TAGS
     {
-        .name = "Voice Tags", 
+        .name = "语音标签", 
         .priv = &voice_tags, 
         .max = 1,
         .help = "After you take a picture, press SET to add a voice tag.",
@@ -3708,13 +3708,13 @@ MENU_PLACEHOLDER("Post Deflicker"),
 
     #ifdef FEATURE_FLASH_TWEAKS
     {
-        .name = "Flash Tweaks",
+        .name = "闪光灯调整",
         .select     = menu_open_submenu,
         .help = "Flash exposure compensation, 3rd party flash in LiveView...",
         .depends_on = DEP_PHOTO_MODE,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Flash expo comp.",
+                .name = "闪光曝光补偿",
                 .priv = &lens_info.flash_ae,
                 .min = FLASH_MIN_EV * 8,
                 .max = FLASH_MAX_EV * 8,
@@ -3726,7 +3726,7 @@ MENU_PLACEHOLDER("Post Deflicker"),
             },
             #ifdef FEATURE_FLASH_NOFLASH
             {
-                .name = "Flash / No flash",
+                .name = "闪/不闪各一张",
                 .update    = flash_and_no_flash_display,
                 .priv = &flash_and_no_flash,
                 .max = 1,
@@ -3736,7 +3736,7 @@ MENU_PLACEHOLDER("Post Deflicker"),
             #endif
             #ifdef FEATURE_LV_3RD_PARTY_FLASH
             {
-                .name = "3rd p. flash LV",
+                .name = "第三方闪光灯",
                 .priv = &lv_3rd_party_flash,
                 .max = 1,
                 .depends_on = DEP_LIVEVIEW | DEP_PHOTO_MODE,
@@ -3752,14 +3752,14 @@ MENU_PLACEHOLDER("Post Deflicker"),
     // This entire menu is pointless until ML can trigger capture of images.
     #ifndef CONFIG_IMAGE_CAPTURE_NOT_WORKING
     {
-        .name = "Shoot Preferences",
+        .name = "拍摄偏好",
         .select     = menu_open_submenu,
         .help = "Autofocus, number of pics to take at once...",
         .depends_on = DEP_PHOTO_MODE,
         .submenu_width = 710,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Pics at once",
+                .name = "连拍张数",
                 .priv = &pics_to_take_at_once,
                 .max = 8,
                 .choices = CHOICES("1 (OFF)", "2", "3", "4", "5", "6", "7", "8", "9"),
@@ -3770,7 +3770,7 @@ MENU_PLACEHOLDER("Post Deflicker"),
             },
             #ifdef CONFIG_PROP_REQUEST_CHANGE
             {
-                .name = "Use Autofocus", 
+                .name = "使用自动对焦", 
                 .priv = &shoot_use_af,
                 .update = use_af_update,
                 .max = 1,
@@ -3783,7 +3783,7 @@ MENU_PLACEHOLDER("Post Deflicker"),
             #endif
             #if defined(FEATURE_HDR_BRACKETING) || defined(FEATURE_FOCUS_STACKING)
             {
-                .name = "Post scripts",
+                .name = "拍摄后脚本",
                 .priv       = &hdr_scripts,
                 .max = 3,
                 .help = "Post-processing scripts for bracketing and focus stacking.",
@@ -3792,7 +3792,7 @@ MENU_PLACEHOLDER("Post Deflicker"),
             #endif
             #ifdef FEATURE_INTERVALOMETER
             {
-                .name = "Intervalometer Script",
+                .name = "定时拍摄脚本",
                 .priv       = &interval_scripts,
                 .max = 3,
                 .help = "Scripts for sorting intervalometer sequences.",
@@ -3801,7 +3801,7 @@ MENU_PLACEHOLDER("Post Deflicker"),
             #endif
             #ifdef FEATURE_SNAP_SIM
             {
-                .name = "Snap Simulation",
+                .name = "模拟释放",
                 .priv = &snap_sim, 
                 .max = 1,
                 .icon_type = IT_BOOL,
@@ -3829,7 +3829,7 @@ extern int zoom_trick;
 struct menu_entry tweak_menus_shoot[] = {
     #ifdef FEATURE_LV_ZOOM_SETTINGS
     {
-        .name = "LiveView zoom tweaks",
+        .name = "实时取景缩放",
         .select = menu_open_submenu,
         .submenu_width = 650,
         .icon_type = IT_SUBMENU,
@@ -3838,7 +3838,7 @@ struct menu_entry tweak_menus_shoot[] = {
         .children =  (struct menu_entry[]) {
             #ifdef CONFIG_ZOOM_X1
             {
-                .name = "Zoom x1",
+                .name = "缩放x1",
                 .priv = &zoom_disable_x1, 
                 .max = 1,
                 .choices = CHOICES("ON", "Disable"),
@@ -3849,7 +3849,7 @@ struct menu_entry tweak_menus_shoot[] = {
             },
             #endif
             {
-                .name = "Zoom x5",
+                .name = "缩放x5",
                 .priv = &zoom_disable_x5, 
                 .max = 1,
                 .choices = CHOICES("ON", "Disable"),
@@ -3858,7 +3858,7 @@ struct menu_entry tweak_menus_shoot[] = {
                 .icon_type = IT_DISABLE_SOME_FEATURE,
             },
             {
-                .name = "Zoom x10",
+                .name = "缩放x10",
                 .priv = &zoom_disable_x10, 
                 .max = 1,
                 .select = zoom_x5_x10_toggle,
@@ -3871,7 +3871,7 @@ struct menu_entry tweak_menus_shoot[] = {
                 #error This requires CONFIG_EXPSIM.
                 #endif
             {
-                .name = "Auto exposure on Zoom",
+                .name = "缩放自动曝光",
                 .priv = &zoom_auto_exposure,
                 .max = 1,
                 .help = "Auto adjusts exposure, so you can focus manually wide open.",
@@ -3882,21 +3882,21 @@ struct menu_entry tweak_menus_shoot[] = {
             #endif
             #ifdef FEATURE_LV_ZOOM_SHARP_CONTRAST
             {
-                .name = "Increase SharpContrast",
+                .name = "锐度对比度增强",
                 .priv = &zoom_sharpen,
                 .max = 1,
                 .help = "Increase sharpness and contrast when you zoom in LiveView."
             },
             #endif
             {
-                .name = "Zoom on HalfShutter",
+                .name = "半按快门缩放",
                 .priv = &zoom_halfshutter,
                 .max = 1,
                 .help = "Enable zoom when you hold the shutter halfway pressed.",
                 .help2 = "This feature only works as long as you don't trigger autofocus.",
             },
             {
-                .name = "Zoom with Focus Ring",
+                .name = "对焦环缩放",
                 .priv = &zoom_focus_ring,
                 .max = 1,
                 .help = "Zoom when you turn the focus ring (only some Canon lenses).",
@@ -3905,7 +3905,7 @@ struct menu_entry tweak_menus_shoot[] = {
             #ifdef FEATURE_ZOOM_TRICK_5D3
             #ifdef CONFIG_6D
             {
-                .name = "Double Click",
+                .name = "双击缩放",
                 .priv = &zoom_trick,
                 .max = 2,
                 .help = "Double-click top-right button in LV. Shortcuts or Zoom.",
@@ -3913,7 +3913,7 @@ struct menu_entry tweak_menus_shoot[] = {
             },
             #else // 5D3
             {
-                .name = "Zoom with old button",
+                .name = "旧按键缩放",
                 .priv = &zoom_trick,
                 .max = 1,
                 .help = "Use the old Zoom In button, as in 5D2. Double-click in LV.",
@@ -3942,7 +3942,7 @@ extern int digic_shadow_lift;
 static struct menu_entry expo_menus[] = {
     #ifdef FEATURE_WHITE_BALANCE
     {
-        .name = "White Balance",
+        .name = "白平衡",
         .update    = kelvin_wbs_display,
         .select     = kelvin_toggle,
         .help  = "Adjust Kelvin white balance and GM/BA WBShift.",
@@ -3951,14 +3951,14 @@ static struct menu_entry expo_menus[] = {
         .submenu_width = 700,
         .children =  (struct menu_entry[]) {
             {
-                .name = "White Balance",
+                .name = "白平衡",
                 .update    = kelvin_display,
                 .select     = kelvin_toggle,
                 .help = "Adjust Kelvin white balance.",
                 .edit_mode = EM_SHOW_LIVEVIEW,
             },
             {
-                .name = "WBShift G/M",
+                .name = "绿/品偏移",
                 .update = wbs_gm_display, 
                 .select = wbs_gm_toggle,
                 .min = -9,
@@ -3968,7 +3968,7 @@ static struct menu_entry expo_menus[] = {
                 .edit_mode = EM_SHOW_LIVEVIEW,
             },
             {
-                .name = "WBShift B/A",
+                .name = "蓝/琥珀偏移",
                 .update = wbs_ba_display, 
                 .select = wbs_ba_toggle, 
                 .min = -9,
@@ -3978,7 +3978,7 @@ static struct menu_entry expo_menus[] = {
                 .edit_mode = EM_SHOW_LIVEVIEW,
             },
             {
-                .name = "R multiplier",
+                .name = "R增益",
                 .priv = (void *)(1),
                 .update = wb_custom_gain_display,
                 .select = wb_custom_gain_toggle,
@@ -3987,7 +3987,7 @@ static struct menu_entry expo_menus[] = {
                 .edit_mode = EM_SHOW_LIVEVIEW,
             },
             {
-                .name = "G multiplier",
+                .name = "G增益",
                 .priv = (void *)(2),
                 .update = wb_custom_gain_display,
                 .select = wb_custom_gain_toggle,
@@ -3996,7 +3996,7 @@ static struct menu_entry expo_menus[] = {
                 .edit_mode = EM_SHOW_LIVEVIEW,
             },
             {
-                .name = "B multiplier",
+                .name = "B增益",
                 .priv = (void *)(3),
                 .update = wb_custom_gain_display,
                 .select = wb_custom_gain_toggle,
@@ -4005,17 +4005,17 @@ static struct menu_entry expo_menus[] = {
                 .edit_mode = EM_SHOW_LIVEVIEW,
             },
             /*{
-                .name = "Auto adjust Kelvin",
+                .name = "自动色温",
                 .select = kelvin_auto,
                 .help = "LiveView: adjust Kelvin value once for the current scene."
             },
             {
-                .name = "Auto adjust Green-Magenta",
+                .name = "自动绿/品校正",
                 .select = wbs_gm_auto,
                 .help = "LiveView: adjust Green-Magenta once for the current scene."
             },*/
             {
-                .name = "Auto adjust Kelvin + G/M",
+                .name = "自动色温+绿/品",
                 .select = kelvin_n_gm_auto,
                 .help = "LiveView: adjust Kelvin and G-M once (Push-button WB).",
                 .depends_on = DEP_LIVEVIEW,
@@ -4027,7 +4027,7 @@ static struct menu_entry expo_menus[] = {
 
     #ifdef FEATURE_EXPO_ISO
     {
-        .name = "ISO",
+        .name = "感光度",
         .update    = iso_display,
         .select     = iso_toggle,
         .help  = "Adjust and fine-tune ISO. Also displays APEX Sv value.",
@@ -4038,7 +4038,7 @@ static struct menu_entry expo_menus[] = {
 
         .children =  (struct menu_entry[]) {
             {
-                .name = "Equivalent ISO",
+                .name = "等效感光度",
                 .help = "ISO equivalent (analog + digital components).",
                 .priv = &lens_info.iso_equiv_raw,
                 .unit = UNIT_ISO,
@@ -4047,7 +4047,7 @@ static struct menu_entry expo_menus[] = {
                 .update = iso_icon_update,
             },
             {
-                .name = "Canon analog ISO",
+                .name = "佳能模拟感光度",
                 .help = "Analog ISO component (ISO at which the sensor is driven).",
                 .priv = &lens_info.iso_analog_raw,
                 .unit = UNIT_ISO,
@@ -4057,7 +4057,7 @@ static struct menu_entry expo_menus[] = {
                 .update = iso_icon_update,
             },
             {
-                .name = "Canon digital ISO",
+                .name = "佳能数字感光度",
                 .help = "Canon's digital ISO component. Strongly recommended: 0.",
                 .priv = &lens_info.iso_digital_ev,
                 .unit = UNIT_1_8_EV,
@@ -4068,7 +4068,7 @@ static struct menu_entry expo_menus[] = {
             },
             #ifdef FEATURE_EXPO_ISO_DIGIC
             {
-                .name = "ML digital ISO",
+                .name = "ML数字感光度",
                 .update = digic_iso_print_movie,
                 .select = digic_iso_toggle_movie,
                 .help = "ISO tweaks. Negative gain has better highlight roll-off.",
@@ -4080,7 +4080,7 @@ static struct menu_entry expo_menus[] = {
             /*
             #ifdef FEATURE_EXPO_ISO_DIGIC
             {
-                .name = "ISO Selection",
+                .name = "感光度选择",
                 .priv = &iso_selection,
                 .max = 1,
                 .help = "What ISOs should be available from main menu and shortcuts.",
@@ -4091,7 +4091,7 @@ static struct menu_entry expo_menus[] = {
             */
             #if 0 // unstable
             {
-                .name = "Min Movie AutoISO",
+                .name = "最低影片自动ISO",
                 .priv = &lvae_iso_min,
                 .min = 72,
                 .max = 120,
@@ -4100,7 +4100,7 @@ static struct menu_entry expo_menus[] = {
                 .edit_mode = EM_SHOW_LIVEVIEW,
             },
             {
-                .name = "Max Movie AutoISO",
+                .name = "最高影片自动ISO",
                 .priv = &lvae_iso_max,
                 .min = 72,
                 .max = 120,
@@ -4109,7 +4109,7 @@ static struct menu_entry expo_menus[] = {
                 .edit_mode = EM_SHOW_LIVEVIEW,
             },
             {
-                .name = "A-ISO smoothness",
+                .name = "A-ISO平滑度",
                 .priv = &lvae_iso_speed,
                 .min = 3,
                 .max = 30,
@@ -4123,7 +4123,7 @@ static struct menu_entry expo_menus[] = {
     #endif
     #ifdef FEATURE_EXPO_SHUTTER
     {
-        .name = "Shutter",
+        .name = "快门",
         .update     = shutter_display,
         .select     = shutter_toggle,
         .icon_type  = IT_PERCENT,
@@ -4133,7 +4133,7 @@ static struct menu_entry expo_menus[] = {
     #endif
     #ifdef FEATURE_EXPO_APERTURE
     {
-        .name = "Aperture",
+        .name = "光圈",
         .update     = aperture_display,
         .select     = aperture_toggle,
         .icon_type  = IT_PERCENT,
@@ -4147,7 +4147,7 @@ static struct menu_entry expo_menus[] = {
     MENU_PLACEHOLDER("Auto ETTR"),
     #ifdef FEATURE_EXPO_LOCK
     {
-        .name       = "Expo. Lock",
+        .name       = "曝光锁定",
         .priv       = &expo_lock,
         .max        = 1,
         .update     = expo_lock_display,
@@ -4156,7 +4156,7 @@ static struct menu_entry expo_menus[] = {
         .depends_on = DEP_M_MODE | DEP_MANUAL_ISO,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Tv  -> ",
+                .name = "快门→",
                 .priv    = &expo_lock_tv,
                 .max = 2,
                 .icon_type = IT_DICE_OFF,
@@ -4164,7 +4164,7 @@ static struct menu_entry expo_menus[] = {
                 .help = "When you change Tv, ML adjusts Av and ISO to keep exposure.",
             },
             {
-                .name = "Av  -> ",
+                .name = "光圈→",
                 .priv    = &expo_lock_av,
                 .max = 2,
                 .icon_type = IT_DICE_OFF,
@@ -4172,7 +4172,7 @@ static struct menu_entry expo_menus[] = {
                 .help = "When you change Av, ML adjusts Tv and ISO to keep exposure.",
             },
             {
-                .name = "ISO -> ",
+                .name = "感光度→",
                 .priv    = &expo_lock_iso,
                 .max = 2,
                 .icon_type = IT_DICE_OFF,
@@ -4185,7 +4185,7 @@ static struct menu_entry expo_menus[] = {
     #endif
     #ifdef FEATURE_EXPO_PRESET
     {
-        .name = "Expo. Presets",
+        .name = "曝光预设",
         .priv = &expo_preset,
         .max = 2,
         .choices = CHOICES("OFF", "Press SET", "Press " INFO_BTN_NAME),

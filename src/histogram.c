@@ -776,13 +776,13 @@ static LVINFO_UPDATE_FUNC(histobar_indic_update)
 
 static struct lvinfo_item info_items[] = {
     {
-        .name = "HistoBar",
+        .name = "直方图条",
         .which_bar = LV_PREFER_TOP_BAR,
         .update = histobar_update,
         .preferred_position = -1,
     },
     {
-        .name = "EV indic",
+        .name = "EV指示",
         .which_bar = LV_PREFER_TOP_BAR,
         .update = histobar_indic_update,
         .preferred_position = -1,

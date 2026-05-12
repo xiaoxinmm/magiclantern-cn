@@ -460,7 +460,7 @@ static MENU_UPDATE_FUNC(patches_update)
 static struct menu_entry patch_menu[] =
 {
     {
-        .name = "Memory patches",
+        .name = "内存补丁",
         .update = patches_update,
         .select = menu_open_submenu,
         .icon_type = IT_SUBMENU,

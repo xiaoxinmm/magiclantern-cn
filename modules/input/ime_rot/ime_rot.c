@@ -730,7 +730,7 @@ static void *ime_start(char *caption, char *text, int32_t max_length, int32_t co
 
 static t_ime_handler ime_descriptor = 
 {
-    .name = "ime_rot",
+    .name = "旋转输入法",
     .description = "Standard input method",
     .start = &ime_start,
     .configure = &ime_config,

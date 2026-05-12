@@ -235,36 +235,36 @@ static void iso_movie_test()
 
 static struct menu_entry iso_test_menus[] = {
     {
-        .name        = "ISO tests...",
+        .name        = "ISO测试...",
         .select        = menu_open_submenu,
         .help = "Computes camera response curve for certain ISO values.",
         .children =  (struct menu_entry[]) {
             {
-                .name = "Response curve @ current ISO",
+                .name = "当前ISO响应曲线",
                 .priv = iso_response_curve_current,
                 .select = run_in_separate_task,
                 .help = "MOV: point camera at smth bright, 1/30, f1.8. Takes 1 min.",
             },
             {
-                .name = "Test ISO 100x/160x/80x series",
+                .name = "测试ISO 100x/160x/80x系列",
                 .priv = iso_response_curve_160,
                 .select = run_in_separate_task,
                 .help = "ISO 100,200..3200, 80eq,160/160eq...2500/eq. Takes 20 min.",
             },
             {
-                .name = "Test 70x/65x/50x series",
+                .name = "测试70x/65x/50x系列",
                 .priv = iso_response_curve_logain,
                 .select = run_in_separate_task,
                 .help = "ISOs with -0.5/-0.7/-0.8 EV of DIGIC gain. Takes 20 mins.",
             },
             {
-                .name = "Test HTP series",
+                .name = "测试HTP系列",
                 .priv = iso_response_curve_htp,
                 .select = run_in_separate_task,
                 .help = "Full-stop ISOs with HTP on. Also with -1 EV of DIGIC gain.",
             },
             {
-                .name = "Movie test",
+                .name = "影片测试",
                 .priv = iso_movie_test,
                 .select = run_in_separate_task,
                 .help = "Records two test movies, changing settings every 2 seconds.",

@@ -380,7 +380,7 @@ static MENU_SELECT_FUNC(adtg_main)
 static struct menu_entry adtg_gui_menu[] =
 {
     {
-        .name = "ADTG registers",
+        .name = "ADTG寄存器",
         .update = adtg_update,
         .select = &adtg_main,
         .icon_type = IT_SUBMENU,
@@ -388,14 +388,14 @@ static struct menu_entry adtg_gui_menu[] =
         .submenu_width = 710,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Editing step", 
+                .name = "编辑步长", 
                 .priv = &edit_multiplier,
                 .max = 5,
                 .choices = CHOICES("1", "16 (x << 4)", "256 (x << 8)", "10", "100", "1000"),
                 .help = "Step used when editing register values."
             },
             {
-                .name = "Show",
+                .name = "显示",
                 .priv = &show_what,
                 .update = show_update,
                 .max = 2,

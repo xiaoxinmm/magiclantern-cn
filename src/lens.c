@@ -174,7 +174,7 @@ static struct semaphore * focus_done_sem;
 
 
 struct lens_info lens_info = {
-    .name        = "NO LENS NAME"
+    .name        = "无镜头名称"
 };
 
 const char * lens_format_dist( unsigned mm)
@@ -2060,7 +2060,7 @@ PROP_HANDLER(PROP_HALF_SHUTTER)
 static struct menu_entry lens_menus[] = {
     #ifdef FEATURE_MOVIE_LOGGING
     {
-        .name = "Movie Logging",
+        .name = "影片日志",
         .priv = &movie_log,
         .max = 1,
         .help = "Save metadata for each movie, e.g. MVI_1234.LOG",
@@ -2184,12 +2184,12 @@ static MENU_UPDATE_FUNC(lens_focal_display)
 
 static struct menu_entry tweak_menus[] = {
    {
-        .name = "Lens Info Prefs",
+        .name = "镜头信息偏好",
         .select   = menu_open_submenu,
         .children =  (struct menu_entry[]) {
             #ifndef CONFIG_FULLFRAME
             {
-                .name = "Crop Factor Display",
+                .name = "裁切系数显示",
                 .priv = &crop_info,
                 .max  = 1,
                 .choices = CHOICES("OFF", "ON, 35mm eq."),
@@ -2198,7 +2198,7 @@ static struct menu_entry tweak_menus[] = {
             },
             #endif
             {
-                .name = "Focus Distance Units",
+                .name = "对焦距离单位",
                 .priv = &focus_units,
                 .choices = CHOICES("mm/cm", "ft/in"),
                 .max = 1,
@@ -2212,48 +2212,48 @@ static struct menu_entry tweak_menus[] = {
 /* better place for this menu? */
 static struct menu_entry lens_info_menus[] = {
    {
-        .name = "Lens info",
+        .name = "镜头信息",
         .select   = menu_open_submenu,
         .submenu_width = 700,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Name",
+                .name = "名称",
                 .update = &lens_name_display,
                 .help  = "Show current lens name (as reported by your lens or adapter).",
                 .help2 = "Read-only.",
             },
             {
-                .name = "Focal len",
+                .name = "焦距",
                 .update = &lens_focal_display,
                 .help  = "Show current lens focal length.",
                 .help2 = "Read-only. Zoom lenses are only updated in LiveView.",
             },
             {
-                .name = "Lens ID",
+                .name = "镜头ID",
                 .update = &lens_id_display,
                 .help  = "Show current lens ID. Should match exiftool TEST.CR2 -LensType -b.",
                 .help2 = "Read-only. Lenses from different manufacturers may have the same ID.",
             },
             {
-                .name = "Serial num",
+                .name = "序列号",
                 .update = &lens_serial_display,
                 .help  = "Show current lens serial number. Not all cameras report this.",
                 .help2 = "Read-only. Should match exiftool TEST.CR2 -LensSerialNumber .",
             },
             {
-                .name = "Version",
+                .name = "版本",
                 .update = &lens_version_display,
                 .help  = "Show current lens version string.",
                 .help2 = "Read-only.",
             },
             {
-                .name = "Capability",
+                .name = "功能",
                 .update = &lens_capabilities_display,
                 .help  = "Show current lens capability bits.",
                 .help2 = "Read-only.",
             },
             {
-                .name = "Extender",
+                .name = "增距镜",
                 .update = &lens_extender_display,
                 .help  = "Show current lens extender information byte.",
                 .help2 = "Read-only.",
@@ -3300,19 +3300,19 @@ static LVINFO_UPDATE_FUNC(ae_update)
 static struct lvinfo_item info_items[] = {
     /* Top bar */
     {
-        .name = "Clock",
+        .name = "时钟",
         .which_bar = LV_TOP_BAR_ONLY,
         .update = clock_update,
         .preferred_position = -50,
         .priority = -1,
     },
     {
-        .name = "Disp preset",
+        .name = "显示预设",
         .which_bar = LV_TOP_BAR_ONLY,
         .update = disp_preset_update,
     },
     {
-        .name = "Pic Quality",
+        .name = "图像画质",
         .which_bar = LV_TOP_BAR_ONLY,
         .update = picq_update,
     },
@@ -3323,71 +3323,71 @@ static struct lvinfo_item info_items[] = {
         .priority = -1,
     },
     {
-        .name = "Temperature",
+        .name = "温度",
         .which_bar = LV_TOP_BAR_ONLY,
         .update = temp_update,
         .priority = 1,
     },
     {
-        .name = "MVI number",
+        .name = "MVI编号",
         .which_bar = LV_TOP_BAR_ONLY,
         .update = mvi_number_update,
     },
     {
-        .name = "FPS",
+        .name = "帧率",
         .which_bar = LV_TOP_BAR_ONLY,
         .update = fps_update,
     },
     {
-        .name = "Free space",
+        .name = "剩余空间",
         .which_bar = LV_TOP_BAR_ONLY,
         .update = free_space_update,
     },
     /* Bottom bar */
     {
-        .name = "Mode",
+        .name = "模式",
         .which_bar = LV_BOTTOM_BAR_ONLY,
         .update = mode_update,
         .priority = 1,
         .preferred_position = -128,
     },
     {
-        .name = "Focal len",
+        .name = "焦距",
         .which_bar = LV_BOTTOM_BAR_ONLY,
         .update = focal_len_update,
     },
     {
-        .name = "IS",
+        .name = "防抖",
         .which_bar = LV_BOTTOM_BAR_ONLY,
         .update = is_update,
         .priority = -1,
     },
     {
-        .name = "Aperture",
+        .name = "光圈",
         .which_bar = LV_BOTTOM_BAR_ONLY,
         .update = av_update,
         .priority = 1,
     },
     {
-        .name = "Shutter",
+        .name = "快门",
         .which_bar = LV_BOTTOM_BAR_ONLY,
         .update = tv_update,
         .priority = 1,
     },
     {
-        .name = "ISO",
+        .name = "感光度",
         .which_bar = LV_BOTTOM_BAR_ONLY,
         .update = iso_update,
         .priority = 1,
     },
     {
-        .name = "White Balance",
+        .name = "白平衡",
         .which_bar = LV_BOTTOM_BAR_ONLY,
         .update = wb_update,
         .priority = 1,
     },
     {
-        .name = "Focus dist",
+        .name = "对焦距离",
         .which_bar = LV_BOTTOM_BAR_ONLY,
         .update = focus_dist_update,
     },
@@ -3398,13 +3398,13 @@ static struct lvinfo_item info_items[] = {
         .priority = -1,
     },
     {
-        .name = "Exposure Compensation",
+        .name = "曝光补偿",
         .which_bar = LV_BOTTOM_BAR_ONLY,
         .update = ae_update,
         .preferred_position = 50,
     },
     {
-        .name = "Battery",
+        .name = "电池",
         .which_bar = LV_BOTTOM_BAR_ONLY,
         .update = batt_update,
         .preferred_position = 127,

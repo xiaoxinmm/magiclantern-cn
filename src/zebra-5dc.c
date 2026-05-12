@@ -1704,7 +1704,7 @@ int handle_transparent_overlay(struct event * event)
 
 struct menu_entry zebra_menus[] = {
     {
-        .name = "Show Overlay",
+        .name = "显示叠加",
         .priv       = &global_draw_mode,
         .max = 1,
         .update    = global_draw_display,
@@ -1713,7 +1713,7 @@ struct menu_entry zebra_menus[] = {
         //.essential = FOR_LIVEVIEW,
     },
     {
-        .name = "Zebras",
+        .name = "斑马纹",
         .priv       = &zebra_draw,
         .update    = zebra_draw_display,
         .max = 1,
@@ -1721,7 +1721,7 @@ struct menu_entry zebra_menus[] = {
         //.essential = FOR_LIVEVIEW | FOR_PLAYBACK,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Color space",
+                .name = "色彩空间",
                 .priv = &zebra_colorspace, 
                 .max = 1,
                 .choices = (const char *[]) {"Luma", "RGB", "Luma Fast"},
@@ -1729,7 +1729,7 @@ struct menu_entry zebra_menus[] = {
                 .help = "Luma: red/blue. RGB: color is reverse of clipped channel.",
             },
             {
-                .name = "Underexposure",
+                .name = "欠曝",
                 .priv = &zebra_level_lo, 
                 .min = 0,
                 .max = 20,
@@ -1737,7 +1737,7 @@ struct menu_entry zebra_menus[] = {
                 .help = "Underexposure threshold.",
             },
             {
-                .name = "Overexposure", 
+                .name = "过曝", 
                 .priv = &zebra_level_hi,
                 .min = 70,
                 .max = 101,
@@ -1748,7 +1748,7 @@ struct menu_entry zebra_menus[] = {
         },
     },
     {
-        .name = "Focus Peak",
+        .name = "峰值对焦",
         .priv           = &focus_peaking,
         .update        = focus_peaking_display,
         .max = 1,
@@ -1757,7 +1757,7 @@ struct menu_entry zebra_menus[] = {
         //.essential = FOR_LIVEVIEW,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Filter bias", 
+                .name = "滤镜偏向", 
                 .priv = &focus_peaking_filter_edges,
                 .max = 2,
                 .choices = (const char *[]) {"Strong edges", "Balanced", "Fine details"},
@@ -1765,14 +1765,14 @@ struct menu_entry zebra_menus[] = {
                 .icon_type = IT_DICE
             },
             {
-                .name = "Threshold", 
+                .name = "阈值", 
                 .priv = &focus_peaking_pthr,
                 .select = focus_peaking_adjust_thr,
                 .help = "How many pixels are considered in focus (percentage).",
                 .unit = UNIT_PERCENT_x10
             },
             {
-                .name = "Color", 
+                .name = "颜色", 
                 .priv = &focus_peaking_color,
                 .max = 7,
                 .choices = (const char *[]) {"Red", "Green", "Blue", "Cyan", "Magenta", "Yellow", "Global Focus", "Local Focus"},
@@ -1780,7 +1780,7 @@ struct menu_entry zebra_menus[] = {
                 .icon_type = IT_DICE,
             },
             {
-                .name = "Grayscale img.", 
+                .name = "灰度图像", 
                 .priv = &focus_peaking_grayscale,
                 .max = 1,
                 .help = "Display the image in grayscale.",
@@ -1788,14 +1788,14 @@ struct menu_entry zebra_menus[] = {
             /*{
                 .priv = &focus_peaking_debug,
                 .max = 1,
-                .name = "Debug mode",
+                .name = "调试模式",
                 .help = "Displays raw contrast image (grayscale).",
             },*/
             MENU_EOL
         },
     },
     {
-        .name = "Spotmeter",
+        .name = "点测光",
         .priv           = &spotmeter_draw,
         .max = 1,
         .update        = spotmeter_menu_display,
@@ -1803,7 +1803,7 @@ struct menu_entry zebra_menus[] = {
         //.essential = FOR_LIVEVIEW | FOR_PLAYBACK,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Spotmeter Unit",
+                .name = "点测光单位",
                 .priv = &spotmeter_formula, 
                 .max = 4,
                 .choices = (const char *[]) {"Percent", "0..255", "IRE -1..101", "IRE 0..108", "RGB (HTML)"},
@@ -1815,7 +1815,7 @@ struct menu_entry zebra_menus[] = {
     },
     #if 0
     {
-        .name = "False color",
+        .name = "伪色",
         .priv       = &falsecolor_draw,
         .update    = falsecolor_display,
         .submenu_height = 160,
@@ -1823,7 +1823,7 @@ struct menu_entry zebra_menus[] = {
         //.essential = FOR_LIVEVIEW | FOR_PLAYBACK,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Palette",
+                .name = "调色板",
                 .priv = &falsecolor_palette, 
                 .max = COUNT(false_colour)-1,
                 .icon_type = IT_DICE,
@@ -1835,7 +1835,7 @@ struct menu_entry zebra_menus[] = {
     },
     #endif
 /*  {
-        .name = "Histo/Wavefm",
+        .name = "直方图/波形",
         .priv       = &hist_draw,
         .select     = zebra_toggle,
         .select_auto = waveform_toggle,
@@ -1845,7 +1845,7 @@ struct menu_entry zebra_menus[] = {
     },
     */
     {
-        .name = "Histogram",
+        .name = "直方图",
         .priv       = &hist_draw,
         .max = 1,
         .update = hist_print,
@@ -1853,7 +1853,7 @@ struct menu_entry zebra_menus[] = {
         //.essential = FOR_LIVEVIEW | FOR_PLAYBACK,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Color space",
+                .name = "色彩空间",
                 .priv = &hist_colorspace, 
                 .max = 1,
                 .choices = (const char *[]) {"Luma", "RGB"},
@@ -1861,7 +1861,7 @@ struct menu_entry zebra_menus[] = {
                 .help = "Color space for histogram: Luma channel (YUV) / RGB.",
             },
             {
-                .name = "Scaling",
+                .name = "缩放",
                 .priv = &hist_log, 
                 .max = 1,
                 .choices = (const char *[]) {"Linear", "Logarithmic"},
@@ -1869,7 +1869,7 @@ struct menu_entry zebra_menus[] = {
                 .icon_type = IT_DICE,
             },
             {
-                .name = "Clip warning",
+                .name = "裁剪警告",
                 .priv = &hist_warn, 
                 .max = 5,
                 .update = hist_warn_display,
@@ -1879,14 +1879,14 @@ struct menu_entry zebra_menus[] = {
         },
     },
     {
-        .name = "Waveform",
+        .name = "波形图",
         .priv       = &waveform_draw,
         .update = waveform_print,
         .max = 1,
         .help = "Exposure aid: useful for checking overall brightness.",
         .children =  (struct menu_entry[]) {
             {
-                .name = "Size",
+                .name = "尺寸",
                 .priv = &waveform_size, 
                 .max = 1,
                 .choices = (const char *[]) {"Small", "Large"},
@@ -1898,7 +1898,7 @@ struct menu_entry zebra_menus[] = {
         //.essential = FOR_LIVEVIEW | FOR_PLAYBACK,
     },
     {
-        .name = "Vectorscope",
+        .name = "向量示波器",
         .update = vectorscope_display,
         .priv       = &vectorscope_draw,
         .max = 1,

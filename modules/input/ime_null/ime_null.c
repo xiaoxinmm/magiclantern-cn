@@ -29,7 +29,7 @@ static void *ime_null_start(char *caption, char *text, int32_t max_length, int32
 
 static t_ime_handler ime_null_descriptor = 
 {
-    .name = "ime_null",
+    .name = "空输入法",
     .description = "Dummy input method",
     .start = &ime_null_start,
     .configure = &ime_null_config,

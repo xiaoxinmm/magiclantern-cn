@@ -52,7 +52,7 @@ static void mpu_dump_task()
 static struct menu_entry mpu_dump_menu[] =
 {
     {
-        .name = "Dump MPU memory",
+        .name = "转储MPU内存",
         .select = run_in_separate_task,
         .priv = mpu_dump_task,
     }

@@ -91,7 +91,7 @@ static void dump_task()
 static struct menu_entry dump_menu[] =
 {
     {
-        .name   = "Dump device ID blocks",
+        .name   = "转储设备ID块",
         .select = run_in_separate_task,
         .priv   = dump_task,
         .icon_type = IT_ACTION,

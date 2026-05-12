@@ -140,50 +140,50 @@ static MENU_SELECT_FUNC(ime_base_config)
 static struct menu_entry ime_base_menu[] =
 {
     {
-        .name = "IME System",
+        .name = "输入法系统",
         .submenu_width = 710,
         .help = "Input Method Editor System",
         .children =  (struct menu_entry[]) {
             {
-                .name = "Method",
+                .name = "方法",
                 .priv = &ime_base_method,
                 .select = &ime_base_method_select,
                 .update = &ime_base_method_update,
             },
             {
-                .name = "Configure method",
+                .name = "配置方法",
                 .select = &ime_base_config,
             },
             {
-                .name = "Test: All chars",
+                .name = "测试:所有字符",
                 .select = &ime_base_test_any,
             },
             {
-                .name = "Test: Alpha",
+                .name = "测试:字母",
                 .select = &ime_base_test_alpha,
             },
             {
-                .name = "Test: Numeric",
+                .name = "测试:数字",
                 .select = &ime_base_test_num,
             },
             {
-                .name = "Test: Hexadecimal",
+                .name = "测试:十六进制",
                 .select = &ime_base_test_hex,
             },
             {
-                .name = "Test: Alphanumeric",
+                .name = "测试:字母数字",
                 .select = &ime_base_test_alnum,
             },
             {
-                .name = "Test: Punctuation",
+                .name = "测试:标点",
                 .select = &ime_base_test_punct,
             },
             {
-                .name = "Test: Math",
+                .name = "测试:数学",
                 .select = &ime_base_test_math,
             },
             {
-                .name = "Test: File",
+                .name = "测试:文件",
                 .select = &ime_base_test_file,
             },
             MENU_EOL,

@@ -286,7 +286,7 @@ void vectorscope_redraw()
 static struct menu_entry vectorscope_menus[] = {
     #ifdef FEATURE_VECTORSCOPE
     {
-        .name = "Vectorscope",
+        .name = "向量示波器",
         .priv       = &vectorscope_draw,
         .max = 1,
         .update = vectorscope_update,
@@ -294,7 +294,7 @@ static struct menu_entry vectorscope_menus[] = {
         .depends_on = DEP_GLOBAL_DRAW | DEP_EXPSIM,
         .children =  (struct menu_entry[]) {
             {
-                .name = "UV scaling",
+                .name = "UV缩放",
                 .priv = &vectorscope_gain, 
                 .max = 1,
                 .choices = (const char *[]) {"OFF", "2x", "4x"},

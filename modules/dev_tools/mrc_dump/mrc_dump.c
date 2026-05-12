@@ -218,11 +218,11 @@ static MENU_UPDATE_FUNC(mrc_dump_update_all)
 static struct menu_entry mrc_dump_menu[] =
 {
     {
-        .name = "Show MRC regs",
+        .name = "显示MRC寄存器",
         .select = menu_open_submenu,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Read all",
+                .name = "读取全部",
                 .update = mrc_dump_update_all,
                 .priv = &mrc_dump_page,
                 .max = 100,

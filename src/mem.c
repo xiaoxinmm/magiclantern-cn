@@ -1625,14 +1625,14 @@ static MENU_UPDATE_FUNC(mem_total_display)
 static struct menu_entry mem_menus[] = {
 #ifdef CONFIG_VXWORKS
     {
-        .name = "Free Memory",
+        .name = "空闲内存",
         .update = meminfo_display,
         .icon_type = IT_ALWAYS_ON,
         .help = "Free memory, shared between ML and Canon firmware.",
     },
 #else // dryos
     {
-        .name = "Free Memory",
+        .name = "空闲内存",
         .update = meminfo_display,
         .select = menu_open_submenu,
         .help = "Free memory, shared between ML and Canon firmware.",
@@ -1640,7 +1640,7 @@ static struct menu_entry mem_menus[] = {
         .submenu_width = 710,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Allocated RAM",
+                .name = "已分配RAM",
                 .update = mem_total_display,
                 .priv = &total_ram_detailed,
                 .max = 1,
@@ -1666,28 +1666,28 @@ static struct menu_entry mem_menus[] = {
                 .update = mem_pool_display,
             },
             {
-                .name = "stack space",
+                .name = "栈空间",
                 .icon_type = IT_ALWAYS_ON,
                 .priv = (int *)3,
                 .update = meminfo_display,
                 .help = "Free memory available as stack space for user tasks.",
             },
             {
-                .name = "shoot contig",
+                .name = "shoot连续",
                 .icon_type = IT_ALWAYS_ON,
                 .priv = (int *)4,
                 .update = meminfo_display,
                 .help = "Largest contiguous block from shoot memory.",
             },
             {
-                .name = "shoot total",
+                .name = "shoot总计",
                 .icon_type = IT_ALWAYS_ON,
                 .priv = (int *)5,
                 .update = meminfo_display,
                 .help = "Largest fragmented block from shoot memory.",
             },
             {
-                .name = "SRM job total",
+                .name = "SRM任务总计",
                 .icon_type = IT_ALWAYS_ON,
                 .priv = (int *)6,
                 .update = meminfo_display,

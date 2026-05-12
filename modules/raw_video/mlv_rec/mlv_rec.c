@@ -3978,7 +3978,7 @@ static MENU_SELECT_FUNC(resolution_change_fine_value)
 static struct menu_entry raw_video_menu[] =
 {
     {
-        .name = "RAW video (MLV)",
+        .name = "原始视频(MLV)",
         .priv = &mlv_video_enabled,
         .max = 1,
         .update = raw_main_update,
@@ -3987,7 +3987,7 @@ static struct menu_entry raw_video_menu[] =
         .help = "Record RAW video. Press LiveView to start.",
         .children =  (struct menu_entry[]) {
             {
-                .name = "Resolution",
+                .name = "分辨率",
                 .priv = &resolution_index_x,
                 .max = COUNT(resolution_presets_x) - 1,
                 .select = resolution_change_fine_value,
@@ -3995,26 +3995,26 @@ static struct menu_entry raw_video_menu[] =
                 .choices = RESOLUTION_CHOICES_X,
             },
             {
-                .name = "Aspect Ratio",
+                .name = "宽高比",
                 .priv = &aspect_ratio_index,
                 .max = COUNT(aspect_ratio_presets_num) - 1,
                 .update = aspect_ratio_update,
                 .choices = aspect_ratio_choices,
             },
             {
-                .name = "Bit Depth",
+                .name = "位深度",
                 .priv = &bpp_mode,
                 .max = 2,
                 .choices = CHOICES("10bpp", "12bpp", "14bpp"),
             },
             {
-                .name = "Create Directory",
+                .name = "创建目录",
                 .priv = &create_dirs,
                 .max = 1,
                 .help = "Save video chunks in separate folders.",
             },
             {
-                .name = "Global Draw",
+                .name = "全局绘制",
                 .priv = &kill_gd,
                 .max = 1,
                 .choices = CHOICES("Allow", "OFF"),
@@ -4022,7 +4022,7 @@ static struct menu_entry raw_video_menu[] =
                 .help2 = "May help with performance. Some previews depend on GD.",
             },
             {
-                .name = "Frame Skipping",
+                .name = "跳帧",
                 .priv = &allow_frame_skip,
                 .max = 1,
                 .choices = CHOICES("OFF", "Allow"),
@@ -4030,7 +4030,7 @@ static struct menu_entry raw_video_menu[] =
                 .help2 = "Be careful of stuttering footage.",
             },
             {
-                .name = "Preview Options",
+                .name = "预览选项",
                 .priv = &preview_mode,
                 .max =  4,
                 .choices = CHOICES("Auto", "Canon", "ML Grayscale", "HaCKeD", "Hacked No Prev"),
@@ -4041,7 +4041,7 @@ static struct menu_entry raw_video_menu[] =
                          "HaCKeD2: No preview. Disables Global draw while recording.\n"
             },
             {
-                .name = "Status When Recording",
+                .name = "录制时状态",
                 .priv = &display_rec_info,
                 .max = 2,
                 .choices = CHOICES("None", "Icon", "Debug"),
@@ -4050,7 +4050,7 @@ static struct menu_entry raw_video_menu[] =
                          "Display more information useful for debugging.\n"
             },
             {
-                .name = "Start Delay",
+                .name = "启动延迟",
                 .priv = &start_delay_idx,
                 .max = 3,
                 .choices = CHOICES("OFF", "2 sec.", "4 sec.", "10 sec."),
@@ -4059,21 +4059,21 @@ static struct menu_entry raw_video_menu[] =
                 .help2 = "Pressing shutter button.",
             },
             {
-                .name = "Files > 4GiB (exFAT)",
+                .name = "文件>4GiB(exFAT)",
                 .priv = &large_file_support,
                 .max = 1,
                 .help = "Don't split files on 4GiB margins.",
                 .help2 = "Ensure your card is formatted as exFAT!"
             },
             {
-                .name = "Digital Dolly",
+                .name = "数字滑轨",
                 .priv = &dolly_mode,
                 .max = 1,
                 .help = "Smooth panning of the recording window (software dolly).",
                 .help2 = "Use arrow keys (joystick) to move the window."
             },
             {
-                .name = "Card Warm-up",
+                .name = "存储卡预热",
                 .priv = &warm_up,
                 .max = 7,
                 .choices = CHOICES("OFF", "16 MB", "32 MB", "64 MB", "128 MB", "256 MB", "512 MB", "1 GB"),
@@ -4081,67 +4081,67 @@ static struct menu_entry raw_video_menu[] =
                 .help2 = "Some cards seem to get a bit faster after this.",
             },
             {
-                .name = "Use SRM Job Memory",
+                .name = "使用SRM任务内存",
                 .priv = &use_srm_memory,
                 .max = 1,
                 .help = "Allocate memory from SRM job buffers.",
             },
             {
-                .name = "Extra Hacks",
+                .name = "额外技巧",
                 .priv = &small_hacks,
                 .max = 1,
                 .help = "Slow down Canon GUI, lock digital expo while recording.",
                 .help2 = "May help with performance.",
             },
             {
-                .name = "Debug Trace",
+                .name = "调试跟踪",
                 .priv = &enable_tracing,
                 .max = 1,
                 .help = "Write an execution trace. Causes perfomance drop.",
                 .help2 = "You have to restart camera before setting takes effect.",
             },
             {
-                .name = "Show Buffer Graph",
+                .name = "显示缓冲区图表",
                 .priv = &show_graph,
                 .max = 1,
                 .help = "Displays a graph of the current buffer usage and expected frames.",
             },
             {
-                .name = "Buffer Fill Method",
+                .name = "缓冲区填充方式",
                 .priv = &buffer_fill_method,
                 .max = 4,
                 .help = "Method for filling buffers. Will affect write speed.",
                 .help2 = "Try different options for the best performance.",
             },
             {
-                .name = "CF-only Buffers",
+                .name = "仅CF缓冲区",
                 .priv = &fast_card_buffers,
                 .max = 9,
                 .help  = "How many of the largest buffers are for CF writing.",
             },
             {
-                .name = "Card Spanning",
+                .name = "跨卡存储",
                 .priv = &card_spanning,
                 .max = 1,
                 .help  = "Span video file over cards to use SD+CF write speed.",
                 .help2 = "May increase performance.",
             },
             {
-                .name = "Reserve Card Space",
+                .name = "预留存储卡空间",
                 .priv = &create_dummy,
                 .max = 1,
                 .help = "Write a file to the card before recording.",
                 .help2 = "Use this to prevent data loss at card full.",
             },
             {
-                .name = "Tag: Text",
+                .name = "标签:文本",
                 .priv = raw_tag_str,
                 .select = raw_tag_str_start,
                 .update = raw_tag_str_update,
                 .help  = "Free text field.",
             },
             {
-                .name = "Tag: Take",
+                .name = "标签:镜头",
                 .priv = &raw_tag_take,
                 .min = 0,
                 .max = 99,

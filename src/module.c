@@ -1944,7 +1944,7 @@ static MENU_SELECT_FUNC(console_toggle)
 
 static struct menu_entry module_submenu[] = {
         {
-            .name = "Module info",
+            .name = "模块信息",
             .update = module_menu_info_update,
             .select = module_info_toggle,
             .icon_type = IT_ACTION,
@@ -1954,7 +1954,7 @@ static struct menu_entry module_submenu[] = {
 
 #define MODULE_ENTRY(i) \
         { \
-            .name = "Module", \
+            .name = "模块", \
             .priv = (void*)i, \
             .select = module_menu_update_select, \
             .select_Q = module_open_submenu, \
@@ -2035,32 +2035,32 @@ static struct menu_entry module_menu[] = {
 
 static struct menu_entry module_debug_menu[] = {
     {
-        .name = "Show console",
+        .name = "显示控制台",
         .priv = &module_console_enabled,
         .select = console_toggle,
         .max = 1,
         .help = "Keep console shown after modules were loaded",
     },
     {
-        .name = "Modules debug",
+        .name = "模块调试",
         .select = menu_open_submenu,
         .submenu_width = 710,
         .help = "Diagnostic options for modules.",
         .children =  (struct menu_entry[]) {
             {
-                 .name = "Disable all modules",
+                 .name = "禁用所有模块",
                  .priv = &module_autoload_disabled,
                  .max = 1,
                  .help = "For troubleshooting.",
             },
             {
-                .name = "Load modules after crash",
+                .name = "崩溃后加载模块",
                 .priv = &module_ignore_crashes,
                 .max = 1,
                 .help = "Load modules even after camera crashed and you took battery out.",
             },
             {
-                .name = "Show hidden modules",
+                .name = "显示隐藏模块",
                 .priv = &module_show_hidden,
                 .max = 1,
                 .help = "If modules have .hid files, show them anyway. Requires restart.",

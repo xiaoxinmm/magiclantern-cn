@@ -3161,25 +3161,25 @@ MENU_SELECT_FUNC(info_menu_reset_select)
 
 static struct menu_entry info_menus[] = {
     {
-        .name = "FlexInfo Settings",
+        .name = "信息显示设置",
         .select = menu_open_submenu,
         .submenu_width = 700,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Show boundaries",
+                .name = "显示边界",
                 .priv = &(info_config[0].config.show_boundaries),
                 .max = 1,
                 .help = "Enable boundary display for all elements.",
             },
             {
-                .name = "Use canon screen for edit",
+                .name = "使用佳能屏幕编辑",
                 .priv = &info_screen_required,
                 .min = 0,
                 .max = 1,
                 .help = "Screen will be captured when you leave this menu.",
             },
             {
-                .name = "Edit mode",
+                .name = "编辑模式",
                 .priv = &info_edit_mode,
                 .min = 0,
                 .max = 1,
@@ -3187,19 +3187,19 @@ static struct menu_entry info_menus[] = {
             },
 #ifdef FLEXINFO_XML_CONFIG
             {
-                .name = "Save config",
+                .name = "保存配置",
                 .select = info_menu_save_select,
                 .help = "Save menu settings",
             },
 #endif
             {
-                .name = "Delete config",
+                .name = "删除配置",
                 .select = info_menu_delete_select,
                 .help = "Delete menu settings. Reboot to take effect.",
             },
             /* doesn't work
             {
-                .name = "Reset setup",
+                .name = "重置设置",
                 .select = info_menu_reset_select,
                 .help = "Reset menu settings",
             },*/

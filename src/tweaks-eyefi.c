@@ -149,28 +149,28 @@ static void MP4to422(void* priv, int delta)
 
 static struct menu_entry eyefi_menus[] = {
     {
-        .name        = "EyeFi Trick",
+        .name        = "EyeFi技巧",
         .select        = menu_open_submenu,
         .help = "Rename CR2 files to AVI (trick for EyeFi cards).",
         .children =  (struct menu_entry[]) {
             {
-            	.name        = "Rename CR2 to AVI",
+            	.name        = "重命名CR2为AVI",
             	.select        = CR2toAVI,
             	.help = "Rename CR2 files to AVI (trick for EyeFi cards)."
          	},
             {
-            	.name        = "Rename AVI to CR2",
+            	.name        = "重命名AVI为CR2",
             	.select        = AVItoCR2,
             	.help = "Rename back AVI files to CR2 (trick for EyeFi cards)."
          	},
             #ifdef FEATURE_EYEFI_RENAME_422_MP4
             {
-            	.name        = "Rename 422 to MP4",
+            	.name        = "重命名422为MP4",
             	.select        = f422toMP4,
             	.help = "Rename 422 files to MP4 (trick for EyeFi cards)."
          	},
             {
-            	.name        = "Rename MP4 to 422",
+            	.name        = "重命名MP4为422",
             	.select        = MP4to422,
             	.help = "Rename back MP4 files to 422 (trick for EyeFi cards)."
          	},

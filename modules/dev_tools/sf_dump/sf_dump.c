@@ -57,7 +57,7 @@ cleanup:
 static struct menu_entry sf_dump_menu[] =
 {
     {
-        .name   = "Dump serial flash",
+        .name   = "转储串行闪存",
         .select = run_in_separate_task,
         .priv   = sf_dump_task,
         .icon_type = IT_ACTION,

@@ -1084,7 +1084,7 @@ static void trap_focus_toggle_from_af_dlg()
 static struct menu_entry trap_focus_menu[] = {
 #ifndef CONFIG_5DC
     {
-        .name = "Trap Focus",
+        .name = "陷阱对焦",
         .priv       = &trap_focus,
         #ifdef CONFIG_PROP_REQUEST_CHANGE
         .max = 2,
@@ -1102,7 +1102,7 @@ static struct menu_entry trap_focus_menu[] = {
             ,
 /*        .children =  (struct menu_entry[]) {
             {
-                .name = "Number of pics",
+                .name = "拍摄张数",
                 .priv = &trap_focus_shoot_numpics, 
                 .min = 1,
                 .max = 10,
@@ -1119,7 +1119,7 @@ static struct menu_entry trap_focus_menu[] = {
 static struct menu_entry focus_menu[] = {
     #ifdef FEATURE_FOLLOW_FOCUS
     {
-        .name = "Follow Focus",
+        .name = "跟焦",
         .priv = &follow_focus,
         .update    = follow_focus_print,
         .max = 1,
@@ -1130,7 +1130,7 @@ static struct menu_entry focus_menu[] = {
         #ifdef CONFIG_LCD_SENSOR
         .children =  (struct menu_entry[]) {
             {
-                .name = "Focus using",
+                .name = "对焦方式",
                 .priv = &follow_focus_mode, 
                 .max = 1,
                 .choices = (const char *[]) {"Arrow keys", "LCD sensor"},
@@ -1144,7 +1144,7 @@ static struct menu_entry focus_menu[] = {
 
     #ifdef FEATURE_RACK_FOCUS
     {
-        .name = "Focus End Point",
+        .name = "对焦终点",
         .update    = focus_show_a,
         .select_Q    = focus_reset_a,
         .icon_type = IT_BOOL,
@@ -1153,7 +1153,7 @@ static struct menu_entry focus_menu[] = {
         .depends_on = DEP_LIVEVIEW | DEP_AUTOFOCUS | DEP_NOT_CONTINUOUS_AF,
     },
     {
-        .name = "Rack Focus",
+        .name = "推拉对焦",
         .update    = rack_focus_print,
         .select     = rack_focus_start_delayed,
         .icon_type = IT_ACTION,
@@ -1164,20 +1164,20 @@ static struct menu_entry focus_menu[] = {
     #endif
     #ifdef FEATURE_FOCUS_STACKING
     {
-        .name = "Focus Stacking",
+        .name = "焦点叠加",
         .select = menu_open_submenu,
         .help = "Takes pictures at different focus points.",
         .depends_on = DEP_LIVEVIEW | DEP_AUTOFOCUS | DEP_PHOTO_MODE | DEP_NOT_CONTINUOUS_AF,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Run focus stack",
+                .name = "运行焦点叠加",
                 .select = focus_stack_trigger_from_menu,
                 .update = focus_stack_update,
                 .help = "Run the focus stacking sequence.",
                 .help2 = "Tip: press MENU to interrupt the stacking sequence.",
             },
             {
-                .name = "Num. pics in front",
+                .name = "前方张数",
                 .priv = &focus_bracket_front,
                 .min = 0,
                 .max = 100,
@@ -1185,7 +1185,7 @@ static struct menu_entry focus_menu[] = {
                 .help2 = "On some lenses, this may be reversed.",
             },
             {
-                .name = "Num. pics behind",
+                .name = "后方张数",
                 .priv = &focus_bracket_behind,
                 .min = 0,
                 .max = 100,
@@ -1193,34 +1193,34 @@ static struct menu_entry focus_menu[] = {
                 .help2 = "On some lenses, this may be reversed.",
             },
             {
-                .name = "Focus steps / picture",
+                .name = "对焦步进/张",
                 .priv = &focus_stack_steps_per_picture, 
                 .min = 1,
                 .max = 10,
                 .help = "Number of focus steps between two pictures.",
             },
             {
-                .name = "Flash Delay",
+                .name = "闪光延迟",
                 .priv    = &focus_flash_delay,
                 .max = 10,
                 .help = "Seconds between stack segments to let flashes recycle.",
             },
             {
-                .name = "Copy rack focus range",
+                .name = "复制推拉对焦范围",
                 .select = focus_stack_copy_rack_focus_settings,
                 .help = "Sets up stack focus to use the same range as rack focus.",
             },
 
             #if 0
             {
-                .name = "Trigger mode",
+                .name = "触发模式",
                 .priv = &focus_stack_enabled, 
                 .max = 1,
                 .choices = (const char *[]) {"Press PLAY", "Take a pic"},
                 .help = "Choose how to start the focus stacking sequence.",
             },
             {
-                .name = "Bracket focus",
+                .name = "包围对焦",
                 .priv = &focus_bracket_dir, 
                 .max = 2,
                 .choices = (const char *[]) {"normal", "reverse","disable"},
@@ -1233,20 +1233,20 @@ static struct menu_entry focus_menu[] = {
     #endif
     #if defined(FEATURE_FOLLOW_FOCUS) || defined(FEATURE_RACK_FOCUS) || defined(FEATURE_FOCUS_STACKING)
     {
-        .name = "Focus Settings",
+        .name = "对焦设置",
         .select     = menu_open_submenu,
         .help = "Tuning parameters and prefs for rack/stack/follow focus.",
         .depends_on = DEP_LIVEVIEW | DEP_AUTOFOCUS | DEP_NOT_CONTINUOUS_AF,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Step Size",
+                .name = "步长",
                 .priv = &lens_focus_stepsize,
                 .min = 1,
                 .max = 3,
                 .help = "Step size for focus commands (same units as in EOS Utility)",
             },
             {
-                .name = "Step Delay",
+                .name = "步进延迟",
                 .priv = &lens_focus_delay,
                 .update = focus_delay_update,
                 .min = 0,
@@ -1255,27 +1255,27 @@ static struct menu_entry focus_menu[] = {
                 .help = "Delay between two successive focus commands.",
             },
             {
-                .name = "Step Wait",
+                .name = "步进等待",
                 .priv = &lens_focus_waitflag,
                 .max = 1,
                 .help = "Wait for 'focus done' signal before sending next command.",
             },
             {
-                .name = "Left/Right dir",
+                .name = "左/右方向",
                 .priv = &follow_focus_reverse_h, 
                 .max = 1,
                 .choices = (const char *[]) {"+ / -", "- / +"},
                 .help = "Focus direction for Left and Right keys.",
             },
             {
-                .name = "Up/Down dir",
+                .name = "上/下方向",
                 .priv = &follow_focus_reverse_v, 
                 .max = 1,
                 .choices = (const char *[]) {"+ / -", "- / +"},
                 .help = "Focus direction for Up and Down keys.",
             },
             {
-                .name = "Start Delay",
+                .name = "启动延迟",
                 .priv    = &focus_rack_delay,
                 .max = 60,
                 .icon_type = IT_PERCENT_OFF,
@@ -1286,7 +1286,7 @@ static struct menu_entry focus_menu[] = {
     },
     #endif
     {
-        .name = "DOF Settings",
+        .name = "景深设置",
         .select = menu_open_submenu,
         .update = dof_info_update,
         .help = "Settings about Depth of Field info displays.",
@@ -1294,7 +1294,7 @@ static struct menu_entry focus_menu[] = {
         .submenu_width = 650,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Circle of Confusion",
+                .name = "弥散圆",
                 .priv = &dof_info_coc,
                 .update = dof_info_coc_update,
                 .min  = 1,
@@ -1303,7 +1303,7 @@ static struct menu_entry focus_menu[] = {
                 .help2 = "Default value: 19 for APS-C and 29 for full-frame cameras.",
             },
             {
-                .name = "DOF formula",
+                .name = "景深公式",
                 .priv = &dof_info_formula,
                 .max = 1,
                 .choices = CHOICES("Simple", "Diffraction-aware"),
@@ -1312,7 +1312,7 @@ static struct menu_entry focus_menu[] = {
                          "Diffraction-aware: consider both defocus and diffraction blur.\n"
             },
             {
-                .name = "DOF info in LiveView",
+                .name = "实时取景中显示景深",
                 .priv = &dof_info_display_lv,
                 .max  = 1,
                 .help = "Display DOF above Focus distance, in LiveView.",

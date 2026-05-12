@@ -388,7 +388,7 @@ static MENU_UPDATE_FUNC(script_display)
 
 static struct menu_entry tccgui_submenu[] = {
         {
-            .name = "Show script",
+            .name = "显示脚本",
             .priv = &script_preview_flag,
             .max = 1,
             .icon_type = IT_ACTION,
@@ -396,7 +396,7 @@ static struct menu_entry tccgui_submenu[] = {
             .help = "Display the contents of the selected script.",
         },
         {
-            .name = "Run script",
+            .name = "运行脚本",
             .update    = script_run_display,
             .select        = script_run_fun,
             .help = "Execute the selected script.",
@@ -436,19 +436,19 @@ static struct menu_entry tccgui_submenu[] = {
 static struct menu_entry tccgui_menu[] = {
     /*
     {
-        .name = "PicoC scripts...",
+        .name = "PicoC脚本...",
         .select = menu_open_submenu,
         .help = "Run small C-like scripts. http://code.google.com/p/picoc/",
         .children =  (struct menu_entry[]) {
             {
-                .name = "Select script",
+                .name = "选择脚本",
                 .priv = &script_selected,
                 .update    = script_select_display,
                 .select        = script_select,
                 .help = "Place your scripts under ML/SCRIPTS directory.",
             },
             {
-                .name = "Show script",
+                .name = "显示脚本",
                 .priv = &script_preview_flag,
                 .max = 1,
                 .icon_type = IT_ACTION,
@@ -456,7 +456,7 @@ static struct menu_entry tccgui_menu[] = {
                 .help = "Display the contents of the selected script.",
             },
             {
-                .name = "Run script",
+                .name = "运行脚本",
                 .update    = script_run_display,
                 .select        = script_run_fun,
                 .help = "Execute the selected script.",

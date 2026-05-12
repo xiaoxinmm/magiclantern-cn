@@ -206,7 +206,7 @@ PROP_HANDLER(PROP_GUI_STATE)
 
 static struct menu_entry post_deflicker_menu[] = {
     {
-        .name = "Post Deflicker", 
+        .name = "后期去闪烁", 
         .priv = &post_deflicker, 
         .max = 1,
         .update = post_deflicker_update,
@@ -216,14 +216,14 @@ static struct menu_entry post_deflicker_menu[] = {
         .submenu_width = 710,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Sidecar file type",
+                .name = "辅件文件类型",
                 .priv = &post_deflicker_sidecar_type,
                 .max = 1,
                 .choices = CHOICES("Adobe XMP", "UFRaw"),
                 .help = "Sidecar file format, for deflicker metadata.",
             },
             {
-                .name = "Deflicker percentile",
+                .name = "去闪烁百分位数",
                 .priv = &post_deflicker_percentile,
                 .min = 20,
                 .max = 80,
@@ -232,7 +232,7 @@ static struct menu_entry post_deflicker_menu[] = {
                 .help2 = "Try 75% if you get black borders (e.g. Samyang 8mm on 5D).",
             },
             {
-                .name = "Deflicker target level",
+                .name = "去闪烁目标电平",
                 .priv = &post_deflicker_target_level,
                 .min = -8,
                 .max = -1,

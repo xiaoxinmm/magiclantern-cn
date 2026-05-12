@@ -1994,7 +1994,7 @@ static MENU_UPDATE_FUNC(warn_display)
 static struct menu_entry key_menus[] = {
     #if defined(FEATURE_LV_FOCUS_BOX_FAST) || defined(FEATURE_LV_FOCUS_BOX_SNAP) || defined(FEATURE_LV_FOCUS_BOX_AUTOHIDE)
     {
-        .name = "Focus box settings", 
+        .name = "对焦框设置", 
         .select = menu_open_submenu,
         .submenu_width = 700,
         .help = "Tweaks for LiveView focus box: move faster, snap to points.",
@@ -2002,7 +2002,7 @@ static struct menu_entry key_menus[] = {
         .children =  (struct menu_entry[]) {
             #ifdef FEATURE_LV_FOCUS_BOX_FAST
             {
-                .name = "Speed", 
+                .name = "速度", 
                 .priv = &focus_box_lv_speed,
                 .max = 1,
                 .icon_type = IT_BOOL,
@@ -2012,7 +2012,7 @@ static struct menu_entry key_menus[] = {
             #endif
             #ifdef FEATURE_LV_FOCUS_BOX_SNAP
             {
-                .name = "Snap points",
+                .name = "吸附点",
                 .priv = &focus_box_lv_jump,
                 #ifdef FEATURE_LV_FOCUS_BOX_SNAP_TO_X5_RAW
                 .max = 5,
@@ -2032,7 +2032,7 @@ static struct menu_entry key_menus[] = {
             #endif
             #ifdef FEATURE_LV_FOCUS_BOX_AUTOHIDE
             {
-                .name = "Display",
+                .name = "显示",
                 .priv = &af_frame_autohide, 
                 .max = 1,
                 .choices = (const char *[]) {"Show", "Auto-Hide"},
@@ -2047,7 +2047,7 @@ static struct menu_entry key_menus[] = {
     #endif
     #ifdef FEATURE_ARROW_SHORTCUTS
     {
-        .name       = "Arrow/SET shortcuts",
+        .name       = "方向键/SET快捷",
         .select = menu_open_submenu,
         .update = arrow_key_check,
         .submenu_width = 650,
@@ -2060,32 +2060,32 @@ static struct menu_entry key_menus[] = {
         .children =  (struct menu_entry[]) {
             #ifdef CONFIG_AUDIO_CONTROLS
             {
-                .name = "Audio Gain",
+                .name = "音频增益",
                 .priv       = &arrow_keys_audio,
                 .max = 1,
                 .help = "LEFT/RIGHT: input gain. UP/DOWN: output gain. SET: Input.",
             },
             #endif
             {
-                .name = "ISO/Kelvin",
+                .name = "ISO/色温",
                 .priv       = &arrow_keys_iso_kelvin,
                 .max = 1,
                 .help = "LEFT/RIGHT: ISO. UP/DN: Kelvin white balance. SET: PushWB.",
             },
             {
-                .name = "Shutter/Aperture",
+                .name = "快门/光圈",
                 .priv       = &arrow_keys_shutter_aperture,
                 .max = 1,
                 .help = "LEFT/RIGHT: Shutter. UP/DN: Aperture.  SET: 180d shutter.",
             },
             {
-                .name = "LCD Bright/Saturation",
+                .name = "LCD亮度/饱和度",
                 .priv       = &arrow_keys_bright_sat,
                 .max = 1,
                 .help = "LEFT/RIGHT: LCD bright. UP/DN: LCD saturation. SET: reset.",
             },
             {
-                .name = "Use SET button",
+                .name = "使用SET键",
                 .select = arrow_key_set_toggle, // use a function => this item will not be considered for submenu color
                 .update = arrow_key_set_display,
                 .help = "Enables functions for SET when you use arrow shortcuts.",
@@ -2097,14 +2097,14 @@ static struct menu_entry key_menus[] = {
 
     #if defined(FEATURE_LCD_SENSOR_SHORTCUTS) || defined(FEATURE_STICKY_DOF) || defined(FEATURE_STICKY_HALFSHUTTER) || defined(FEATURE_SWAP_MENU_ERASE) || defined(FEATURE_SWAP_INFO_PLAY) || defined(FEATURE_DIGITAL_ZOOM_SHORTCUT)
     {
-        .name       = "Misc key settings",
+        .name       = "其他按键设置",
         .select = menu_open_submenu,
         .submenu_width = 656,
         .help = "Misc options related to shortcut keys.",
         .children =  (struct menu_entry[]) {
             #ifdef FEATURE_LCD_SENSOR_SHORTCUTS
             {
-                .name = "LCD Sensor Shortcuts",
+                .name = "LCD感应快捷",
                 .priv       = &lcd_sensor_shortcuts,
                 .max        = 2,
                 .choices = (const char *[]) {"OFF", "ON", "Movie"},
@@ -2113,7 +2113,7 @@ static struct menu_entry key_menus[] = {
             #endif
             #ifdef FEATURE_STICKY_DOF
             {
-                .name = "Sticky DOF Preview", 
+                .name = "景深预览锁定", 
                 .priv = &dofpreview_sticky, 
                 .max = 1,
                 .help = "Makes the DOF preview button sticky (press to toggle).",
@@ -2121,7 +2121,7 @@ static struct menu_entry key_menus[] = {
             #endif
             #ifdef FEATURE_STICKY_HALFSHUTTER
             {
-                .name       = "Sticky HalfShutter",
+                .name       = "半按快门锁定",
                 .priv = &halfshutter_sticky,
                 .max = 1,
                 .help = "Makes the half-shutter button sticky (press to toggle).",
@@ -2129,7 +2129,7 @@ static struct menu_entry key_menus[] = {
             #endif
             #ifdef FEATURE_SWAP_MENU_ERASE
             {
-                .name = "Swap MENU <--> ERASE",
+                .name = "交换MENU↔ERASE",
                 .priv = &swap_menu,
                 .max  = 1,
                 .help = "Swaps MENU and ERASE buttons."
@@ -2137,7 +2137,7 @@ static struct menu_entry key_menus[] = {
             #endif
             #ifdef FEATURE_SWAP_INFO_PLAY
             {
-                .name = "Swap INFO <--> PLAY",
+                .name = "交换INFO↔PLAY",
                 .priv = &swap_info,
                 .max  = 1,
                 .help = "Swaps INFO and PLAY buttons."
@@ -2145,7 +2145,7 @@ static struct menu_entry key_menus[] = {
             #endif
             #ifdef FEATURE_DIGITAL_ZOOM_SHORTCUT
             {
-                .name = "DigitalZoom Shortcut",
+                .name = "数码变焦快捷",
                 .priv = &digital_zoom_shortcut,
                 .max  = 1,
                 .choices = (const char *[]) {"3x...10x", "1x, 3x"},
@@ -2161,14 +2161,14 @@ static struct menu_entry key_menus[] = {
 static struct menu_entry tweak_menus[] = {
     #ifdef FEATURE_WARNINGS_FOR_BAD_SETTINGS
     {
-        .name = "Warning for bad settings",
+        .name = "不良设置警告",
         .select     = menu_open_submenu,
         .update = warn_display,
         .help = "Warn if some of your settings are changed by mistake.",
         .submenu_width = 700,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Mode warning",
+                .name = "模式警告",
                 .priv = &warn_mode,
                 .max = 4,
                 .icon_type = IT_DICE_OFF,
@@ -2176,35 +2176,35 @@ static struct menu_entry tweak_menus[] = {
                 .help = "Warn if you turn the mode dial to some other position.",
             },
             {
-                .name = "Quality warning",
+                .name = "画质警告",
                 .priv = &warn_picq,
                 .max = 2,
                 .choices = (const char *[]) {"OFF", "other than RAW", "other than fine"},
                 .help = "Warn if you change the picture quality to something else.",
             },
             {
-                .name = "ALO warning",
+                .name = "ALO警告",
                 .priv = &warn_alo,
                 .max = 1,
                 .choices = (const char *[]) {"OFF", "other than OFF"},
                 .help = "Warn if you enable ALO by mistake.",
             },
             {
-                .name = "WB warning",
+                .name = "白平衡警告",
                 .priv = &warn_wb,
                 .max = 1,
                 .choices = (const char *[]) {"OFF", "other than AWB"},
                 .help = "Warn if you disable AWB by mistake.",
             },
             {
-                .name = "AF/MF warning",
+                .name = "AF/MF警告",
                 .priv = &warn_mf,
                 .max = 2,
                 .choices = (const char *[]) {"OFF", "other than AF", "other than MF"},
                 .help = "Warn on Manual / Automatic Focus",
             },
             {
-                .name = "Warning message",
+                .name = "警告信息",
                 .priv = &warn_msg,
                 .max = 6,
                 .choices = (const char *[]) {"LED, popup, beep",
@@ -2320,13 +2320,13 @@ void screenshot_start();
 struct menu_entry expo_tweak_menus[] = {
     {
         #ifdef CONFIG_EXPSIM_MOVIE
-        .name = "LV Display",
+        .name = "实时取景显示",
         .max = 2,
         .choices = (const char *[]) {"Photo, no ExpSim", "Photo, ExpSim", "Movie"},
         .icon_type = IT_DICE,
         .help = "Exposure simulation (LiveView display type).",
         #else
-        .name = "ExpSim",
+        .name = "曝光模拟",
         .max = 1,
         .help = "Exposure simulation.",
         #endif
@@ -3435,7 +3435,7 @@ extern int display_gain_menu_index;
 static struct menu_entry display_menus[] = {
             #ifdef FEATURE_DIGIC_FOCUS_PEAKING
             {
-                .name = "LV DIGIC peaking",
+                .name = "LV DIGIC峰值",
                 .priv = &preview_peaking,
                 .min = 0,
                 #ifdef FEATURE_LV_SATURATION
@@ -3451,7 +3451,7 @@ static struct menu_entry display_menus[] = {
             #endif
             #ifdef FEATURE_LV_BRIGHTNESS_CONTRAST
             {
-                .name = "LV brightness", 
+                .name = "实时取景亮度", 
                 .priv = &preview_brightness, 
                 .max = 2,
                 .help = "For LiveView preview only. Does not affect recording.",
@@ -3462,7 +3462,7 @@ static struct menu_entry display_menus[] = {
                 .icon_type = IT_PERCENT_OFF,
             },
             {
-                .name = "LV contrast",
+                .name = "实时取景对比度",
                 .priv     = &preview_contrast,
                 .min = -3,
                 .max = 3,
@@ -3476,7 +3476,7 @@ static struct menu_entry display_menus[] = {
             #endif
             #ifdef FEATURE_LV_SATURATION
             {
-                .name = "LV saturation",
+                .name = "实时取景饱和度",
                 .priv     = &preview_saturation,
                 .min = -2,
                 .max = 3,
@@ -3496,7 +3496,7 @@ static struct menu_entry display_menus[] = {
                 .submenu_width = 650,
                 .children =  (struct menu_entry[]) {
                     {
-                        .name = "Boost when adjusting WB",
+                        .name = "调白平衡时增强",
                         .priv = &preview_saturation_boost_wb, 
                         .max = 1,
                         .help = "Increase LiveView saturation when adjusting white balance.",
@@ -3507,7 +3507,7 @@ static struct menu_entry display_menus[] = {
             #endif
             #ifdef FEATURE_LV_DISPLAY_GAIN
             {
-                .name = "LV display gain",
+                .name = "实时取景显示增益",
                 .priv = &display_gain_menu_index,
                 .update = display_gain_print,
                 .select = display_gain_toggle,
@@ -3522,7 +3522,7 @@ static struct menu_entry display_menus[] = {
             #endif
     #ifdef FEATURE_CLEAR_OVERLAYS
     {
-        .name = "Clear overlays",
+        .name = "清除叠加层",
         .priv           = &clearscreen,
         .max            = 4,
         .choices = (const char *[]) {"OFF", "HalfShutter", "WhenIdle", "Always", "Recording"},
@@ -3532,7 +3532,7 @@ static struct menu_entry display_menus[] = {
         /*
         .children =  (struct menu_entry[]) {
             {
-                .name = "Mode",
+                .name = "模式",
                 .priv = &clearscreen_mode, 
                 .max = 3,
                 .help = "Clear screen when you hold shutter halfway or when idle.",
@@ -3547,7 +3547,7 @@ static struct menu_entry display_menus[] = {
         #error This requires CONFIG_DISPLAY_FILTERS.
         #endif
     {
-        .name = "Defishing",
+        .name = "去鱼眼",
         .priv = &defish_preview, 
         .select = defish_toggle,
         //~ .update = defish_preview_display, 
@@ -3558,7 +3558,7 @@ static struct menu_entry display_menus[] = {
         /*
         .children =  (struct menu_entry[]) {
             {
-                .name = "Projection",
+                .name = "投影模式",
                 .priv = &defish_projection, 
                 .max = 1,
                 .choices = (const char *[]) {"Rectilinear", "Panini"},
@@ -3576,7 +3576,7 @@ static struct menu_entry display_menus[] = {
         #error This requires CONFIG_DISPLAY_FILTERS.
         #endif
     {
-        .name = "Anamorphic",
+        .name = "变形宽银幕",
         .priv     = &anamorphic_preview,
         .update = anamorphic_preview_display, 
         .max = 7,
@@ -3586,7 +3586,7 @@ static struct menu_entry display_menus[] = {
 /*
         .children =  (struct menu_entry[]) {
             {
-                .name = "Stretch Ratio",
+                .name = "拉伸比例",
                 .priv = &anamorphic_ratio_idx, 
                 .max = 6,
                 .choices = (const char *[]) {"5:4 (1.25)", "4:3 (1.33)", "7:5 (1.4)", "3:2 (1.5)", "5:3 (1.66)", "9:5 (1.8)", "2:1"},
@@ -3598,14 +3598,14 @@ static struct menu_entry display_menus[] = {
     #endif
     #if defined(CONFIG_KILL_FLICKER) || defined(FEATURE_SCREEN_LAYOUT) || defined(FEATURE_IMAGE_POSITION) || defined(FEATURE_UPSIDE_DOWN) || defined(FEATURE_IMAGE_ORIENTATION) || defined(FEATURE_AUTO_MIRRORING_HACK) || defined(FEATURE_FORCE_HDMI_VGA)
     {
-        .name = "Advanced settings",
+        .name = "高级设置",
         .select         = menu_open_submenu,
         .submenu_width = 710,
         .help = "Screen orientation, position fine-tuning...",
         .children =  (struct menu_entry[]) {
             #ifdef CONFIG_KILL_FLICKER
                 {
-                    .name       = "Kill Canon GUI",
+                    .name       = "屏蔽佳能GUI",
                     .priv       = &kill_canon_gui_mode,
                     .max        = 2,
                     .choices    = CHOICES("OFF", "Idle/Menus", "Idle/Menus+Keys"),
@@ -3615,7 +3615,7 @@ static struct menu_entry display_menus[] = {
             #endif
             #ifdef FEATURE_SCREEN_LAYOUT
                 {
-                    .name = "Screen Layout",
+                    .name = "屏幕布局",
                     .priv = &screen_layout_menu_index,
                     .max = 4,
                     .update = screen_layout_update, 
@@ -3637,7 +3637,7 @@ static struct menu_entry display_menus[] = {
             #endif
             #ifdef FEATURE_COLOR_SCHEME
             {
-                .name = "Color scheme",
+                .name = "配色方案",
                 .priv     = &bmp_color_scheme,
                 .max = 5,
                 .choices = (const char *[]) {"Default", "Dark", "Bright Gray", "Dark Gray", "Dark Red", "Dark Green"},
@@ -3647,7 +3647,7 @@ static struct menu_entry display_menus[] = {
             #endif
             #ifdef FEATURE_IMAGE_POSITION
                 {
-                    .name = "Image position",
+                    .name = "图像位置",
                     .priv = &lcd_adjust_position,
                     .min = -2,
                     .max = 2,
@@ -3658,7 +3658,7 @@ static struct menu_entry display_menus[] = {
             #endif
             #ifdef FEATURE_UPSIDE_DOWN
                 {
-                    .name = "UpsideDown mode",
+                    .name = "倒置模式",
                     .priv = &menu_upside_down,
                     .max = 1,
                     .help = "Displays overlay graphics upside-down and flips arrow keys.",
@@ -3666,7 +3666,7 @@ static struct menu_entry display_menus[] = {
             #endif
             #ifdef FEATURE_IMAGE_ORIENTATION
                 {
-                    .name = "Orientation",
+                    .name = "方向",
                     .priv = (int*)&DISPLAY_ORIENTATION,
                     .select = display_orientation_toggle,
                     .max = 2,
@@ -3676,7 +3676,7 @@ static struct menu_entry display_menus[] = {
             #endif
             #ifdef FEATURE_AUTO_MIRRORING_HACK
                 {
-                    .name = "Auto Mirroring",
+                    .name = "自动镜像",
                     .priv = &display_dont_mirror,
                     .max  = 1,
                     .choices = (const char *[]) {"Allow", "Don't allow"},
@@ -3686,7 +3686,7 @@ static struct menu_entry display_menus[] = {
             #endif
             #ifdef FEATURE_LV_CRAZY_COLORS
             {
-                .name = "LV crazy colors",
+                .name = "实时取景彩显",
                 .priv     = &preview_crazy,
                 .min = 0,
                 .max = 2,
@@ -3705,7 +3705,7 @@ static struct menu_entry display_menus[] = {
                 #define This requires CONFIG_CAN_REDIRECT_DISPLAY_BUFFER_EASILY.
                 #endif
             {
-                .name = "Display Shake",
+                .name = "显示抖动",
                 .priv     = &display_shake,
                 .max = 1,
                 .help = "Emphasizes camera shake on LiveView display.",
@@ -3714,7 +3714,7 @@ static struct menu_entry display_menus[] = {
             #endif
             #ifdef FEATURE_FORCE_HDMI_VGA
                 {
-                    .name = "Force HDMI-VGA",
+                    .name = "强制HDMI-VGA",
                     .priv = &hdmi_force_vga, 
                     .max  = 1,
                     .help = "Force low resolution (720x480) on HDMI displays.",
@@ -3730,7 +3730,7 @@ static struct menu_entry display_menus[] = {
 static struct menu_entry play_menus[] = {
     #if defined(FEATURE_SET_MAINDIAL) || defined(FEATURE_IMAGE_REVIEW_PLAY) || defined(FEATURE_QUICK_ZOOM) || defined(FEATURE_REMEMBER_LAST_ZOOM_POS_5D3) || defined(FEATURE_LV_BUTTON_PROTECT) || defined(FEATURE_LV_BUTTON_RATE) || defined(FEATURE_QUICK_ERASE)
     {
-        .name = "Image review settings",
+        .name = "图像回放设置",
         .select = menu_open_submenu,
         .submenu_width = 715,
         .help = "Options for PLAY (image review) mode.",
@@ -3738,14 +3738,14 @@ static struct menu_entry play_menus[] = {
         .children =  (struct menu_entry[]) {
             #ifdef FEATURE_SET_MAINDIAL
             {
-                .name = "Play mode actions",
+                .name = "回放模式动作",
                 .help = "Several helpful image actions you can trigger in PLAY mode.",
                 .select = menu_open_submenu,
                 .submenu_width = 660,
                 .children =  (struct menu_entry[])
                 {
                     {
-                        .name = "Action type",
+                        .name = "动作类型",
                         .priv = &play_set_wheel_action, 
                         .max = 4,
                         .choices = (const char *[]) {"OFF", "Exposure Fusion", "Compare Images", "Timelapse Play", "Exposure Adjust"},
@@ -3754,7 +3754,7 @@ static struct menu_entry play_menus[] = {
                     },
                     #ifdef CONFIG_100D
                     {
-                        .name = "Trigger key(s)",
+                        .name = "触发按键",
                         .priv = &play_set_wheel_trigger,
                         .max = 0,
                         .choices = (const char *[]) {"Av+MainDial"},
@@ -3763,7 +3763,7 @@ static struct menu_entry play_menus[] = {
                     },
                     #else
                     {
-                        .name = "Trigger key(s)",
+                        .name = "触发按键",
                         .priv = &play_set_wheel_trigger,
                         .max = 2,
                         .choices = (const char *[]) {"Set+MainDial", "Left/Right", "L/R & Set+Dial"},
@@ -3777,7 +3777,7 @@ static struct menu_entry play_menus[] = {
             #endif
             #ifdef FEATURE_IMAGE_REVIEW_PLAY
             {
-                .name = "Image Review",
+                .name = "图像回放",
                 .priv = &quick_review_allow_zoom, 
                 .max = 1,
                 .choices = (const char *[]) {"QuickReview default", "CanonMnu:Hold->PLAY"},
@@ -3787,7 +3787,7 @@ static struct menu_entry play_menus[] = {
             #endif
             #ifdef FEATURE_QUICK_ZOOM
             {
-                .name = "Quick Zoom",
+                .name = "快速缩放",
                 .priv = &quickzoom, 
                 .max = 4,
                 .choices = (const char *[]) {"OFF", "ON (fast zoom)", "SinglePress -> 100%", "Full zoom on AF pt.", "Full Z on last pos."},
@@ -3798,7 +3798,7 @@ static struct menu_entry play_menus[] = {
             #endif
             #ifdef FEATURE_REMEMBER_LAST_ZOOM_POS_5D3
             {
-                .name = "Remember last Zoom pos",
+                .name = "记住上次缩放位置",
                 .priv = &quickzoom, 
                 .max = 1,
                 .help = "Remember last Zoom position in playback mode.",
@@ -3807,7 +3807,7 @@ static struct menu_entry play_menus[] = {
             #endif
             #if defined(FEATURE_LV_BUTTON_PROTECT) || defined(FEATURE_LV_BUTTON_RATE)
             {
-                .name = "LV button",
+                .name = "实时取景按钮",
                 .priv = &play_lv_action, 
                 .choices = (const char *[]) {"Default", "Protect Image", "Rate Image"},
 
@@ -3829,7 +3829,7 @@ static struct menu_entry play_menus[] = {
         #endif
             #ifdef FEATURE_QUICK_ERASE
             {
-                .name = "Quick Erase",
+                .name = "快速删除",
                 .priv = &quick_delete, 
                 .max = 1,
                 #ifdef CONFIG_50D // no unpress SET, use the 5Dc method
@@ -3857,7 +3857,7 @@ static MENU_UPDATE_FUNC(preview_saturation_display_5dc)
 
 static struct menu_entry play_menus[] = {
         {
-            .name = "Saturation",
+            .name = "饱和度",
             .priv     = &preview_saturation,
             .min = -1,
             .max = 2,
@@ -3867,7 +3867,7 @@ static struct menu_entry play_menus[] = {
             .icon_type = IT_BOOL,
         },
         {
-            .name = "Image Review",
+            .name = "图像回放",
             .priv = &quick_review_allow_zoom, 
             .max = 1,
             .choices = (const char *[]) {"QuickReview default", "CanonMnu:Hold->PLAY"},
@@ -3875,7 +3875,7 @@ static struct menu_entry play_menus[] = {
             .icon_type = IT_BOOL,
         },
         {
-            .name = "Quick Zoom",
+            .name = "快速缩放",
             .priv = &quickzoom, 
             .max = 2, // don't know how to move the image around
             .choices = (const char *[]) {"OFF", "ON (fast zoom)"},
@@ -3884,13 +3884,13 @@ static struct menu_entry play_menus[] = {
             .icon_type = IT_BOOL,
         },
         {
-            .name = "Quick Erase",
+            .name = "快速删除",
             .priv = &quick_delete, 
             .max = 1,
             .help = "Delete files quickly with fewer keystrokes (be careful!!!)",
         },
         {
-            .name = "SET+MainDial",
+            .name = "SET+主拨盘",
             .priv = &play_set_wheel_action, 
             .min = 2,
             .max = 3,

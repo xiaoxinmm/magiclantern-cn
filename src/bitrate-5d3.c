@@ -102,7 +102,7 @@ static LVINFO_UPDATE_FUNC(indicator)
 }
 
 static struct lvinfo_item info_item = {
-    .name = "REC indicators",
+    .name = "录制指示",
     .which_bar = LV_TOP_BAR_ONLY,
     .update = indicator,
     .preferred_position = 127,
@@ -150,7 +150,7 @@ static void load_h264_ini()
 
 static struct menu_entry mov_menus[] = {
 /*    {
-        .name = "Bit Rate     ",
+        .name = "比特率",
         .priv = &bitrate,
         .min = 1,
         .max = 20,
@@ -158,7 +158,7 @@ static struct menu_entry mov_menus[] = {
     },*/
 #ifdef FEATURE_NITRATE
     {
-        .name = "Load H264.ini     ",
+        .name = "加载H264.ini",
         //~ .priv = &bitrate,
         //~ .min = 1,
         //~ .max = 20,
@@ -168,7 +168,7 @@ static struct menu_entry mov_menus[] = {
     },
 #endif
     {
-        .name = "REC indicator",
+        .name = "录制指示",
         .priv = &rec_indicator,
         .min = 0,
         .max = 3,

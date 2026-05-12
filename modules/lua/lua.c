@@ -1083,21 +1083,21 @@ static struct menu_entry script_menu_template = {
 
 static struct menu_entry script_submenu_template[] = {
     {
-        .name       = "Run Script",
+        .name       = "运行脚本",
         .select     = lua_script_menu_select,
         .update     = lua_script_run_update,
         .icon_type  = IT_ACTION,
         .help       = "Press SET to load/run this script."
     },
     {
-        .name       = "Edit Script",
+        .name       = "编辑脚本",
         .select     = lua_script_edit,
         .update     = menu_no_value,
         .icon_type  = IT_ACTION,
         .help       = "Load this script in the text editor (EDITOR.LUA)."
     },
     {
-        .name       = "Autorun",
+        .name       = "自动运行",
         .select     = lua_script_toggle_autorun,
         .max        = 1,
         .help       = "Select whether this script will be loaded at camera startup."
@@ -1122,7 +1122,7 @@ static MENU_SELECT_FUNC(console_toggle)
 
 static struct menu_entry script_console_menu[] = {
     {
-        .name       = "Show console",
+        .name       = "显示控制台",
         .select     = console_toggle,
         .priv       = &console_visible,
         .max        = 1,

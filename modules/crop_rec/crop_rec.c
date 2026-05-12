@@ -1504,13 +1504,13 @@ static MENU_UPDATE_FUNC(target_yres_update)
 static struct menu_entry crop_rec_menu[] =
 {
     {
-        .name       = "Crop mode",
+        .name       = "裁切模式",
         .priv       = &crop_preset_index,
         .update     = crop_update,
         .depends_on = DEP_LIVEVIEW,
         .children =  (struct menu_entry[]) {
             {
-                .name       = "Shutter range",
+                .name       = "快门范围",
                 .priv       = &shutter_range,
                 .max        = 1,
                 .choices    = CHOICES("Original", "Full range"),
@@ -1519,7 +1519,7 @@ static struct menu_entry crop_rec_menu[] =
                               "Full range: from 1/FPS to minimum exposure time allowed by hardware."
             },
             {
-                .name   = "Target YRES",
+                .name   = "目标Y分辨率",
                 .priv   = &target_yres,
                 .update = target_yres_update,
                 .max    = 3870,
@@ -1566,7 +1566,7 @@ static struct menu_entry crop_rec_menu[] =
                 .advanced = 1,
             },
             {
-                .name   = "CMOS[1] lo",
+                .name   = "CMOS[1]低",
                 .priv   = &cmos1_lo,
                 .max    = 63,
                 .unit   = UNIT_DEC,
@@ -1574,7 +1574,7 @@ static struct menu_entry crop_rec_menu[] =
                 .advanced = 1,
             },
             {
-                .name   = "CMOS[1] hi",
+                .name   = "CMOS[1]高",
                 .priv   = &cmos1_hi,
                 .max    = 63,
                 .unit   = UNIT_DEC,
@@ -1855,7 +1855,7 @@ warn:
 
 static struct lvinfo_item info_items[] = {
     {
-        .name = "Crop info",
+        .name = "裁切信息",
         .which_bar = LV_BOTTOM_BAR_ONLY,
         .update = crop_info,
         .preferred_position = -50,  /* near the focal length display */

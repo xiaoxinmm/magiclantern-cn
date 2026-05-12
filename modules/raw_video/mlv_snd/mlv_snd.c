@@ -652,20 +652,20 @@ static void mlv_snd_trace_buf(char *caption, uint8_t *buffer, uint32_t length)
 static struct menu_entry mlv_snd_menu[] =
 {
     {
-        .name       = "Sound recording",
+        .name       = "录音",
         .select     = menu_open_submenu,
         .priv       = &mlv_snd_enabled,
         .help       = "Sound recording options provided by mlv_snd.",
         .children   = (struct menu_entry[])
         {
             {
-                .name       = "Enable sound",
+                .name       = "启用录音",
                 .priv       = &mlv_snd_enabled,
                 .max        = 1,
                 .help       = "[mlv_snd] Enable sound recording for MLV.",
             },
             {
-                .name       = "Sampling rate",
+                .name       = "采样率",
                 .priv       = &mlv_snd_rate_sel,
                 .min        = 0,
                 .max        = COUNT(mlv_snd_rates)-1,
@@ -673,14 +673,14 @@ static struct menu_entry mlv_snd_menu[] =
                 .help       = "[mlv_snd] Select your sampling rate.",
             },
             {
-                .name = "Audio delay",
+                .name = "音频延迟",
                 .priv = &mlv_snd_vsync_delay,
                 .min = 0,
                 .max = 32,
                 .help = "Delay the audio that many frames. (experimental)",
             },
             {
-                .name       = "Trace output",
+                .name       = "跟踪输出",
                 .priv       = &mlv_snd_enable_tracing,
                 .min        = 0,
                 .max        = 1,

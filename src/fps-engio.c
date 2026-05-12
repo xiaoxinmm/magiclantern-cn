@@ -1533,7 +1533,7 @@ static MENU_UPDATE_FUNC(fps_const_expo_update)
 static struct menu_entry fps_menu[] = {
     #ifdef FEATURE_FPS_OVERRIDE
     {
-        .name = "FPS override",
+        .name = "帧率覆盖",
         .priv = &fps_override,
         .select = fps_enable_disable,
         .update = fps_print,
@@ -1544,7 +1544,7 @@ static struct menu_entry fps_menu[] = {
         .submenu_width = 650,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Desired FPS",
+                .name = "目标帧率",
                 .priv    = &fps_override_index,
                 .update = desired_fps_print,
                 .min = 0,
@@ -1554,7 +1554,7 @@ static struct menu_entry fps_menu[] = {
                 .help = "FPS value for recording. Video will play back at Canon FPS.",
             },
             {
-                .name = "Optimize for",
+                .name = "优化目标",
                 .priv       = &fps_criteria,
                 .choices = (const char *[]) {
                     "Low light",
@@ -1588,7 +1588,7 @@ static struct menu_entry fps_menu[] = {
             },
             #ifndef FRAME_SHUTTER_BLANKING_WRITE
             {
-                .name = "Shutter range",
+                .name = "快门范围",
                 .update = shutter_range_print,
                 .select = fps_timer_fine_tune_a_big,
                 .icon_type = IT_ALWAYS_ON,
@@ -1598,7 +1598,7 @@ static struct menu_entry fps_menu[] = {
             },
             #endif
             {
-                .name = "FPS timer A",
+                .name = "帧率定时器A",
                 .update = fps_timer_print,
                 .priv = &desired_fps_timer_a_offset,
                 .select = fps_timer_fine_tune_a,
@@ -1607,7 +1607,7 @@ static struct menu_entry fps_menu[] = {
                 .advanced = 1,
             },
             {
-                .name = "FPS timer B",
+                .name = "帧率定时器B",
                 .update = fps_timer_print,
                 .priv = &desired_fps_timer_b_offset,
                 .select = fps_timer_fine_tune_b,
@@ -1616,21 +1616,21 @@ static struct menu_entry fps_menu[] = {
                 .advanced = 1,
             },
             {
-                .name = "Main Clock",
+                .name = "主时钟",
                 .update = tg_freq_print,
                 .icon_type = IT_ALWAYS_ON,
                 .help = "Timing generator freq. (READ-ONLY). FPS = F/timerA/timerB.",
                 .advanced = 1,
             },
             {
-                .name = "Actual FPS",
+                .name = "实际帧率",
                 .update = fps_current_print,
                 .icon_type = IT_ALWAYS_ON,
                 .help = "Exact FPS (computed). For fine tuning, change timer values.",
             },
 
             {
-                .name = "Rolling shutter",
+                .name = "卷帘快门",
                 .update = rolling_shutter_print,
                 .icon_type = IT_ALWAYS_ON,
                 .help = "Amount of jello effect. Multiply \""SYM_MICRO"s/line\" by vertical resolution.",
@@ -1639,7 +1639,7 @@ static struct menu_entry fps_menu[] = {
             #ifdef CONFIG_FRAME_ISO_OVERRIDE
             #ifndef FRAME_SHUTTER_BLANKING_WRITE
             {
-                .name = "Constant expo",
+                .name = "恒定曝光",
                 .priv = &fps_const_expo,
                 .max = 1,
                 .update = fps_const_expo_update,
@@ -1651,7 +1651,7 @@ static struct menu_entry fps_menu[] = {
             #endif
 
             {
-                .name = "Sync w. Shutter",
+                .name = "快门同步",
                 .priv = &fps_sync_shutter,
                 .max = 1,
                 .help  = "Sync FPS with shutter speed, for long exposures in LiveView.",
@@ -1661,7 +1661,7 @@ static struct menu_entry fps_menu[] = {
 
             #ifdef FEATURE_FPS_WAV_RECORD
             {
-                .name = "Sound Record",
+                .name = "录音",
                 .priv = &fps_wav_record,
                 .max = 1,
                 .update = fps_wav_record_print,
@@ -1674,7 +1674,7 @@ static struct menu_entry fps_menu[] = {
 
             #ifdef FEATURE_FPS_RAMPING
             {
-                .name = "FPS ramping",
+                .name = "帧率渐变",
                 .priv = &fps_ramp,
                 .max = 1,
                 .help = "Ramp between overridden FPS and default FPS. Undercrank only.",
@@ -1684,7 +1684,7 @@ static struct menu_entry fps_menu[] = {
             },
 
             {
-                .name = "Ramp duration",
+                .name = "渐变时长",
                 .priv = &fps_ramp_duration,
                 .max = 10,
                 .update = fps_ramp_duration_update,

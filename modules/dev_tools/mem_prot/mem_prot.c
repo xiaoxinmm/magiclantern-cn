@@ -409,20 +409,20 @@ static MENU_SELECT_FUNC(mem_prot_select)
 static struct menu_entry mem_prot_menu[] =
 {
     {
-        .name = "Mem Protection",
+        .name = "内存保护",
         .select = menu_open_submenu,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Exceptions",
+                .name = "异常",
                 .update = mem_prot_update_count,
                 .select = mem_prot_select,
             },
             {
-                .name = "Last PC",
+                .name = "最后PC",
                 .update = mem_prot_update_addr,
             },
             {
-                .name = "Task",
+                .name = "任务",
                 .update = mem_prot_update_task,
             },
             MENU_EOL,

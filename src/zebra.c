@@ -2680,7 +2680,7 @@ static CONFIG_INT("electronic.level", electronic_level, 0);
 struct menu_entry zebra_menus[] = {
     #ifdef FEATURE_GLOBAL_DRAW
     {
-        .name = "Global Draw",
+        .name = "全局绘制",
         .priv       = &global_draw,
         #ifdef FEATURE_OVERLAYS_IN_PLAYBACK_MODE
         .max = 3,
@@ -2697,7 +2697,7 @@ struct menu_entry zebra_menus[] = {
     #endif
     #ifdef FEATURE_ZEBRA
     {
-        .name = "Zebras",
+        .name = "斑马纹",
         .priv       = &zebra_draw,
         .update     = zebra_draw_display,
         .max = 1,
@@ -2705,7 +2705,7 @@ struct menu_entry zebra_menus[] = {
         .depends_on = DEP_GLOBAL_DRAW | DEP_EXPSIM,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Color Space",
+                .name = "色彩空间",
                 .priv = &zebra_colorspace, 
                 #ifdef FEATURE_ZEBRA_FAST
                 .max = 2,
@@ -2718,7 +2718,7 @@ struct menu_entry zebra_menus[] = {
                 .help = "Luma: red/blue. RGB: show color of the clipped channel(s).",
             },
             {
-                .name = "Underexposure",
+                .name = "欠曝",
                 .priv = &zebra_level_lo, 
                 .min = 0,
                 .max = 20,
@@ -2727,7 +2727,7 @@ struct menu_entry zebra_menus[] = {
                 .help = "Underexposure threshold.",
             },
             {
-                .name = "Overexposure", 
+                .name = "过曝", 
                 .priv = &zebra_level_hi,
                 .min = 70,
                 .max = 101,
@@ -2737,7 +2737,7 @@ struct menu_entry zebra_menus[] = {
             },
             #ifdef CONFIG_MOVIE
             {
-                .name = "When recording", 
+                .name = "录制时", 
                 .priv = &zebra_rec,
                 .max = 1,
                 .choices = (const char *[]) {"Hide", "Show"},
@@ -2746,7 +2746,7 @@ struct menu_entry zebra_menus[] = {
             #endif
             #ifdef FEATURE_RAW_ZEBRAS
             {
-                .name = "Use RAW zebras",
+                .name = "使用原始斑马纹",
                 .priv = &raw_zebra_enable,
                 .max = 2,
                 .update = raw_zebra_update,
@@ -2754,7 +2754,7 @@ struct menu_entry zebra_menus[] = {
                 .help = "Use RAW zebras if possible.",
             },
             {
-                .name = "Raw zebra underexposure",
+                .name = "原始斑马欠曝",
                 .priv = &zebra_raw_underexposure,
                 .max = 5,
                 .choices = (const char *[]) {"OFF", "0 EV", "1 EV", "2 EV", "3 EV", "4 EV"},
@@ -2775,7 +2775,7 @@ struct menu_entry zebra_menus[] = {
 
     #ifdef FEATURE_FOCUS_PEAK
     {
-        .name = "Focus Peak",
+        .name = "峰值对焦",
         .priv           = &focus_peaking,
         .update         = focus_peaking_display,
         .max = 1,
@@ -2784,7 +2784,7 @@ struct menu_entry zebra_menus[] = {
         .depends_on = DEP_GLOBAL_DRAW,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Filter bias", 
+                .name = "滤镜偏向", 
                 .priv = &focus_peaking_filter_edges,
                 .max = 2,
                 .choices = (const char *[]) {"Strong edges", "Balanced", "Fine details"},
@@ -2796,7 +2796,7 @@ struct menu_entry zebra_menus[] = {
             },
             /*
             {
-                .name = "Method",
+                .name = "方法",
                 .priv = &focus_peaking_method, 
                 .max = 1,
                 .choices = (const char *[]) {"1st deriv.", "2nd deriv.", "Nyquist H"},
@@ -2807,7 +2807,7 @@ struct menu_entry zebra_menus[] = {
                 #error This requires CONFIG_DISPLAY_FILTERS.
                 #endif
             {
-                .name = "Display type",
+                .name = "显示类型",
                 .priv = &focus_peaking_disp, 
                 .max = 4,
                 .choices = (const char *[]) {"Blinking dots", "Fine dots", "Alpha blend", "Sharpness", "Raw"},
@@ -2815,7 +2815,7 @@ struct menu_entry zebra_menus[] = {
             },
             #endif
             {
-                .name = "Threshold", 
+                .name = "阈值", 
                 .priv = &focus_peaking_pthr,
                 .select = focus_peaking_adjust_thr,
                 .max    = 50,
@@ -2824,7 +2824,7 @@ struct menu_entry zebra_menus[] = {
                 .help = "How many pixels are considered in focus (percentage).",
             },
             {
-                .name = "Color", 
+                .name = "颜色", 
                 .priv = &focus_peaking_color,
                 .max = 7,
                 .choices = (const char *[]) {"Red", "Green", "Blue", "Cyan", "Magenta", "Yellow", "Global Focus", "Local Focus"},
@@ -2832,7 +2832,7 @@ struct menu_entry zebra_menus[] = {
                 .icon_type = IT_DICE,
             },
             {
-                .name = "Grayscale image", 
+                .name = "灰度图像", 
                 .priv = &focus_peaking_grayscale,
                 .max = 1,
                 .help = "Display LiveView image in grayscale.",
@@ -2843,7 +2843,7 @@ struct menu_entry zebra_menus[] = {
     #endif
     #ifdef FEATURE_MAGIC_ZOOM
     {
-        .name = "Magic Zoom",
+        .name = "魔术缩放",
         .priv = &zoom_overlay_enabled,
         .update = zoom_overlay_display,
         .min = 0,
@@ -2853,7 +2853,7 @@ struct menu_entry zebra_menus[] = {
         .depends_on = DEP_GLOBAL_DRAW | DEP_LIVEVIEW,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Trigger mode",
+                .name = "触发模式",
                 .priv = &zoom_overlay_trigger_mode, 
                 .min = 1,
                 .max = 4,
@@ -2866,7 +2866,7 @@ struct menu_entry zebra_menus[] = {
                 #endif
             },
             {
-                .name = "Size", 
+                .name = "尺寸", 
                 .priv = &zoom_overlay_size,
                 #ifdef FEATURE_MAGIC_ZOOM_FULL_SCREEN // most new cameras can do fullscreen :)
                 .max = 3,
@@ -2879,7 +2879,7 @@ struct menu_entry zebra_menus[] = {
                 .icon_type = IT_SIZE,
             },
             {
-                .name = "Position", 
+                .name = "位置", 
                 .priv = &zoom_overlay_pos,
                 .max = 4,
                 .choices = (const char *[]) {"Focus box", "Top-Left", "Top-Right", "Bottom-Right", "Bottom-Left"},
@@ -2887,7 +2887,7 @@ struct menu_entry zebra_menus[] = {
                 .help = "Position of zoom box (fixed or linked to focus box).",
             },
             {
-                .name = "Magnification", 
+                .name = "放大倍率", 
                 .priv = &zoom_overlay_x,
                 .max = 2,
                 .choices = (const char *[]) {"1:1", "2:1", "3:1", "4:1"},
@@ -2896,7 +2896,7 @@ struct menu_entry zebra_menus[] = {
             },
             #ifdef CONFIG_LV_FOCUS_INFO
             {
-                .name = "Focus confirm", 
+                .name = "对焦确认", 
                 .priv = &zoom_overlay_split,
                 .max = 2,
                 .choices = (const char *[]) {"Green Bars", "SplitScreen", "SS ZeroCross"},
@@ -2905,7 +2905,7 @@ struct menu_entry zebra_menus[] = {
             },
             #endif
             /*{
-                .name = "Look-up Table", 
+                .name = "查找表", 
                 .priv = &zoom_overlay_lut,
                 .max = 1,
                 .choices = (const char *[]) {"OFF", "CineStyle"},
@@ -2923,7 +2923,7 @@ struct menu_entry zebra_menus[] = {
         #error This requires FEATURE_CROPMARKS.
         #endif
     {
-        .name = "Ghost image",
+        .name = "鬼影图像",
         .priv = &transparent_overlay, 
         .update = transparent_overlay_display, 
         .max = 1,
@@ -2932,7 +2932,7 @@ struct menu_entry zebra_menus[] = {
         .works_best_in = DEP_LIVEVIEW, // it will actually go into LV if it's not
         .children =  (struct menu_entry[]) {
             {
-                .name = "Auto-update",
+                .name = "自动更新",
                 .priv = &transparent_overlay_auto_update, 
                 .max = 1,
                 .help = "Update the overlay whenever you take a picture.",
@@ -2943,7 +2943,7 @@ struct menu_entry zebra_menus[] = {
     #endif
     #ifdef FEATURE_SPOTMETER
     {
-        .name = "Spotmeter",
+        .name = "点测光",
         .priv           = &spotmeter_draw,
         .max = 1,
         .update        = spotmeter_menu_display,
@@ -2951,7 +2951,7 @@ struct menu_entry zebra_menus[] = {
         .depends_on = DEP_GLOBAL_DRAW | DEP_EXPSIM,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Spotmeter Unit",
+                .name = "点测光单位",
                 .priv = &spotmeter_formula, 
                 #ifdef FEATURE_RAW_SPOTMETER
                 .max = 4,
@@ -2969,7 +2969,7 @@ struct menu_entry zebra_menus[] = {
                     "RGB color in Percentage.\n"
             },
             {
-                .name = "Spot Position",
+                .name = "测光点位置",
                 .priv = &spotmeter_position, 
                 .max = 1,
                 .choices = (const char *[]) {"Center", "Focus box"},
@@ -2982,7 +2982,7 @@ struct menu_entry zebra_menus[] = {
     #endif
     #ifdef FEATURE_FALSE_COLOR
     {
-        .name = "False color",
+        .name = "伪色",
         .priv       = &falsecolor_draw,
         .update     = falsecolor_display,
         .max = 1,
@@ -2992,7 +2992,7 @@ struct menu_entry zebra_menus[] = {
         .depends_on = DEP_GLOBAL_DRAW | DEP_EXPSIM,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Palette      ",
+                .name = "调色板",
                 .priv = &falsecolor_palette,
                 .max = 5,
                 .icon_type = IT_DICE,
@@ -3006,7 +3006,7 @@ struct menu_entry zebra_menus[] = {
     #endif
     #ifdef FEATURE_HISTOGRAM
     {
-        .name = "Histogram",
+        .name = "直方图",
         .priv       = &hist_draw,
         .max = 1,
         .update = hist_print,
@@ -3015,7 +3015,7 @@ struct menu_entry zebra_menus[] = {
         .submenu_width = 700,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Histogram type",
+                .name = "直方图类型",
                 .priv = &hist_type,
                 .update = raw_histo_update,
                 #ifdef FEATURE_RAW_HISTOGRAM
@@ -3035,7 +3035,7 @@ struct menu_entry zebra_menus[] = {
             },
             #ifdef FEATURE_RAW_HISTOGRAM
             {
-                .name = "RAW EV indicator",
+                .name = "RAW EV指示",
                 .priv = &hist_meter,
                 .max = 2,
                 .choices = CHOICES("OFF", "Dynamic Range", "ETTR hint"),
@@ -3047,7 +3047,7 @@ struct menu_entry zebra_menus[] = {
             },
             #endif
             {
-                .name = "Scaling",
+                .name = "缩放",
                 .priv = &hist_log, 
                 .max = 1,
                 .choices = (const char *[]) {"Linear", "Log"},
@@ -3055,7 +3055,7 @@ struct menu_entry zebra_menus[] = {
                 .icon_type = IT_DICE,
             },
             {
-                .name = "Clip warning",
+                .name = "裁剪警告",
                 .priv = &hist_warn, 
                 .max = 1,
                 .help = "Display warning dots when one color channel is clipped.",
@@ -3067,7 +3067,7 @@ struct menu_entry zebra_menus[] = {
     #endif
     #ifdef FEATURE_WAVEFORM
     {
-        .name = "Waveform",
+        .name = "波形图",
         .priv       = &waveform_draw,
         .update = waveform_print,
         .max = 1,
@@ -3075,7 +3075,7 @@ struct menu_entry zebra_menus[] = {
         .depends_on = DEP_GLOBAL_DRAW | DEP_EXPSIM,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Waveform Size",
+                .name = "波形图尺寸",
                 .priv = &waveform_size, 
                 .max = 2,
                 .choices = (const char *[]) {"Small", "Large", "FullScreen"},
@@ -3090,7 +3090,7 @@ struct menu_entry zebra_menus[] = {
     MENU_PLACEHOLDER("Vectorscope"),
     #ifdef FEATURE_LEVEL_INDICATOR
     {
-        .name = "Level Indicator", 
+        .name = "电平指示", 
         .priv = &electronic_level, 
         .max  = 1, 
         .help = "Electronic level indicator in 0.5 degree steps.",
@@ -3102,7 +3102,7 @@ struct menu_entry zebra_menus[] = {
 static struct menu_entry livev_dbg_menus[] = {
     #ifdef FEATURE_SHOW_OVERLAY_FPS
     {
-        .name = "Show Overlay FPS",
+        .name = "显示叠加帧率",
         .priv = &show_lv_fps, 
         .max = 1,
         .help = "Show the frame rate of overlay loop (zebras, peaking...)"
@@ -3113,7 +3113,7 @@ static struct menu_entry livev_dbg_menus[] = {
 #ifdef FEATURE_LV_DISPLAY_PRESETS
 struct menu_entry livev_cfg_menus[] = {
     {
-        .name = "LV Display Presets",
+        .name = "实时取景显示预设",
         .priv       = &disp_profiles_0,
         .max        = 3,
         .choices    = (const char *[]) {"OFF (1)", "2", "3", "4"},

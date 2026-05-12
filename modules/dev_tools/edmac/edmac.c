@@ -736,17 +736,17 @@ extern void edmac_test();
 static struct menu_entry edmac_menu[] =
 {
     {
-        .name   = "EDMAC tools",
+        .name   = "EDMAC工具",
         .select = menu_open_submenu,
         .children =  (struct menu_entry[]) {
             {
-                .name       = "Show EDMAC channels",
+                .name       = "显示EDMAC通道",
                 .select     = menu_open_submenu,
                 .icon_type  = IT_ACTION,
                 .help       = "Useful for finding image buffers.",
                 .children =  (struct menu_entry[]) {
                     {
-                        .name   = "EDMAC display",
+                        .name   = "EDMAC显示",
                         .priv   = &edmac_selection,
                         .max    = 49,
                         .update = edmac_display,
@@ -755,26 +755,26 @@ static struct menu_entry edmac_menu[] =
                 },
             },
             {
-                .name   = "Find free EDMAC channels",
+                .name   = "查找空闲EDMAC通道",
                 .select = run_in_separate_task,
                 .priv   = find_free_edmac_channels,
                 .help   = "Useful to find which channels can be used in LiveView.\n",
             },
             {
-                .name   = "Log EDMAC activity",
+                .name   = "记录EDMAC活动",
                 .select = menu_open_submenu,
                 .help   = "Sample EDMAC activity on all channels and save a log file.",
                 .help2  = "Useful for figuring out how image capture/processing works.",
                 .children =  (struct menu_entry[]) {
                     {
-                        .name   = "Start logging",
+                        .name   = "开始记录",
                         .select = run_in_separate_task,
                         .priv   = log_edmac_usage,
                         .help   = "Start logging EDMAC activity.",
                         .help2  = "Press shutter halfway to choose the exact moment.",
                     },
                     {
-                        .name       = "Log every",
+                        .name       = "记录间隔",
                         .priv       = &log_interval,
                         .min        = 50,
                         .max        = 10000,
@@ -788,7 +788,7 @@ static struct menu_entry edmac_menu[] =
                 },
             },
             {
-                .name   = "EDMAC model test",
+                .name   = "EDMAC模型测试",
                 .select = run_in_separate_task,
                 .priv   = edmac_test,
                 .help   = "Tests to confirm our hypothesis on how EDMAC works.",

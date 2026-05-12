@@ -313,7 +313,7 @@ static MENU_SELECT_FUNC(customize_toggle)
 
 static struct menu_entry customize_menu[] = {
     {
-        .name   = "Customize Menus",
+        .name   = "自定义菜单",
         .priv   = &customize_mode,
         .max    = 1,
         .select = customize_toggle,
@@ -351,17 +351,17 @@ static struct menu_entry my_menu_placeholders[] = {
 /*
 static struct menu_entry menu_prefs[] = {
     {
-        .name = "Menu Preferences",
+        .name = "菜单偏好",
         .select     = menu_open_submenu,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Start in MyMenu",
+                .name = "启动显示我的菜单",
                 .priv = &start_in_my_menu,
                 .max = 1,
                 .help  = "Go to My Menu every time you open ML menu.",
             },
             {
-                .name = "SET action",
+                .name = "SET键动作",
                 .priv = &set_action,
                 .max = 2,
                 .choices = (const char *[]) {"Pickbox", "Toggle", "Auto"},

@@ -88,7 +88,7 @@ static void run_SD_autotune(void *priv_unused, int unused)
 
 static struct menu_entry autotune_SD_speed_menu[] = {
     {
-        .name = "SD speed autotune",
+        .name = "SD速度自动调校",
         .priv = &is_autotune_enabled,
         .select = run_SD_autotune,
         .max = 1,

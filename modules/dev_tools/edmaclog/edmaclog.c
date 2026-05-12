@@ -48,7 +48,7 @@ static void log_control_task()
 static struct menu_entry edmac_menu[] =
 {
     {
-        .name   = "Toggle EDMAC logging",
+        .name   = "切换EDMAC日志",
         .select = run_in_separate_task,
         .priv   = log_control_task,
         .icon_type = IT_ACTION,

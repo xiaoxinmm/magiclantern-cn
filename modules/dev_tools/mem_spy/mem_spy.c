@@ -335,7 +335,7 @@ static MENU_UPDATE_FUNC(start_delay_upd){
 static struct menu_entry mem_spy_menu[] =
 {
     {
-        .name = "Memory spy",
+        .name = "内存监视器",
         .help = "Use with care, it can cause ERR 70 and endless loop.",
         .priv = &mem_spy_running,
         .max = 1,
@@ -343,7 +343,7 @@ static struct menu_entry mem_spy_menu[] =
         .submenu_width = 700,
         .children = (struct menu_entry[]) {
             {
-                .name = "Look for",
+                .name = "查找",
                 .priv = &look_for,
                 .choices = CHOICES(
                     "bools 0,1,-1",
@@ -358,7 +358,7 @@ static struct menu_entry mem_spy_menu[] =
                 .help2 = "Memory is always scanned by 4B.",
             },
             {
-                .name = "Memory type",
+                .name = "内存类型",
                 .priv = &mem_type,
                 .choices = CHOICES("MEM", "MEMX"),
                 .max = 1,
@@ -366,20 +366,20 @@ static struct menu_entry mem_spy_menu[] =
                 .help2 = "MMIO device.\nShadow copy.", //fixme: this text is never shown?
             },
             {
-                .name = "Halfshutter related",
+                .name = "半按快门相关",
                 .priv = &halfshutter_related,
                 .max = 1,
                 .help = "Hide vars that change if halfshutter is not pressed.",
             },
             {
-                .name = "Fixed addresses",
+                .name = "固定地址",
                 .priv = &fixed_addresses,
                 .max = 1,
                 .help = "Defined in source.",
                 .update = fixed_addresses_upd,
             },
             {
-                .name = "Start address",
+                .name = "起始地址",
                 .priv = &start_addr,
                 .icon_type = IT_DICE,
                 .update = start_addr_upd,
@@ -387,20 +387,20 @@ static struct menu_entry mem_spy_menu[] =
                 .help = "Edit module config file for specific address.",
             },
             {
-                .name = "Var count",
+                .name = "变量数",
                 .priv = &var_count,
                 .icon_type = IT_DICE,
                 .max = 200 * 1000,
                 .update = var_count_upd,
             },
             {
-                .name = "Next range",
+                .name = "下一范围",
                 .icon_type = IT_ACTION,
                 .select = next_range,
                 .help = "Set end address as start address.",
             },
             {
-                .name = "Value min",
+                .name = "值最小值",
                 .priv = &value_lo,
                 .icon_type = IT_DICE,
                 .max = 1000 * 1000,
@@ -409,7 +409,7 @@ static struct menu_entry mem_spy_menu[] =
                 .update = zero_disable,
             },
             {
-                .name = "Value max",
+                .name = "值最大值",
                 .priv = &value_hi,
                 .icon_type = IT_DICE,
                 .max = 1000 * 1000,
@@ -418,7 +418,7 @@ static struct menu_entry mem_spy_menu[] =
                 .update = zero_disable,
             },
             {
-                .name = "Changes min",
+                .name = "变化最小值",
                 .priv = &count_lo,
                 .icon_type = IT_DICE,
                 .max = 1000 * 1000,
@@ -426,7 +426,7 @@ static struct menu_entry mem_spy_menu[] =
                 .update = zero_disable,
             },
             {
-                .name = "Changes max",
+                .name = "变化最大值",
                 .priv = &count_hi,
                 .icon_type = IT_DICE,
                 .max = 1000 * 1000,
@@ -434,7 +434,7 @@ static struct menu_entry mem_spy_menu[] =
                 .update = zero_disable,
             },
             {
-                .name = "Frequency min",
+                .name = "频率最小值",
                 .priv = &freq_lo,
                 .icon_type = IT_DICE,
                 .max = 1000 * 1000,
@@ -442,7 +442,7 @@ static struct menu_entry mem_spy_menu[] =
                 .update = zero_disable,
             },
             {
-                .name = "Frequency max",
+                .name = "频率最大值",
                 .priv = &freq_hi,
                 .icon_type = IT_DICE,
                 .max = 1000 * 1000,
@@ -450,7 +450,7 @@ static struct menu_entry mem_spy_menu[] =
                 .update = zero_disable,
             },
             {
-                .name = "Start delay",
+                .name = "启动延迟",
                 .priv = &start_delay,
                 .max = 60*60,
                 .update = start_delay_upd,

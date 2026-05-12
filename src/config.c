@@ -871,14 +871,14 @@ static MENU_SELECT_FUNC(set_at_startup_toggle)
 
 static struct menu_entry cfg_menus[] = {
 {
-    .name = "Config options",
+    .name = "配置选项",
     .select = menu_open_submenu,
     .update = config_preset_update,
     .submenu_width = 710,
     .help = "Config auto save, manual save, restore defaults...",
     .children =  (struct menu_entry[]) {
         {
-            .name       = "SET at startup",
+            .name       = "启动时设置",
             .priv       = &_set_at_startup,
             .max        = 1,
             .choices    = CHOICES("Bypass loading ML", "Required to load ML"),
@@ -889,7 +889,7 @@ static struct menu_entry cfg_menus[] = {
                           "Load ML only if SET is pressed at startup (optional)"
         },
         {
-            .name = "Config preset",
+            .name = "配置预设",
             .priv = &config_new_preset_index,
             .min = 0,
             .max = 2,
@@ -899,20 +899,20 @@ static struct menu_entry cfg_menus[] = {
             .help = "Choose a configuration preset."
         },
         {
-            .name = "Config AutoSave",
+            .name = "配置自动保存",
             .priv = &config_autosave,
             .max  = 1,
             .select = config_autosave_toggle,
             .help = "If enabled, ML settings are saved automatically at shutdown."
         },
         {
-            .name = "Save config now",
+            .name = "立即保存配置",
             .select        = config_save_select,
             .update        = config_save_update,
             .help = "Save ML settings to current preset directory."
         },
         {
-            .name = "Restore ML defaults",
+            .name = "恢复ML默认",
             .select        = delete_config,
             .update        = delete_config_update,
             .help  = "This restores ML default settings, by deleting all CFG files.",

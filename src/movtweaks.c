@@ -987,7 +987,7 @@ void movtweak_task_init()
 static struct menu_entry mov_menus[] = {
     #ifdef FEATURE_MOVIE_RECORDING_50D
     {
-        .name       = "Movie Record",
+        .name       = "影片录制",
         .priv       = &lv_movie_select,
         .select     = lv_movie_toggle,
         .select_Q   = lv_movie_size_toggle,
@@ -998,7 +998,7 @@ static struct menu_entry mov_menus[] = {
     #endif
     #ifdef CONFIG_MOVIE_RECORDING_50D_SHUTTER_HACK
     {
-        .name = "Shutter Button",
+        .name = "快门按钮",
         .priv = &shutter_btn_rec,
         .max  = 2,
         .choices = CHOICES("Leave unchanged", "Block during REC", "Hold during REC"),
@@ -1010,7 +1010,7 @@ static struct menu_entry mov_menus[] = {
 
     #ifdef FEATURE_MOVIE_REC_KEY
     {
-        .name = "REC key",
+        .name = "录制键",
         .priv = &movie_rec_key, 
         .max = 1,
         .icon_type = IT_BOOL,
@@ -1020,7 +1020,7 @@ static struct menu_entry mov_menus[] = {
         .depends_on = DEP_MOVIE_MODE,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Require long press",
+                .name = "需要长按",
                 .priv = &movie_rec_key_long,
                 .max = 1,
                 .icon_type = IT_BOOL,
@@ -1028,7 +1028,7 @@ static struct menu_entry mov_menus[] = {
                 .help = "If ON, you have to hold half-shutter pressed for 1 second.",
             },
             {
-                .name = "Allowed actions",
+                .name = "允许的操作",
                 .priv = &movie_rec_key_action,
                 .max = 2,
                 .icon_type = IT_DICE,
@@ -1041,7 +1041,7 @@ static struct menu_entry mov_menus[] = {
     #endif
     #ifdef FEATURE_OVERRIDE_MOVIE_30_MIN_LIMIT
     {
-        .name = "MOV/MP4 time limit",
+        .name = "MOV/MP4时间限制",
         .priv = &mov_time_limit,
         .update = print_mov_time_limit,
         .select = change_mov_time_limit,
@@ -1053,7 +1053,7 @@ static struct menu_entry mov_menus[] = {
     #endif
     #ifdef FEATURE_GRADUAL_EXPOSURE
     {
-        .name = "Gradual Exposure",
+        .name = "渐进曝光",
         .priv = &smooth_iso,
         .max = 1,
         .help   = "Use smooth exposure transitions, by compensating with ISO.",
@@ -1062,7 +1062,7 @@ static struct menu_entry mov_menus[] = {
         .depends_on = DEP_MOVIE_MODE | DEP_MANUAL_ISO,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Ramping speed",
+                .name = "渐变速度",
                 .priv       = &smooth_iso_speed,
                 .min = 1,
                 .max = 7,
@@ -1082,7 +1082,7 @@ static struct menu_entry mov_menus[] = {
     || defined(FEATURE_SHUTTER_LOCK) || defined(FEATURE_MOVIE_LOGGING)
 static struct menu_entry movie_tweaks_menus[] = {
     {
-        .name = "Movie Tweaks",
+        .name = "影片调整",
         .select = menu_open_submenu,
         .help = "Movie Restart, Movie Logging, REC/Standby Notify...",
         .depends_on = DEP_MOVIE_MODE,
@@ -1090,7 +1090,7 @@ static struct menu_entry movie_tweaks_menus[] = {
         .children =  (struct menu_entry[]) {
                 #ifdef FEATURE_MOVIE_RESTART
                 {
-                    .name = "Movie Restart",
+                    .name = "影片重启",
                     .priv = &movie_restart,
                     .max        = 1,
                     .help = "Auto-restart movie recording, if it happens to stop.",
@@ -1099,7 +1099,7 @@ static struct menu_entry movie_tweaks_menus[] = {
                 #endif
                 #ifdef FEATURE_REC_NOTIFY
                 {
-                    .name = "REC/STBY notify", 
+                    .name = "录制/待机提示", 
                     .priv = &rec_notify, 
                     #if defined(CONFIG_BLUE_LED) && defined(FEATURE_REC_NOTIFY_BEEP)
                     .max = 4,
@@ -1123,7 +1123,7 @@ static struct menu_entry movie_tweaks_menus[] = {
                 #endif
                 #ifdef FEATURE_FORCE_LIVEVIEW
                 {
-                    .name = "Force LiveView",
+                    .name = "强制实时取景",
                     .priv = &enable_liveview,
                     .max = 2,
                     .choices = CHOICES("OFF", "Start & CPUlens", "Always"),
@@ -1134,7 +1134,7 @@ static struct menu_entry movie_tweaks_menus[] = {
                 #endif
                 #ifdef FEATURE_SHUTTER_LOCK
                 {
-                    .name = "Shutter Lock",
+                    .name = "快门锁定",
                     .priv = &shutter_lock,
                     .max = 1,
                     .help   = "Lock shutter value in movie mode (change from Expo only).",
@@ -1164,7 +1164,7 @@ void movie_tweak_menu_init()
 #ifdef FEATURE_EXPO_OVERRIDE
 struct menu_entry expo_override_menus[] = {
     {
-        .name = "Expo. Override",
+        .name = "曝光覆盖",
         .priv = &bv_auto,
         .select     = bv_toggle,
         .update     = bv_display,

@@ -1616,7 +1616,7 @@ static MENU_SELECT_FUNC(debug_info_toggle)
 static struct menu_entry ettr_menu[] =
 {
     {
-        .name = "Auto ETTR", 
+        .name = "自动ETTR", 
         .priv = &auto_ettr, 
         .update = auto_ettr_update,
         .max = 1,
@@ -1624,7 +1624,7 @@ static struct menu_entry ettr_menu[] =
         .submenu_width = 710,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Trigger mode",
+                .name = "触发模式",
                 .priv = &auto_ettr_trigger,
                 .max = 3, // NOTE: Modifed by the module init task to disable ETTR in LV if not supported
                 .choices = CHOICES("Always ON", "Auto Snap", "Press SET", "HalfS DblClick"),
@@ -1635,7 +1635,7 @@ static struct menu_entry ettr_menu[] =
                          "HalfS DblClick: meter for ETTR when pressing halfshutter 2x\n"
             },
             {
-                .name = "Slowest shutter",
+                .name = "最慢快门",
                 .priv = &auto_ettr_max_shutter,
                 .select = auto_ettr_max_shutter_toggle,
                 .update = auto_ettr_max_shutter_update,
@@ -1645,7 +1645,7 @@ static struct menu_entry ettr_menu[] =
                 .help = "Slowest shutter speed for ETTR (longest exposure time)."
             },
             {
-                .name = "Exposure target",
+                .name = "曝光目标",
                 .priv = &auto_ettr_target_level,
                 .min = -4,
                 .max = 0,
@@ -1654,7 +1654,7 @@ static struct menu_entry ettr_menu[] =
                 .advanced = 1,
             },
             {
-                .name = "Highlight ignore",
+                .name = "高光忽略",
                 .priv = &auto_ettr_ignore,
                 .min = 0,
                 .max = 500,
@@ -1664,7 +1664,7 @@ static struct menu_entry ettr_menu[] =
                 .help2 = "Use this to allow spec(ta)cular highlights to be clipped.",
             },
             {
-                .name = "Allow clipping",
+                .name = "允许裁剪",
                 .priv = &auto_ettr_clip,
                 .max = 2,
                 .choices = CHOICES("OFF", "Green channel", "Any channel"),
@@ -1672,7 +1672,7 @@ static struct menu_entry ettr_menu[] =
                 .advanced = 1,
             },
             {
-                .name = "Midtone SNR limit",
+                .name = "中间调信噪比限制",
                 .priv = &auto_ettr_midtone_snr_limit,
                 .min = 0,
                 .max = 8,
@@ -1682,7 +1682,7 @@ static struct menu_entry ettr_menu[] =
                 .depends_on = DEP_MANUAL_ISO,
             },
             {
-                .name = "Shadow SNR limit",
+                .name = "阴影信噪比限制",
                 .priv = &auto_ettr_shadow_snr_limit,
                 .min = 0,
                 .max = 6,
@@ -1692,21 +1692,21 @@ static struct menu_entry ettr_menu[] =
                 .depends_on = DEP_MANUAL_ISO,
             },
             {
-                .name = "Link to Canon shutter",
+                .name = "链接佳能快门",
                 .priv = &auto_ettr_adjust_mode,
                 .max = 1,
                 .help = "Hack to adjust slowest shutter from main dial.",
                 .advanced = 1,
             },
             {
-                .name = "Link to Dual ISO",
+                .name = "链接双ISO",
                 .priv = &auto_ettr_dual_iso_link,
                 .max = 1,
                 .help  = "Let ETTR change DualISO settings so you get the SNR values",
                 .help2 = "in mids & shadows. It will disable dual ISO if not needed.",
             },
             {
-                .name = "Show metered areas",
+                .name = "显示测光区域",
                 .priv = &show_metered_areas,
                 .max = 1,
                 .help =  "Show where the white point and the SNR levels are metered",
@@ -1714,14 +1714,14 @@ static struct menu_entry ettr_menu[] =
                 .advanced = 1,
             },
             {
-                .name = "Allow beeps",
+                .name = "允许蜂鸣",
                 .priv = &auto_ettr_allow_beeps,
                 .max = 1,
                 .help =  "Make status beeps (1 = OK, 2 = need more pictures, 3 = error).",
                 .advanced = 1,
             },
             {
-                .name = "Show debug info",
+                .name = "显示调试信息",
                 .priv = &debug_info,
                 .select = debug_info_toggle,
                 .max = 1,

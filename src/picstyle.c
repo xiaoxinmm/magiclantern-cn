@@ -702,7 +702,7 @@ const char * style_choices[] = {
 
 static struct menu_entry picstyle_features_menu[] = {
     {
-        .name = "Picture Style",
+        .name = "照片风格",
         .priv = &lens_info.picstyle,
         .min = 0,
         .max = NUM_PICSTYLES - 1,
@@ -715,7 +715,7 @@ static struct menu_entry picstyle_features_menu[] = {
         .submenu_width = 700,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Active style",
+                .name = "当前风格",
                 .priv = &lens_info.picstyle,
                 .min = 0,
                 .max = NUM_PICSTYLES - 1,
@@ -728,21 +728,21 @@ static struct menu_entry picstyle_features_menu[] = {
             },
 #if NUM_PICSTYLE_SLIDERS == 6
             {
-                .name = "Sharpness strength",
+                .name = "锐度强度",
                 .update = sharpness_display,
                 .select = sharpness_toggle,
                 .help = "Adjust sharpness strength in current picture style.",
                 .edit_mode = EM_SHOW_LIVEVIEW,
             },
             {
-                .name = "Sharpness fineness",
+                .name = "锐度精细度",
                 .update = sharpness_fineness_display,
                 .select = sharpness_fineness_toggle,
                 .help = "Adjust sharpness fineness in current picture style.",
                 .edit_mode = EM_SHOW_LIVEVIEW,
             },
             {
-                .name = "Sharpness threshold",
+                .name = "锐度阈值",
                 .update = sharpness_threshold_display,
                 .select = sharpness_threshold_toggle,
                 .help = "Adjust sharpness threshold in current picture style.",
@@ -750,7 +750,7 @@ static struct menu_entry picstyle_features_menu[] = {
             },
 #else // Same as first param above, just under a different name
             {
-                .name = "Sharpness",
+                .name = "锐度",
                 .update = sharpness_display,
                 .select = sharpness_toggle,
                 .help = "Adjust sharpness in current picture style.",
@@ -758,21 +758,21 @@ static struct menu_entry picstyle_features_menu[] = {
             },
 #endif
             {
-                .name = "Contrast",
+                .name = "对比度",
                 .update = contrast_display,
                 .select = contrast_toggle,
                 .help = "Adjust contrast in current picture style.",
                 .edit_mode = EM_SHOW_LIVEVIEW,
             },
             {
-                .name = "Saturation",
+                .name = "饱和度",
                 .update = saturation_display,
                 .select = saturation_toggle,
                 .help = "Adjust saturation in current picture style.",
                 .edit_mode = EM_SHOW_LIVEVIEW,
             },
             {
-                .name = "Color Tone",
+                .name = "色调",
                 .update = color_tone_display,
                 .select = color_tone_toggle,
                 .help = "Adjust color tone in current picture style.",
@@ -780,7 +780,7 @@ static struct menu_entry picstyle_features_menu[] = {
             },
 #ifdef FEATURE_REC_PICSTYLE
             {
-                .name = "Force style for REC",
+                .name = "录制时强制风格",
                 .priv = &picstyle_rec_enable,
                 .min = 0,
                 .max = 1,
@@ -790,7 +790,7 @@ static struct menu_entry picstyle_features_menu[] = {
                 .depends_on = DEP_MOVIE_MODE,
             },
             {
-                .name = "Style for recording",
+                .name = "录制风格",
                 .priv = &picstyle_rec,
                 .min = 0,
                 .max = NUM_PICSTYLES - 1,
@@ -837,7 +837,7 @@ static LVINFO_UPDATE_FUNC(picstyle_update)
 }
 
 static struct lvinfo_item info_item = {
-    .name = "Pic.Style",
+    .name = "照片风格",
     .which_bar = LV_TOP_BAR_ONLY,
     .update = picstyle_update,
     .priority = -1,

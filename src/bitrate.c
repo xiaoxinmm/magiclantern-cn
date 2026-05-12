@@ -519,7 +519,7 @@ void movie_indicators_show()
 #ifdef FEATURE_NITRATE
 static struct menu_entry mov_menus[] = {
     {
-        .name = "Bit Rate",
+        .name = "比特率",
         .priv = &bitrate_mode,
         .update     = bitrate_print,
         .select     = bitrate_toggle,
@@ -528,7 +528,7 @@ static struct menu_entry mov_menus[] = {
         .depends_on = DEP_MOVIE_MODE,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Mode",
+                .name = "模式",
                 .priv = &bitrate_mode,
                 .max = 2,
                 .icon_type = IT_DICE_OFF,
@@ -537,7 +537,7 @@ static struct menu_entry mov_menus[] = {
                 .help = "Firmware default / CBR (recommended) / VBR (very risky)"
             },
             {
-                .name = "CBR factor",
+                .name = "CBR系数",
                 .priv = &bitrate_factor,
                 .select = bitrate_factor_toggle,
                 .update = cbr_display,
@@ -547,7 +547,7 @@ static struct menu_entry mov_menus[] = {
                 .help = "1.0x = Canon default, 0.4x = 30minutes, 1.4x = fast card."
             },
             {
-                .name = "QScale",
+                .name = "量化参数",
                 .priv = &qscale_neg,
                 .select = bitrate_qscale_toggle,
                 .update = qscale_display,
@@ -557,13 +557,13 @@ static struct menu_entry mov_menus[] = {
                 .help = "Quality factor (-16 = best quality). Try not to use it!"
             },
             {
-                .name = "Bitrate Info",
+                .name = "比特率信息",
                 .priv       = &bitrate_indicator,
                 .max = 1,
                 .help = "A = average, B = instant bitrate, Q = instant QScale."
             },
             {
-                .name = "BuffWarnLevel",
+                .name = "缓冲告警等级",
                 .priv = &buffer_warning_level,
                 .min = 30,
                 .max = 100,
@@ -577,7 +577,7 @@ static struct menu_entry mov_menus[] = {
 #ifdef FEATURE_NITRATE_WAV_RECORD
 static struct menu_entry wav_menus[] = {
             {
-                .name = "Sound Record",
+                .name = "录音",
                 .priv = &cfg_hibr_wav_record,
                 .select = hibr_wav_record_select,
                 .max = 1,
@@ -590,7 +590,7 @@ static struct menu_entry wav_menus[] = {
 static struct menu_entry mov_tweak_menus[] = {
 #ifdef FEATURE_REC_INDICATOR
     {
-        .name = "Time Indicator",
+        .name = "时间指示器",
         .priv       = &time_indicator,
         .help = "Time indicator while recording.",
         .max = 3,
@@ -602,7 +602,7 @@ static struct menu_entry mov_tweak_menus[] = {
 
 static struct lvinfo_item info_item[] = {
     {
-        .name = "Time indicator",
+        .name = "时间指示器",
         .which_bar = LV_TOP_BAR_ONLY,
         .update = time_indicator_update,
         .preferred_position = 127,

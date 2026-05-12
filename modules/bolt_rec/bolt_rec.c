@@ -420,7 +420,7 @@ static MENU_SELECT_FUNC(bolt_rec_toggle)
 static struct menu_entry bolt_rec_menu[] =
 {
     {
-        .name = "Bolt trigger",
+        .name = "闪电触发",
         .priv = &bolt_rec_enabled,
         .select = &bolt_rec_toggle,
         .max = 1,
@@ -429,44 +429,44 @@ static struct menu_entry bolt_rec_menu[] =
         .help = "Record 14-bit RAW video of lightning bolts.",
         .children =  (struct menu_entry[]) {
             {
-                .name = "Post-bolt frame count",
+                .name = "闪电后帧数",
                 .priv = &bolt_rec_post_frames,
                 .min = 0,
                 .max = 1000,
             },
             {
-                .name = "Plot height",
+                .name = "绘图高度",
                 .priv = &bolt_rec_plot_height,
                 .min = 20,
                 .max = 100,
             },
             {
-                .name = "Scanlines",
+                .name = "扫描行数",
                 .priv = &bolt_rec_scanlines,
                 .min = 1,
                 .max = MAX_SCANLINES,
             },
             {
-                .name = "Abs: trigger enabled",
+                .name = "绝对触发启用",
                 .priv = &bolt_rec_abs_enabled,
                 .min = 0,
                 .max = 1,
             },
             {
-                .name = "Rel: trigger enabled",
+                .name = "相对触发启用",
                 .priv = &bolt_rec_rel_enabled,
                 .min = 0,
                 .max = 1,
             },
             {
-                .name = "Abs: trigger value",
+                .name = "绝对触发值",
                 .priv = &bolt_rec_abs_trigger,
                 .update = &bolt_rec_update_plot_menu,
                 .min = 0,
                 .max = 16384,
             },
             {
-                .name = "Rel: trigger value",
+                .name = "相对触发值",
                 .priv = &bolt_rec_rel_trigger,
                 .update = &bolt_rec_update_plot_menu,
                 .min = 0,

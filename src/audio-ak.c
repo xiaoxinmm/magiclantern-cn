@@ -450,7 +450,7 @@ static MENU_UPDATE_FUNC(audio_micpower_display)
 static struct menu_entry audio_menus[] = {
     #ifdef FEATURE_ANALOG_GAIN
     {
-        .name = "Analog Gain",
+        .name = "模拟增益",
         .priv           = &mgain,
         .icon_type = IT_PERCENT_OFF,
         #ifdef CONFIG_500D
@@ -467,13 +467,13 @@ static struct menu_entry audio_menus[] = {
     #endif
     #ifdef FEATURE_DIGITAL_GAIN
     {
-        .name = "Digital Gain", 
+        .name = "数字增益", 
         .select = menu_open_submenu, 
         .help = "Digital gain (not recommended, use only for headphones!)",
         .depends_on = DEP_SOUND_RECORDING,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Left Digital Gain",
+                .name = "左声道数字增益",
                 .priv           = &dgain_l,
                 .max            = 36,
                 .icon_type      = IT_PERCENT_OFF,
@@ -482,7 +482,7 @@ static struct menu_entry audio_menus[] = {
                 .help = "Digital gain (LEFT). Any nonzero value reduces quality.",
             },
             {
-                .name = "Right Digital Gain",
+                .name = "右声道数字增益",
                 .priv           = &dgain_r,
                 .max            = 36,
                 .icon_type      = IT_PERCENT_OFF,
@@ -492,7 +492,7 @@ static struct menu_entry audio_menus[] = {
             },
             #ifdef FEATURE_AGC_TOGGLE
             {
-                .name = "AGC",
+                .name = "自动增益控制",
                 .priv           = &alc_enable,
                 .max            = 1,
                 .help = "Automatic Gain Control - turn it off :)",
@@ -504,7 +504,7 @@ static struct menu_entry audio_menus[] = {
     #endif
     #ifdef FEATURE_INPUT_SOURCE
     {
-        .name = "Input source",
+        .name = "输入源",
         .priv           = &input_choice,
         .icon_type      = IT_DICE,
         .max            = 4,
@@ -516,7 +516,7 @@ static struct menu_entry audio_menus[] = {
 
     #ifdef FEATURE_WIND_FILTER
     {
-        .name = "Wind Filter",
+        .name = "风声滤镜",
         .priv              = &enable_filters,
         .help = "High pass filter for wind noise reduction.",
         .max = 1,
@@ -526,14 +526,14 @@ static struct menu_entry audio_menus[] = {
     
     #ifdef CONFIG_AUDIO_REG_LOG
     {
-        .name           = "Close register log",
+        .name           = "关闭寄存器日志",
         .select         = audio_reg_close,
     },
     #endif
 
     #ifdef FEATURE_MIC_POWER
     {
-        .name = "Mic Power",
+        .name = "麦克风电源",
         .priv           = &mic_power,
         .update         = audio_micpower_display,
         .max = 1,
@@ -545,7 +545,7 @@ static struct menu_entry audio_menus[] = {
 /* any reason to turn these off?
     #ifdef FEATURE_AUDIO_METERS
     {
-        .name = "Audio Meters",
+        .name = "音频电平表",
         .priv           = &cfg_draw_meters,
         .max = 1,
 #ifndef CONFIG_AUDIO_CONTROLS
@@ -560,7 +560,7 @@ static struct menu_entry audio_menus[] = {
 
     #ifdef FEATURE_HEADPHONE_MONITORING
     {
-        .name = "Headphone Mon.",
+        .name = "耳机监听",
         .priv = &audio_monitoring,
         .max = 1,
         .help = "Monitoring via A-V jack. Disable if you use a SD display.",
@@ -568,7 +568,7 @@ static struct menu_entry audio_menus[] = {
     },
     #ifdef FEATURE_HEADPHONE_OUTPUT_VOLUME
     {
-        .name = "Headphone Volume",
+        .name = "耳机音量",
         .priv           = &lovl,
         .update         = audio_lovl_display,
         .max = 3,

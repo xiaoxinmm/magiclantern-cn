@@ -418,7 +418,7 @@ static LVINFO_UPDATE_FUNC(audio_meter_update)
 
 static struct lvinfo_item info_items[] = {
     {
-        .name = "Audio meters",
+        .name = "音频电平表",
         .which_bar = LV_TOP_BAR_ONLY,
         .update = audio_meter_update,
         .preferred_position = -128,

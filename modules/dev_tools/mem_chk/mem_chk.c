@@ -190,26 +190,26 @@ static MENU_SELECT_FUNC(mem_chk_abort_select)
 static struct menu_entry mem_chk_menu[] =
 {
     {
-        .name = "Memory backend checks",
+        .name = "内存后端检查",
         .select = menu_open_submenu,
         .submenu_width = 710,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Persistence",
+                .name = "持久性",
                 .select = &mem_chk_persist_select,
                 .update = &mem_chk_persist_update,
                 .help  = "Allocate a buffer and check if its content is changing",
                 .help2 = "Keep pressing SET to launch more threads",
             },
             {
-                .name = "malloc-flood",
+                .name = "内存分配洪泛",
                 .select = &mem_chk_flood_select,
                 .update = &mem_chk_flood_update,
                 .help = "Allocate and free memory all the time (random sizes)",
                 .help2 = "Keep pressing SET to launch more threads",
             },
             {
-                .name = "Abort tests",
+                .name = "中止测试",
                 .select = mem_chk_abort_select,
                 .update = &mem_chk_abort_update,
             },

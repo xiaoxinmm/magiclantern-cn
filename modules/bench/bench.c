@@ -26,39 +26,39 @@ extern void menu_benchmark();
 static struct menu_entry bench_menu[] =
 {
     {
-        .name        = "Benchmarks",
+        .name        = "基准测试",
         .select        = menu_open_submenu,
         .help = "Check how fast is your camera. Card, CPU, graphics...",
         .submenu_width = 650,
         .children =  (struct menu_entry[]) {
             {
-                .name        = "Card Benchmarks",
+                .name        = "存储卡基准",
                 .select        = menu_open_submenu,
                 .help = "CF or SD card benchmarks",
                 .children =  (struct menu_entry[]) {
                     {
-                        .name = "Quick R/W benchmark (1 min)",
+                        .name = "快速读写测试(1分钟)",
                         .select = run_in_separate_task,
                         .priv = card_benchmark_task_quick,
                         .help = "Check card read/write speed with a 16MB buffer. Uses a 1GB temp file.",
                         .help2 = "For raw video, you want to run it either in movie mode or in PLAY mode."
                     },
                     {
-                        .name = "CF+SD write benchmark (1 min)",
+                        .name = "CF+SD写入测试(1分钟)",
                         .select = run_in_separate_task,
                         .priv = twocard_benchmark_task,
                         .help = "Write speed on both CF and SD cards at the same time.",
                         .shidden = 1,   /* only appears if you have two cards inserted */
                     },
                     {
-                        .name = "Buffer R/W benchmark (5 min)",
+                        .name = "缓冲区读写测试(5分钟)",
                         .select = run_in_separate_task,
                         .priv = card_benchmark_task_full,
                         .help = "Checks various buffer sizes. You don't need it for raw video benchmarks,",
                         .help2 = "but if you want to optimize the video buffering algorithms, try it."
                     },
                     {
-                        .name = "Buffer write benchmark (inf)",
+                        .name = "缓冲区写入测试(无限)",
                         .select = run_in_separate_task,
                         .priv = card_bufsize_benchmark_task,
                         .help = "Experiment for finding optimal write buffer sizes.",
@@ -68,40 +68,40 @@ static struct menu_entry bench_menu[] =
                 },
             },
             {
-                .name        = "Memory Benchmarks",
+                .name        = "内存基准",
                 .select        = menu_open_submenu,
                 .help = "Memory or cache benchmarks",
                 .children =  (struct menu_entry[]) {
                     {
-                        .name = "Memcpy benchmark (20s)",
+                        .name = "内存拷贝测试(20秒)",
                         .select = run_in_separate_task,
                         .priv = mem_benchmark_simple_task,
                         .help = "Check memcpy speed using different subsystems.",
                         .help2 = "(memcpy, dma_memcpy, DMA unit, EDMAC unit)"
                     },
                     {
-                        .name = "Memory benchmark (1 min)",
+                        .name = "内存测试(1分钟)",
                         .select = run_in_separate_task,
                         .priv = mem_benchmark_task,
                         .help = "Check memory read/write speed using different methods.",
                         .help2 = "(cacheable, uncacheable, EDMAC, different data types...)"
                     },
                     {
-                        .name = "Cache benchmark (RAM)",
+                        .name = "缓存测试(RAM)",
                         .select = run_in_separate_task,
                         .priv = mem_perf_test_cached,
                         .help = "Detect RAM cache size by benchmarking (look for a sharp speed drop).",
                         .help2 = "Tip: load the 'plot' module to get a nice graph.",
                     },
                     {
-                        .name = "Cache benchmark (RAM, no cache)",
+                        .name = "缓存测试(RAM,无缓存)",
                         .select = run_in_separate_task,
                         .priv = mem_perf_test_uncached,
                         .help = "This checks if the speed drop is indeed caused by cache overflow.",
                         .help2 = "Tip: load the 'plot' module to get a nice graph.",
                     },
                     {
-                        .name = "Cache benchmark (ROM)",
+                        .name = "缓存测试(ROM)",
                         .select = run_in_separate_task,
                         .priv = mem_perf_test_rom,
                         .help = "Detect ROM cache size by benchmarking (look for a sharp speed drop).",
@@ -111,19 +111,19 @@ static struct menu_entry bench_menu[] =
                 },
             },
             {
-                .name        = "Misc Benchmarks",
+                .name        = "杂项基准",
                 .select        = menu_open_submenu,
                 .help = "Benchmarks for focus peaking and menu backend (for now)",
                 .children =  (struct menu_entry[]) {
                     {
-                        .name = "Focus peaking benchmark (30s)",
+                        .name = "峰值对焦测试(30秒)",
                         .select = run_in_separate_task,
                         .priv = peaking_benchmark,
                         .help = "Check how fast peaking runs in PLAY mode (1000 iterations).",
                         .help2 = "You should have a valid image on the card."
                     },
                     {
-                        .name = "Menu benchmark (10s)",
+                        .name = "菜单测试(10秒)",
                         .select = run_in_separate_task,
                         .priv = menu_benchmark,
                         .help = "Check speed of menu backend."

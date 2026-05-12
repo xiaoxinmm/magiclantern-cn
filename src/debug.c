@@ -827,13 +827,13 @@ static struct menu_entry debug_menus[] = {
     MENU_PLACEHOLDER("File Manager"),
 #ifdef CONFIG_HEXDUMP
     {
-        .name = "Memory Browser",
+        .name = "内存浏览器",
         .priv = &hexdump_enabled,
         .max = 1,
         .help = "Display memory contents in real-time (hexdump).",
         .children =  (struct menu_entry[]) {
             {
-                .name = "HexDump",
+                .name = "十六进制显示",
                 .priv = &hexdump_addr,
                 .max = 0x20000000,
                 .unit = UNIT_HEX,
@@ -841,35 +841,35 @@ static struct menu_entry debug_menus[] = {
                 .help = "Address to be analyzed. Press Q to select the digit to edit."
             },
             {
-                .name = "Pointer dereference",
+                .name = "指针解引用",
                 .select = hexdump_deref,
                 .help = "Changes address to *(int*)addr [SET] or goes back [PLAY]."
             },
             {
-                .name = "Val hex32",
+                .name = "十六进制32位值",
                 .update = hexdump_print_value_hex,
                 .select = hexdump_toggle_value_int32,
                 .help = "Value as hex."
             },
             {
-                .name = "Val int32",
+                .name = "整数32位值",
                 .update = hexdump_print_value_int32,
                 .select = hexdump_toggle_value_int32,
                 .help = "Value as int32."
             },
             {
-                .name = "Val int16",
+                .name = "整数16位值",
                 .update = hexdump_print_value_int16,
                 .select = hexdump_toggle_value_int16,
                 .help = "Value as 2 x int16. Toggle: changes second value."
             },
             {
-                .name = "Val int8",
+                .name = "整数8位值",
                 .update = hexdump_print_value_int8,
                 .help = "Value as 4 x int8."
             },
             {
-                .name = "Val string",
+                .name = "字符串值",
                 .update = hexdump_print_value_str,
                 .help = "Value as string."
             },
@@ -878,21 +878,21 @@ static struct menu_entry debug_menus[] = {
     },
 #endif
     /*{
-        .name        = "Flashlight",
+        .name        = "手电筒",
         .select        = flashlight_lcd,
         .select_reverse = flashlight_frontled,
         .help = "Turn on the front LED [PLAY] or make display bright [SET]."
     },*/
     #ifdef FEATURE_SCREENSHOT
     {
-        .name   = "Screenshot - 10s",
+        .name   = "截图-10秒",
         .select = screenshot_start,
         .help   = "Screenshot after 10 seconds => VRAMx.BMP.",
         .help2  = "The screenshot will contain BMP and YUV overlays."
     },
     #endif
 /*    {
-        .name = "Menu screenshots",
+        .name = "菜单截图",
         .select     = (void (*)(void*,int))run_in_separate_task,
         .priv = screenshots_for_menu,
         .help = "Take a screenshot for each ML menu.",
@@ -900,25 +900,25 @@ static struct menu_entry debug_menus[] = {
 #if CONFIG_DEBUGMSG
     #if 0
     {
-        .name = "Draw palette",
+        .name = "调色板",
         .select        = bmp_draw_palette,
         .help = "Display a test pattern to see the color palette."
     },
     #endif
     {
-        .name = "Spy properties",
+        .name = "属性监视",
         .priv = &draw_prop,
         .max = 1,
         .help = "Show properties as they change."
     },
 /*    {
-        .name        = "Dialog test",
+        .name        = "对话框测试",
         .select        = dlg_test,
         .help = "Dialog templates (up/dn) and color palettes (left/right)"
     },*/
 #endif
     {
-        .name        = "Dump ROM and RAM",
+        .name        = "转储ROM和RAM",
         .priv        = dump_rom_task,
         .select      = run_in_separate_task,
     #if defined(CONFIG_DIGIC_45)
@@ -930,14 +930,14 @@ static struct menu_entry debug_menus[] = {
     #endif
     },
     {
-        .name        = "Dump image buffers",
+        .name        = "转储图像缓冲区",
         .priv        = dump_img_task,
         .select      = run_in_separate_task,
         .help = "Dump all image buffers (LV, HD, RAW) from current video mode."
     },
 #ifdef FEATURE_UNMOUNT_SD_CARD
     {
-        .name        = "Unmount SD card",
+        .name        = "卸载SD卡",
         .priv        = unmount_sd_card,
         .select      = run_in_separate_task,
         .help        = "Run before uploading files to a Wi-Fi card, to avoid data corruption.",
@@ -946,7 +946,7 @@ static struct menu_entry debug_menus[] = {
 #endif
 #ifdef FEATURE_DONT_CLICK_ME
     {
-        .name        = "Don't click me!",
+        .name        = "别点我!",
         .priv =         run_test,
         .select        = run_in_separate_task,
         .help = "The camera may turn into a 1DX or it may explode."
@@ -954,17 +954,17 @@ static struct menu_entry debug_menus[] = {
 #endif
 #ifdef FEATURE_BOOTFLAG_MENU
     {
-        .name       = "Bootflag settings",
+        .name       = "启动标志设置",
         .select     = menu_open_submenu,
         .help       = "Change camera bootflag status",
         .children =  (struct menu_entry[]) {
             {
-                .name   = "Disable bootflag",
+                .name   = "禁用启动标志",
                 .select = bootflag_disable,
                 .help   = "Calls DisableBootDisk EvProc"
             },
             {
-                .name   = "Enable bootflag",
+                .name   = "启用启动标志",
                 .select = bootflag_enable,
                 .help   = "Calls EnableBootDisk EvProc"
             },
@@ -974,13 +974,13 @@ static struct menu_entry debug_menus[] = {
 #endif
 #ifdef CONFIG_DEBUG_INTERCEPT
     {
-        .name        = "DM Log",
+        .name        = "调试信息日志",
         .priv        = j_debug_intercept,
         .select      = run_in_separate_task,
         .help = "Log DebugMessages"
     },
     {
-        .name        = "TryPostEvent Log",
+        .name        = "TryPostEvent日志",
         .priv        = j_tp_intercept,
         .select      = run_in_separate_task,
         .help = "Log TryPostEvents"
@@ -988,12 +988,12 @@ static struct menu_entry debug_menus[] = {
 #endif
 #ifdef FEATURE_SHOW_TASKS
     {
-        .name = "Show tasks",
+        .name = "显示任务",
         .select = menu_open_submenu,
         .help = "Displays the tasks started by Canon and Magic Lantern.",
         .children =  (struct menu_entry[]) {
             {
-                .name = "Task list",
+                .name = "任务列表",
                 .update = tasks_print,
                 .select = tasks_toggle_flags,
                 #ifdef CONFIG_VXWORKS
@@ -1009,7 +1009,7 @@ static struct menu_entry debug_menus[] = {
 #ifdef FEATURE_SHOW_CPU_USAGE
 #ifdef CONFIG_TSKMON
     {
-        .name = "Show CPU usage",
+        .name = "显示CPU占用",
         .priv = &show_cpu_usage_flag,
         .max = 3,
         .choices = (const char *[]) {"OFF", "Percentage", "Busy tasks (ABS)", "Busy tasks (REL)"},
@@ -1019,7 +1019,7 @@ static struct menu_entry debug_menus[] = {
 #endif
 #ifdef FEATURE_SHOW_GUI_EVENTS
     {
-        .name   = "Show GUI events",
+        .name   = "显示GUI事件",
         .priv   = &gui_events_show,
         .select = gui_events_toggle,
         .max    = 1,
@@ -1028,7 +1028,7 @@ static struct menu_entry debug_menus[] = {
 #endif
 #ifdef FEATURE_GUIMODE_TEST
     {
-        .name = "Test GUI modes (DANGEROUS!!!)",
+        .name = "测试GUI模式(危险!!!)",
         .select = run_in_separate_task,
         .priv = guimode_test,
         .help = "Cycle through all GUI modes and take screenshots.",
@@ -1037,7 +1037,7 @@ static struct menu_entry debug_menus[] = {
     MENU_PLACEHOLDER("Free Memory"),
 #ifdef FEATURE_SHOW_IMAGE_BUFFERS_INFO
     {
-        .name = "Image buffers",
+        .name = "图像缓冲区",
         .update = image_buf_display,
         .icon_type = IT_ALWAYS_ON,
         .help = "Display the image buffer sizes (LiveView and Craw).",
@@ -1046,7 +1046,7 @@ static struct menu_entry debug_menus[] = {
 #endif
 #ifdef FEATURE_SHOW_SHUTTER_COUNT
     {
-        .name = "Shutter Count",
+        .name = "快门次数",
         .update = shuttercount_display,
         //.essential = FOR_MOVIE | FOR_PHOTO,
         #if defined(CONFIG_DIGIC_8X)
@@ -1055,19 +1055,19 @@ static struct menu_entry debug_menus[] = {
         .submenu_width = 710,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Total Shutter",
+                .name = "总快门次数",
                 .update = totalshutter_display,
                 .icon_type = IT_ALWAYS_ON,
                 .help = "Number of mechanical shutter actions (incl. sensor cleaning)",
             },
             {
-                .name = "Total Mirror",
+                .name = "总反光板次数",
                 .update = totalmirror_display,
                 .icon_type = IT_ALWAYS_ON,
                 .help = "Number of mirror move actions (DSLR, 0 on mirrorless)",
             },
             {
-                .name = "Total Shots",
+                .name = "总拍摄次数",
                 .update = totalshoot_display,
                 .icon_type = IT_ALWAYS_ON,
                 .help = "Number of photos made. Incl. silent (electronic) shots",
@@ -1083,7 +1083,7 @@ static struct menu_entry debug_menus[] = {
 
 #ifdef FEATURE_SHOW_CMOS_TEMPERATURE
     {
-        .name = "Internal Temp",
+        .name = "内部温度",
         .update = efictemp_display,
         .icon_type = IT_ALWAYS_ON,
 	 #ifdef EFIC_CELSIUS
@@ -1097,7 +1097,7 @@ static struct menu_entry debug_menus[] = {
 #endif
     #if 0 // CONFIG_5D2
     {
-        .name = "Ambient light",
+        .name = "环境光线",
         //~.display = ambient_display,
         .help = "Ambient light from the sensor under LCD, in raw units.",
         //.essential = FOR_MOVIE | FOR_PHOTO,
@@ -1105,7 +1105,7 @@ static struct menu_entry debug_menus[] = {
     #endif
 #ifdef CONFIG_BATTERY_INFO
     {
-        .name = "Battery level",
+        .name = "电池电量",
         .update = batt_display,
         .help = "Battery remaining. Wait for 2% discharge before reading.",
         .icon_type = IT_ALWAYS_ON,
@@ -1113,7 +1113,7 @@ static struct menu_entry debug_menus[] = {
 #endif
 #ifdef FEATURE_DEBUG_PROP_DISPLAY
     {
-        .name = "PROP Display",
+        .name = "属性显示",
         .update = prop_display,
         .select = prop_toggle_k,
         // .select_reverse = prop_toggle_j,

@@ -206,7 +206,7 @@ static unsigned int bulb_nd_keypress_cbr(unsigned int key)
 static struct menu_entry bulb_nd_menu[] =
 {
     {
-        .name = "Bulb ND",
+        .name = "B门ND滤镜",
         .priv = &bulb_nd_enabled,
         .update = buld_nd_display,
         .max = 1,
@@ -215,7 +215,7 @@ static struct menu_entry bulb_nd_menu[] =
         .children = (struct menu_entry[])
         {
             {
-                .name = "ND Strength",
+                .name = "ND强度",
                 .priv = &bulb_nd_ev_x2,
                 .update = buld_nd_amount_display,
                 .max = 40,
@@ -223,7 +223,7 @@ static struct menu_entry bulb_nd_menu[] =
                 .help2  = "Used to compute bulb time from current settings",
             },
             {
-                .name = "Measure ND",
+                .name = "测量ND",
                 .select = bulb_nd_measure,
                 .update = bulb_nd_measure_display,
                 .help = "Measure the strength of an ND filter",

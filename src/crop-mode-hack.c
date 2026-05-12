@@ -76,7 +76,7 @@ static MENU_UPDATE_FUNC(movie_crop_hack_display)
 
 static struct menu_entry crop_hack_menus[] = {
     {
-        .name = "Movie crop mode",
+        .name = "影片裁切模式",
         .update = movie_crop_hack_display,
         .select = movie_crop_hack_toggle,
         .max = 1,

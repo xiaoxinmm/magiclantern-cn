@@ -171,7 +171,7 @@ static MENU_UPDATE_FUNC(crop_display_submenu)
 #ifdef FEATURE_CROPMARKS
 static struct menu_entry cropmarks_menu[] = {
     {
-        .name = "Cropmarks",
+        .name = "裁切标记",
         .priv = &crop_enabled,
         .update    = crop_display,
         .max = 1,
@@ -181,7 +181,7 @@ static struct menu_entry cropmarks_menu[] = {
         .submenu_height = 250,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Bitmap",
+                .name = "位图",
                 .priv = &crop_index, 
                 .select = crop_toggle,
                 .update    = crop_display_submenu,
@@ -189,14 +189,14 @@ static struct menu_entry cropmarks_menu[] = {
                 .help = "You can draw your own cropmarks in Paint.",
             },
             {
-                .name = "Show in photo mode",
+                .name = "照片模式显示",
                 .priv = &cropmark_movieonly, 
                 .max = 1,
                 .choices = (const char *[]) {"ON", "OFF"},
                 .help = "Cropmarks are mostly used in movie mode.",
             },
             {
-                .name = "Show in PLAY mode",
+                .name = "回放模式显示",
                 .priv = &cropmarks_play, 
                 .max = 1,
                 .help = "You may also have cropmarks in Playback mode.",

@@ -541,14 +541,14 @@ static MENU_UPDATE_FUNC(audio_recdgain_display)
 
 static struct menu_entry audio_menus[] = {
     {
-        .name        = "Override audio settings",
+        .name        = "覆盖音频设置",
         .priv           = &cfg_override_audio,
         .max            = 1,
         .depends_on     = DEP_SOUND_RECORDING,
         .help = "Override audio setting by ML",
     },
     {
-        .name        = "Analog gain",
+        .name        = "模拟增益",
         .priv           = &cfg_analog_gain,
         .max            = 5,
         .icon_type      = IT_PERCENT,
@@ -557,7 +557,7 @@ static struct menu_entry audio_menus[] = {
         .help = "Gain applied to both inputs in analog domain.",
     },
     {
-        .name        = "Mic Boost",
+        .name        = "麦克风增强",
         .priv           = &cfg_analog_boost,
         .max            = 6,
         .icon_type      = IT_PERCENT,
@@ -566,13 +566,13 @@ static struct menu_entry audio_menus[] = {
         .help = "Analog mic boost.",
     },
     {
-        .name = "Digital Gain", 
+        .name = "数字增益", 
         .select = menu_open_submenu, 
         .help = "Digital Volume and R-L gain",
         .depends_on = DEP_SOUND_RECORDING,
         .children =  (struct menu_entry[]) {
             {
-                .name = "Record Effect Mode",
+                .name = "录制效果模式",
                 .priv           = &cfg_effect_mode,
                 .max            = 5,
                 .icon_type      = IT_DICE,
@@ -580,14 +580,14 @@ static struct menu_entry audio_menus[] = {
                 .help           = "Choose mode :Notch,EQ,Notch/EQ,Enhance [12],Loudness.",
             },
             {
-                .name = "Record Digital Volume ",
+                .name = "录制数字音量",
                 .priv           = &cfg_recdgain,
                 .max            = 126,
                 .icon_type      = IT_PERCENT,
                 .help = "Record Digital Volume. ",
             },
             {
-                .name = "Left Digital Gain ",
+                .name = "左声道数字增益",
                 .priv           = &dgain_l,
                 .max            = 15,
                 .icon_type      = IT_PERCENT,
@@ -595,7 +595,7 @@ static struct menu_entry audio_menus[] = {
                 .help = "Digital gain (LEFT). Any nonzero value reduces quality.",
             },
             {
-                .name = "Right Digital Gain",
+                .name = "右声道数字增益",
                 .priv           = &dgain_r,
                 .max            = 15,
                 .icon_type      = IT_PERCENT,
@@ -603,7 +603,7 @@ static struct menu_entry audio_menus[] = {
                 .help = "Digital gain (RIGHT). Any nonzero value reduces quality.",
             },
             {
-                .name = "AGC",
+                .name = "自动增益控制",
                 .priv           = &alc_enable,
                 .max            = 1,
                 .help = "Automatic Gain Control - turn it off :)",
@@ -614,7 +614,7 @@ static struct menu_entry audio_menus[] = {
         },
     },
     {
-        .name = "Input source",
+        .name = "输入源",
         .priv           = &input_choice,
         .update         = audio_input_display,
         .max            = 4,
@@ -624,27 +624,27 @@ static struct menu_entry audio_menus[] = {
         .depends_on        = DEP_SOUND_RECORDING,
     },
     {
-        .name = "Wind Filter",
+        .name = "风声滤镜",
         .help = "High pass filter for wind noise reduction. ML26121A.pdf p77",
         .select            =  menu_open_submenu,
         .depends_on        = DEP_SOUND_RECORDING,
         .submenu_width = 650,
         .children =  (struct menu_entry[]) {
             {
-                .name = "DC filter",
+                .name = "直流滤波",
                 .priv              = &cfg_filter_dc,
                 .max               = 1,
                 .update            = audio_filter_dc_display,
                 .help = "first-order high pass filter for DC cut",
             },
             {
-                .name = "High Pass filter",
+                .name = "高通滤波",
                 .priv              = &cfg_filter_hpf2,
                 .max                = 1,
                 .help = "second-order high pass filter for noise cut",
             },
             {
-                .name = "HPF2 Cutoff Hz",
+                .name = "HPF2截止频率",
                 .priv           = &cfg_filter_hpf2config,
                 .max            = 7,
                 .icon_type      = IT_PERCENT,
@@ -667,14 +667,14 @@ static struct menu_entry audio_menus[] = {
       .update   = audio_loopback_display,
       },*/
     {
-        .name = "Headphone Mon.",
+        .name = "耳机监听",
         .priv = &audio_monitoring,
         .max  = 1,
         .help = "Monitoring via A-V jack. Disable if you use a SD display.",
         .depends_on     = DEP_SOUND_RECORDING,
     },
     {
-        .name = "Headphone Volume",
+        .name = "耳机音量",
         .priv           = &lovl,
         .max            = 6,
         .icon_type      = IT_PERCENT,
@@ -685,7 +685,7 @@ static struct menu_entry audio_menus[] = {
     },
 /* any reason to turn these off?
     {
-        .name = "Audio Meters",
+        .name = "音频电平表",
         .priv           = &cfg_draw_meters,
         .max            = 1,
         .help = "Bar peak decay, -40...0 dB, yellow at -12 dB, red at -3 dB.",

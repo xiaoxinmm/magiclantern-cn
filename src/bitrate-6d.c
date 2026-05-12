@@ -471,14 +471,14 @@ static MENU_UPDATE_FUNC(bitrate_gop_size_update)
 
 static struct menu_entry mov_menus[] = {
     
-   {     .name = "Encoder",
+   {     .name = "编码器",
 		.select = menu_open_submenu,     
 		.help = "Change H.264 bitrate. Pick configs. Be careful, recording may stop!",
 		.submenu_width = 715,        
         .depends_on = DEP_MOVIE_MODE,
         .children =  (struct menu_entry[]) {
     {
-        .name = "Bit Rate     ",
+        .name = "比特率",
         .priv = &bitrate,
 		.update = bit_rated,        
 		.min = 0,
@@ -488,7 +488,7 @@ static struct menu_entry mov_menus[] = {
 		.help2 = "If not loading a config MUST set InitQP"
     },
     {
-        .name = "InitQP     ",
+        .name = "初始量化参数",
         .priv = &initqp,
 		.update = init_qp_d,        
         .min = 0,
@@ -498,7 +498,7 @@ static struct menu_entry mov_menus[] = {
 		.help2 = "Overriding dynamic configs will result in fixed QP"
     },
 			{
-                .name = "Flush rate",
+                .name = "刷入率",
                 .priv = &bitrate_flushing_rate,
                 .update = bitrate_flushing_rate_update,
                 .min  = 3, // It can do 1 but can't figure patch.
@@ -506,7 +506,7 @@ static struct menu_entry mov_menus[] = {
                 .help = "Flush movie buffer every n frames."
             },
             {
-                .name = "GOP size",
+                .name = "GOP大小",
                 .priv = &bitrate_gop_size,
                 .update = bitrate_gop_size_update,
                 .min  = 0,
@@ -514,7 +514,7 @@ static struct menu_entry mov_menus[] = {
                 .help = "Set GOP size to n frames."
             },
 	    {
-        .name = "Autoload Conf  ",
+        .name = "自动加载配置",
         .priv = &autoload,
         .min = 0,
         .max = 2,
@@ -523,7 +523,7 @@ static struct menu_entry mov_menus[] = {
     },
 
     {
-        .name = "Config Select",
+        .name = "配置选择",
         .priv = &h2config,
         .min = 0,
         .max = 3,
@@ -534,13 +534,13 @@ static struct menu_entry mov_menus[] = {
         },
     },
     {
-        .name = "Load Config",
+        .name = "加载配置",
         .select = load_h264_ini,
         .help = "Manual Load Config from selection"
     },
 
     {
-        .name = "Config Loaded ",
+        .name = "配置已加载",
          .priv = &ivaparam,
          .min = 2,
          .max = 3,
@@ -552,7 +552,7 @@ static struct menu_entry mov_menus[] = {
      
 
     {
-        .name = "REC indicator",
+        .name = "录制指示",
         .priv = &time_indicator,
         .min = 0,
         .max = 3,
@@ -564,7 +564,7 @@ static struct menu_entry mov_menus[] = {
 #ifdef FEATURE_NITRATE_WAV_RECORD
 static struct menu_entry wav_menus[] = {
             {
-                .name = "Sound Record",
+                .name = "录音",
                 .priv = &cfg_hibr_wav_record,
                 .select = hibr_wav_record_select,
                 .max = 1,
@@ -572,7 +572,7 @@ static struct menu_entry wav_menus[] = {
                 .help = "Record audio with WAV separately. Source will auto select.",
             },
 /*			{
-                .name = "Input Volume",
+                .name = "输入音量",
                 .priv = &input_vol,
 				.update = input_vol_up,
 				.select = in_vol_toggle,

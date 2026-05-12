@@ -249,21 +249,21 @@ static MENU_SELECT_FUNC(fpu_emu_select)
 static struct menu_entry fpu_emu_menu[] =
 {
     {
-        .name = "FPU Emu",
+        .name = "FPU模拟",
         .select = menu_open_submenu,
         .children = (struct menu_entry[])
         {
             {
-                .name = "Test FPU",
+                .name = "测试FPU",
                 .update = fpu_emu_update_count,
                 .select = fpu_emu_select,
             },
             {
-                .name = "Last PC",
+                .name = "最后PC",
                 .update = fpu_emu_update_addr,
             },
             {
-                .name = "Task",
+                .name = "任务",
                 .update = fpu_emu_update_task,
             },
             MENU_EOL,

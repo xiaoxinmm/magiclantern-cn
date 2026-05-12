@@ -845,14 +845,14 @@ static MENU_UPDATE_FUNC(iocrypt_rsa_key_update)
 static struct menu_entry iocrypt_menus[] =
 {
     {
-        .name = "Encryption",
+        .name = "加密",
         .update = &iocrypt_update,
         .priv = &iocrypt_enabled,
         .max = 1,
         .submenu_width = 710,
         .children = (struct menu_entry[]) {
             {
-                .name = "Encryption mode",
+                .name = "加密模式",
                 .priv = &iocrypt_mode,
                 .max = 1, /* the others are not implemented yet */
                 .icon_type = IT_DICE,
@@ -861,7 +861,7 @@ static struct menu_entry iocrypt_menus[] =
             },
             /*
             {
-                .name = "Show fake images",
+                .name = "显示假图像",
                 .priv = &iocrypt_fake,
                 .max = 3,
                 .choices = (const char *[]) {"OFF", "Wrong Password", "All Encrypted", "All Images"},
@@ -869,13 +869,13 @@ static struct menu_entry iocrypt_menus[] =
             },
             */
             {
-                .name = "Set password",
+                .name = "设置密码",
                 .select = &iocrypt_enter_pw_select,
                 .priv = NULL,
                 .icon_type = IT_ACTION,
             },
             {
-                .name = "Blocksize",
+                .name = "块大小",
                 .priv = &iocrypt_block_size,
                 .max = 9,
                 .icon_type = IT_DICE,
@@ -883,13 +883,13 @@ static struct menu_entry iocrypt_menus[] =
                 .help = "Blocks get encrypted with the same 64 bit key. The smaller the more secure but slower.",
             },
             {
-                .name = "Ask for password on startup",
+                .name = "启动时询问密码",
                 .priv = &iocrypt_ask_pass,
                 .max = 1,
                 .help = "When enabled it will ask for the encryption password right after camera powerup.",
             },
             {
-                .name = "Create RSA Key",
+                .name = "创建RSA密钥",
                 .select = &iocrypt_rsa_key_select,
                 .update = &iocrypt_rsa_key_update,
                 .priv = NULL,
@@ -897,7 +897,7 @@ static struct menu_entry iocrypt_menus[] =
                 .help = "Do this ONCE at HOME and then store /priv.key on your PC safely.",
             },
             {
-                .name = "RSA Keysize",
+                .name = "RSA密钥大小",
                 .priv = &iocrypt_rsa_key_size,
                 .max = 3,
                 .icon_type = IT_DICE,
@@ -905,13 +905,13 @@ static struct menu_entry iocrypt_menus[] =
                 .help = "Key size when creating a RSA key pair. The smaller, the less security you have.",
             },
             {
-                .name = "Test: Speed",
+                .name = "测试:速度",
                 .select = &iocrypt_test_speed,
                 .priv = NULL,
                 .icon_type = IT_ACTION,
             },
             {
-                .name = "Test: RSA",
+                .name = "测试:RSA",
                 .select = &iocrypt_test_rsa,
                 .priv = NULL,
                 .icon_type = IT_ACTION,
